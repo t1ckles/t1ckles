@@ -3,566 +3,326 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>t1ckles // AI SUPPORT OPERATIONS & KNOWLEDGE SYSTEMS</title>
+<title>t1ckles // AI Support Operations &amp; Knowledge Systems Lead</title>
+<meta name="description" content="t1ckles — AI Support Operations &amp; Knowledge Systems Lead. 15+ years at TechSmith. Production AI systems, internal copilots, customer-facing bots, and personal browser-based tools built in collaboration with AI.">
+<meta property="og:title" content="t1ckles // AI Support Operations &amp; Knowledge Systems">
+<meta property="og:description" content="Production AI systems, governed knowledge infrastructure, and personal deployments. Human-directed. AI-assisted.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://t1ckles.github.io/t1ckles/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=IBM+Plex+Mono:wght@300;400;500;700&family=Barlow:wght@300;400;500&display=swap" rel="stylesheet">
 <link rel="icon" type="image/png" href="https://t1ckles.github.io/t1ckles/flavicon.png">
-
 <style>
-/* ============================================================
-   CSS VARIABLES — MARATHON GRAPHIC REALISM PALETTE
-   ============================================================ */
-:root {
-  --acid:        #C8F135;
-  --acid-dim:    #8FB020;
-  --acid-glow:   rgba(200,241,53,0.15);
-  --acid-border: rgba(200,241,53,0.35);
-  --black:       #090909;
-  --black-warm:  #0d0d0a;
-  --panel:       #111110;
-  --panel-light: #1a1a18;
-  --rule:        rgba(200,241,53,0.18);
-  --white:       #F0F0E8;
-  --white-dim:   #9a9a92;
-  --danger:      #FF4C2B;
-  --danger-dim:  rgba(255,76,43,0.2);
-  --cyan:        #2BFFF0;
-  --cyan-dim:    rgba(43,255,240,0.15);
-  --font-display: 'Barlow Condensed', sans-serif;
-  --font-mono:    'IBM Plex Mono', monospace;
-  --font-body:    'Barlow', sans-serif;
+:root{--acid:#C8F135;--acid-dim:#8FB020;--acid-glow:rgba(200,241,53,0.15);--acid-border:rgba(200,241,53,0.35);--black:#090909;--black-warm:#0d0d0a;--panel:#111110;--panel-light:#1a1a18;--panel-cyan:#0d1414;--rule:rgba(200,241,53,0.18);--rule-cyan:rgba(43,255,240,0.18);--white:#F0F0E8;--white-dim:#9a9a92;--danger:#FF4C2B;--danger-dim:rgba(255,76,43,0.2);--cyan:#2BFFF0;--cyan-border:rgba(43,255,240,0.35);--font-display:'Barlow Condensed',sans-serif;--font-mono:'IBM Plex Mono',monospace;--font-body:'Barlow',sans-serif}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--black);color:var(--white);font-family:var(--font-body);font-size:16px;line-height:1.5;min-height:100vh;overflow-x:hidden;cursor:crosshair}
+body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.035'/%3E%3C/svg%3E");pointer-events:none;z-index:9999;mix-blend-mode:overlay;opacity:0.4}
+a{color:inherit;text-decoration:none}button{cursor:pointer;font-family:inherit}img{display:block;max-width:100%}
+.acid{color:var(--acid)}.cyan{color:var(--cyan)}.dim{color:var(--white-dim)}
+
+/* TOPBAR */
+.topbar{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(9,9,9,0.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--rule);display:flex;align-items:center;justify-content:space-between;padding:0 2rem;height:48px}
+.topbar-left{display:flex;align-items:center;gap:1.5rem}
+.topbar-logo{font-family:var(--font-display);font-weight:900;font-size:1.25rem;text-transform:uppercase;letter-spacing:0.05em;color:var(--acid)}
+.topbar-logo span{color:var(--white-dim);font-weight:400}
+.topbar-divider{width:1px;height:20px;background:var(--rule)}
+.topbar-status{display:flex;align-items:center;gap:0.4rem;font-family:var(--font-mono);font-size:0.6rem;letter-spacing:0.12em;color:var(--white-dim);text-transform:uppercase}
+.status-dot{width:6px;height:6px;border-radius:50%;background:var(--acid);animation:pulse 2.5s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:0.4;transform:scale(0.7)}}
+.topbar-right{display:flex;align-items:center;gap:1.5rem}
+.topbar-link{font-family:var(--font-mono);font-size:0.65rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--white-dim);transition:color 0.2s;padding:4px 0;border-bottom:1px solid transparent}
+.topbar-link:hover{color:var(--acid);border-bottom-color:var(--acid-border)}
+
+/* HERO */
+.hero{position:relative;min-height:70vh;display:flex;flex-direction:column;justify-content:flex-end;padding:0 2.5rem 3.5rem;overflow:hidden;clip-path:polygon(0 0,100% 0,100% 88%,94% 100%,0 100%)}
+.hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(200,241,53,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(200,241,53,0.04) 1px,transparent 1px);background-size:60px 60px;animation:grid-drift 40s linear infinite}
+@keyframes grid-drift{0%{transform:translateY(0)}100%{transform:translateY(60px)}}
+.hero::after{content:'';position:absolute;top:0;right:0;width:35%;height:100%;background:linear-gradient(135deg,transparent 30%,rgba(200,241,53,0.03) 100%);pointer-events:none}
+.hero-corner{position:absolute;top:48px;right:0;width:180px;height:180px;border-left:1px solid var(--acid-border);border-bottom:1px solid var(--acid-border);pointer-events:none}
+.hero-corner::after{content:'';position:absolute;bottom:-1px;left:-1px;width:8px;height:8px;background:var(--acid)}
+.hero-content{position:relative;z-index:2;max-width:1200px}
+.hero-eyebrow{font-family:var(--font-mono);font-size:0.65rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--acid);margin-bottom:1rem;display:flex;align-items:center;gap:0.75rem}
+.hero-eyebrow::before{content:'';display:block;width:2rem;height:1px;background:var(--acid)}
+.hero-name{font-family:var(--font-display);font-weight:900;font-size:clamp(5rem,14vw,12rem);line-height:0.85;text-transform:uppercase;letter-spacing:-0.02em;color:var(--white);position:relative;display:inline-block}
+.hero-name::before,.hero-name::after{content:attr(data-text);position:absolute;top:0;left:0;width:100%;background:var(--black);overflow:hidden;clip-path:inset(0)}
+.hero-name::before{left:3px;text-shadow:-2px 0 var(--danger);animation:glitch-1 8s infinite;color:var(--white)}
+.hero-name::after{left:-3px;text-shadow:2px 0 var(--cyan);animation:glitch-2 8s infinite;color:var(--white)}
+@keyframes glitch-1{0%,92%,100%{clip-path:inset(100% 0 0 0);transform:none}93%{clip-path:inset(10% 0 85% 0);transform:translateX(-4px)}94%{clip-path:inset(50% 0 30% 0);transform:translateX(4px)}95%{clip-path:inset(80% 0 5% 0);transform:translateX(-2px)}96%,99%{clip-path:inset(100% 0 0 0);transform:none}97%{clip-path:inset(30% 0 60% 0);transform:translateX(3px)}}
+@keyframes glitch-2{0%,88%,100%{clip-path:inset(100% 0 0 0);transform:none}89%{clip-path:inset(60% 0 25% 0);transform:translateX(3px)}90%{clip-path:inset(20% 0 70% 0);transform:translateX(-3px)}91%,92%{clip-path:inset(100% 0 0 0);transform:none}}
+.hero-role{margin-top:1.25rem;font-family:var(--font-display);font-weight:600;font-size:clamp(1rem,2.5vw,1.6rem);text-transform:uppercase;letter-spacing:0.12em;color:var(--white-dim);display:flex;align-items:center;gap:1rem;flex-wrap:wrap}
+.hero-role .acid{color:var(--acid);font-weight:800}
+.hero-role-sep{color:var(--rule);font-weight:300}
+.hero-meta{margin-top:2rem;display:flex;align-items:center;gap:0.75rem;flex-wrap:wrap}
+.hero-stat{display:flex;align-items:center;gap:0.5rem;padding:0.4rem 0.75rem;border:1px solid var(--rule);background:rgba(200,241,53,0.04)}
+.hero-stat .number{font-family:var(--font-display);font-weight:900;font-size:1.4rem;color:var(--acid);line-height:1}
+.hero-stat .text{font-family:var(--font-mono);font-size:0.58rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--white-dim);line-height:1.3}
+.hero-github-btn{display:inline-flex;align-items:center;gap:0.5rem;padding:0.4rem 0.9rem;background:var(--acid);color:var(--black);font-family:var(--font-mono);font-size:0.65rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;border:none;transition:background 0.15s,transform 0.1s;clip-path:polygon(0 0,calc(100% - 8px) 0,100% 8px,100% 100%,8px 100%,0 calc(100% - 8px))}
+.hero-github-btn:hover{background:#d9ff40;transform:translateY(-1px)}
+
+/* SECTION HEADER */
+.section-header{display:flex;align-items:center;gap:1rem;margin-bottom:2.5rem}
+.section-header::before{content:'//';font-family:var(--font-mono);font-size:0.75rem;color:var(--acid);font-weight:700}
+.section-header.cyan-accent::before{color:var(--cyan)}
+.section-title{font-family:var(--font-display);font-weight:900;font-size:clamp(1.6rem,3vw,2.2rem);text-transform:uppercase;letter-spacing:0.04em;color:var(--white)}
+.section-count{margin-left:auto;font-family:var(--font-mono);font-size:0.6rem;letter-spacing:0.15em;color:var(--white-dim);text-transform:uppercase}
+
+/* AI OPS */
+.ai-ops-section{background:var(--black-warm);border-top:1px solid var(--rule-cyan);border-bottom:1px solid var(--rule-cyan);padding:5rem 2.5rem;position:relative;overflow:hidden}
+.ai-ops-section::before{content:'';position:absolute;top:0;right:0;width:50%;height:100%;background:linear-gradient(135deg,transparent 40%,rgba(43,255,240,0.02) 100%);pointer-events:none}
+.ai-ops-section::after{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(43,255,240,0.025) 1px,transparent 1px),linear-gradient(90deg,rgba(43,255,240,0.025) 1px,transparent 1px);background-size:80px 80px;pointer-events:none}
+.ai-ops-inner{max-width:1200px;margin:0 auto;position:relative;z-index:1}
+.ai-disclosure{display:flex;align-items:flex-start;gap:1rem;padding:0.9rem 1.25rem;border:1px solid var(--acid-border);background:var(--acid-glow);margin-bottom:3rem;clip-path:polygon(0 0,calc(100% - 12px) 0,100% 12px,100% 100%,12px 100%,0 calc(100% - 12px))}
+.ai-disclosure-icon{font-family:var(--font-mono);font-size:0.65rem;font-weight:700;color:var(--acid);letter-spacing:0.1em;white-space:nowrap;padding-top:1px}
+.ai-disclosure-text{font-family:var(--font-mono);font-size:0.65rem;letter-spacing:0.06em;line-height:1.7;color:var(--white-dim)}
+.ai-disclosure-text strong{color:var(--white);font-weight:500}
+.ai-stats-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5px;background:var(--rule-cyan);margin-bottom:3rem}
+.ai-stat-cell{background:var(--panel-cyan);padding:1.25rem 1.5rem;border-top:2px solid var(--cyan);position:relative;overflow:hidden}
+.ai-stat-cell::after{content:'';position:absolute;top:0;right:0;width:40%;height:2px;background:linear-gradient(90deg,transparent,rgba(43,255,240,0.4))}
+.ai-stat-number{font-family:var(--font-display);font-weight:900;font-size:clamp(1.6rem,3vw,2.4rem);color:var(--cyan);line-height:1;margin-bottom:0.3rem}
+.ai-stat-label{font-family:var(--font-mono);font-size:0.58rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--white-dim);line-height:1.5}
+.ai-cards-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5px;background:var(--rule-cyan);margin-bottom:3rem}
+.ai-card{background:var(--panel);position:relative;overflow:hidden;transition:background 0.2s}
+.ai-card:hover{background:var(--panel-light)}
+.ai-card-accent{height:3px;background:linear-gradient(90deg,var(--cyan),rgba(43,255,240,0.3))}
+.ai-card-inner{padding:1.5rem;position:relative}
+.ai-card-inner::before{content:'';position:absolute;top:0;right:0;width:20px;height:20px;background:linear-gradient(225deg,var(--black) 50%,transparent 50%);pointer-events:none}
+.ai-card-tag{font-family:var(--font-mono);font-size:0.58rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--cyan);margin-bottom:0.4rem}
+.ai-card-title{font-family:var(--font-display);font-weight:900;font-size:clamp(1.2rem,2vw,1.6rem);text-transform:uppercase;letter-spacing:-0.01em;line-height:0.95;color:var(--white);margin-bottom:0.5rem}
+.ai-card-lead{font-family:var(--font-body);font-size:0.85rem;font-weight:500;line-height:1.5;color:var(--white);margin-bottom:0.4rem}
+.ai-card-desc{font-family:var(--font-body);font-size:0.82rem;line-height:1.65;color:var(--white-dim);margin-bottom:1rem}
+.ai-card-metrics{display:flex;flex-wrap:wrap;gap:0.4rem}
+.ai-metric{font-family:var(--font-mono);font-size:0.58rem;letter-spacing:0.1em;text-transform:uppercase;padding:3px 8px;border:1px solid var(--cyan-border);color:var(--cyan);background:rgba(43,255,240,0.05)}
+.ai-skills-strip{padding-top:2rem;border-top:1px solid var(--rule-cyan)}
+.ai-skills-label{font-family:var(--font-mono);font-size:0.58rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--cyan);margin-bottom:1rem;display:flex;align-items:center;gap:0.5rem}
+.ai-skills-label::before{content:'//';opacity:0.7}
+.ai-skills-tags{display:flex;flex-wrap:wrap;gap:0.4rem}
+.ai-skill-tag{font-family:var(--font-mono);font-size:0.58rem;letter-spacing:0.1em;text-transform:uppercase;padding:4px 8px;border:1px solid var(--rule-cyan);color:var(--white-dim);background:rgba(43,255,240,0.02);transition:border-color 0.15s,color 0.15s}
+.ai-skill-tag:hover{border-color:var(--cyan-border);color:var(--cyan)}
+
+/* EXPERIENCE */
+.experience-section{padding:5rem 2.5rem;background:var(--black);border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);position:relative;overflow:hidden}
+.experience-section::before{content:'';position:absolute;top:0;right:0;width:40%;height:100%;background:linear-gradient(135deg,transparent 50%,rgba(200,241,53,0.015) 100%);pointer-events:none}
+.experience-inner{max-width:1200px;margin:0 auto;position:relative}
+.exp-summary-panel{display:grid;grid-template-columns:1fr 1fr;gap:1.5px;background:var(--rule);margin-bottom:3rem}
+.exp-summary-cell{background:var(--panel);padding:1.25rem 1.5rem}
+.exp-summary-label{font-family:var(--font-mono);font-size:0.55rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--white-dim);margin-bottom:0.4rem}
+.exp-summary-value{font-family:var(--font-display);font-weight:900;font-size:1.5rem;color:var(--acid);line-height:1;margin-bottom:0.3rem}
+.exp-summary-sub{font-family:var(--font-mono);font-size:0.6rem;letter-spacing:0.08em;color:var(--white-dim)}
+.exp-timeline{position:relative;padding-left:2rem}
+.exp-timeline::before{content:'';position:absolute;left:0;top:6px;bottom:0;width:1px;background:linear-gradient(180deg,var(--acid) 0%,rgba(200,241,53,0.1) 100%)}
+.exp-entry{position:relative;margin-bottom:1.25rem;cursor:pointer}
+.exp-entry:last-child{margin-bottom:0}
+.exp-entry::before{content:'';position:absolute;left:-2.35rem;top:50%;transform:translateY(-50%);width:8px;height:8px;background:var(--acid);clip-path:polygon(50% 0%,100% 50%,50% 100%,0% 50%);transition:transform 0.2s}
+.exp-entry:hover::before{transform:translateY(-50%) scale(1.3)}
+.exp-entry-card{background:var(--panel);border:1px solid var(--rule);padding:1rem 1.25rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;transition:background 0.2s,border-color 0.2s}
+.exp-entry-card:hover{background:var(--panel-light);border-color:var(--acid-border)}
+.exp-role{font-family:var(--font-display);font-weight:900;font-size:clamp(1rem,2vw,1.3rem);text-transform:uppercase;letter-spacing:0.02em;color:var(--white);line-height:1;margin-bottom:0.25rem}
+.exp-company-line{font-family:var(--font-mono);font-size:0.6rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--white-dim);display:flex;align-items:center;gap:0.4rem}
+.exp-company-line::before{content:'//';color:var(--acid);opacity:0.7;font-size:0.55rem}
+.exp-entry-right{display:flex;align-items:center;gap:0.75rem;flex-shrink:0}
+.exp-tenure{font-family:var(--font-mono);font-size:0.6rem;letter-spacing:0.14em;color:var(--acid);border:1px solid var(--acid-border);padding:3px 8px;white-space:nowrap;background:var(--acid-glow)}
+.exp-expand-hint{font-family:var(--font-mono);font-size:0.6rem;letter-spacing:0.1em;color:var(--white-dim);opacity:0.6;white-space:nowrap}
+.exp-skills-strip{margin-top:3rem;padding-top:2rem;border-top:1px solid var(--rule)}
+.exp-skills-label{font-family:var(--font-mono);font-size:0.58rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--acid);margin-bottom:1rem;display:flex;align-items:center;gap:0.5rem}
+.exp-skills-label::before{content:'//';opacity:0.7}
+.exp-skills-tags{display:flex;flex-wrap:wrap;gap:0.4rem}
+.exp-skill-tag{font-family:var(--font-mono);font-size:0.58rem;letter-spacing:0.1em;text-transform:uppercase;padding:4px 8px;border:1px solid var(--rule);color:var(--white-dim);background:rgba(255,255,255,0.02);transition:border-color 0.15s,color 0.15s}
+.exp-skill-tag:hover{border-color:var(--acid-border);color:var(--acid)}
+
+/* PROJECTS */
+.projects-section{padding:4rem 2.5rem 5rem;max-width:1400px;margin:0 auto}
+.projects-intro{font-family:var(--font-mono);font-size:0.7rem;letter-spacing:0.08em;color:var(--white-dim);line-height:1.7;margin-bottom:2.5rem;padding:0.9rem 1.25rem;border-left:2px solid var(--acid-border);background:rgba(200,241,53,0.02)}
+.projects-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(360px,1fr));gap:1.5px;background:var(--rule)}
+
+/* CARDS */
+.card{position:relative;background:var(--panel);cursor:pointer;overflow:hidden;transition:background 0.2s}
+.card:hover{background:var(--panel-light)}
+.card-accent{height:3px;background:var(--acid);position:relative;transition:height 0.2s}
+.card:hover .card-accent{height:4px}
+.card-accent::after{content:'';position:absolute;right:0;top:0;height:100%;width:30%;background:linear-gradient(90deg,transparent,rgba(200,241,53,0.5))}
+.card::after{content:'';position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,0,0,0.12) 2px,rgba(0,0,0,0.12) 4px);pointer-events:none;opacity:0;transition:opacity 0.3s}
+.card:hover::after{opacity:1}
+.card-inner{padding:1.5rem 1.5rem 1.75rem;position:relative}
+.card-inner::before{content:'';position:absolute;top:0;right:0;width:20px;height:20px;background:linear-gradient(225deg,var(--black) 50%,transparent 50%);pointer-events:none}
+.card-header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:0.75rem}
+.card-codename{font-family:var(--font-mono);font-size:0.6rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--acid);margin-bottom:0.3rem}
+.card-title{font-family:var(--font-display);font-weight:900;font-size:1.9rem;text-transform:uppercase;letter-spacing:-0.01em;line-height:0.9;color:var(--white)}
+.status-badge{font-family:var(--font-mono);font-size:0.55rem;letter-spacing:0.14em;text-transform:uppercase;padding:3px 6px;flex-shrink:0;margin-left:0.5rem}
+.status-badge.deployed{background:rgba(200,241,53,0.12);color:var(--acid);border:1px solid var(--acid-border)}
+.status-badge.active{background:rgba(43,255,240,0.1);color:var(--cyan);border:1px solid rgba(43,255,240,0.3)}
+.status-badge.dev{background:var(--danger-dim);color:var(--danger);border:1px solid rgba(255,76,43,0.3)}
+.card-subtitle{font-family:var(--font-mono);font-size:0.65rem;letter-spacing:0.08em;color:var(--white-dim);margin-bottom:1rem;text-transform:uppercase}
+.card-rule{height:1px;background:var(--rule);margin-bottom:1rem}
+.card-desc{font-family:var(--font-body);font-size:0.82rem;line-height:1.65;color:var(--white-dim);margin-bottom:1.25rem}
+.card-tags{display:flex;flex-wrap:wrap;gap:0.35rem;margin-bottom:1.25rem}
+.tag{font-family:var(--font-mono);font-size:0.55rem;letter-spacing:0.1em;text-transform:uppercase;padding:2px 6px;border:1px solid var(--rule);color:var(--white-dim);background:rgba(255,255,255,0.02)}
+.card-footer{display:flex;align-items:center;justify-content:space-between}
+.card-cta{font-family:var(--font-mono);font-size:0.6rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--acid);display:flex;align-items:center;gap:0.4rem;transition:gap 0.2s}
+.card:hover .card-cta{gap:0.7rem}
+.card-index{font-family:var(--font-display);font-weight:900;font-size:3.5rem;line-height:1;color:rgba(200,241,53,0.06);position:absolute;bottom:1rem;right:1.25rem;pointer-events:none;transition:color 0.3s}
+.card:hover .card-index{color:rgba(200,241,53,0.1)}
+
+/* PROJECT MODAL */
+.modal-overlay{position:fixed;inset:0;z-index:1000;display:flex;align-items:center;justify-content:center;padding:1rem;opacity:0;pointer-events:none;transition:opacity 0.25s}
+.modal-overlay.open{opacity:1;pointer-events:all}
+.modal-backdrop{position:absolute;inset:0;background:rgba(5,5,5,0.92);backdrop-filter:blur(6px)}
+.modal{position:relative;z-index:1;background:var(--panel);width:100%;max-width:860px;max-height:90vh;overflow-y:auto;border:1px solid var(--rule);transform:translateY(20px) scale(0.98);transition:transform 0.3s cubic-bezier(0.16,1,0.3,1);scrollbar-width:thin;scrollbar-color:var(--rule) transparent;clip-path:polygon(0 0,calc(100% - 20px) 0,100% 20px,100% 100%,20px 100%,0 calc(100% - 20px))}
+.modal-overlay.open .modal{transform:translateY(0) scale(1)}
+.modal::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 3px,rgba(0,0,0,0.05) 3px,rgba(0,0,0,0.05) 6px);pointer-events:none;z-index:100}
+.modal-accent{height:4px;background:linear-gradient(90deg,var(--acid),var(--acid-dim),transparent)}
+.modal-header{padding:1.5rem 1.75rem 1.25rem;border-bottom:1px solid var(--rule);display:flex;align-items:flex-start;justify-content:space-between;gap:1rem}
+.modal-codename{font-family:var(--font-mono);font-size:0.6rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--acid);margin-bottom:0.3rem;display:flex;align-items:center;gap:0.5rem}
+.modal-codename::before{content:'';display:inline-block;width:1.5rem;height:1px;background:var(--acid)}
+.modal-title{font-family:var(--font-display);font-weight:900;font-size:clamp(2rem,5vw,3.5rem);text-transform:uppercase;letter-spacing:-0.01em;line-height:0.88;color:var(--white)}
+.modal-subtitle{font-family:var(--font-mono);font-size:0.65rem;letter-spacing:0.1em;color:var(--white-dim);text-transform:uppercase;margin-top:0.5rem}
+.modal-header-right{display:flex;flex-direction:column;align-items:flex-end;gap:0.5rem;flex-shrink:0}
+.modal-close{width:32px;height:32px;border:1px solid var(--rule);background:transparent;color:var(--white-dim);font-family:var(--font-mono);font-size:0.75rem;display:flex;align-items:center;justify-content:center;transition:all 0.15s;clip-path:polygon(0 0,calc(100% - 6px) 0,100% 6px,100% 100%,6px 100%,0 calc(100% - 6px))}
+.modal-close:hover{border-color:var(--danger);color:var(--danger);background:var(--danger-dim)}
+.access-stamp{font-family:var(--font-mono);font-size:0.55rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--acid);border:1px solid var(--acid-border);padding:3px 7px;background:var(--acid-glow)}
+.modal-body{display:grid;grid-template-columns:1fr 1.1fr}
+.modal-col-left{padding:1.5rem 1.75rem;border-right:1px solid var(--rule)}
+.modal-col-right{padding:1.5rem 1.75rem}
+.modal-section-label{font-family:var(--font-mono);font-size:0.58rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--acid);margin-bottom:0.75rem;display:flex;align-items:center;gap:0.5rem}
+.modal-section-label::before{content:'//';opacity:0.7}
+.modal-desc{font-family:var(--font-body);font-size:0.85rem;line-height:1.7;color:var(--white-dim);margin-bottom:1.5rem}
+.modal-meta-grid{display:grid;grid-template-columns:1fr 1fr;gap:0.5rem;margin-bottom:1.5rem}
+.modal-meta-item{padding:0.6rem 0.75rem;background:rgba(200,241,53,0.03);border:1px solid var(--rule)}
+.modal-meta-label{font-family:var(--font-mono);font-size:0.52rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--white-dim);margin-bottom:0.2rem}
+.modal-meta-value{font-family:var(--font-mono);font-size:0.72rem;color:var(--white);font-weight:500}
+.modal-tags-section{margin-bottom:1.5rem}
+.modal-tags{display:flex;flex-wrap:wrap;gap:0.35rem}
+.modal-tag{font-family:var(--font-mono);font-size:0.55rem;letter-spacing:0.1em;text-transform:uppercase;padding:3px 7px;border:1px solid var(--rule);color:var(--white-dim)}
+.modal-launch-btn{display:flex;align-items:center;justify-content:center;gap:0.6rem;width:100%;padding:0.85rem 1.5rem;background:var(--acid);color:var(--black);font-family:var(--font-mono);font-size:0.7rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;border:none;transition:all 0.15s;clip-path:polygon(0 0,calc(100% - 10px) 0,100% 10px,100% 100%,10px 100%,0 calc(100% - 10px))}
+.modal-launch-btn:hover{background:#d9ff40;transform:translateY(-1px)}
+
+/* SCREENSHOTS */
+.screenshots-grid{display:grid;grid-template-columns:1fr 1fr;gap:0.5rem;margin-bottom:1rem}
+.screenshot-thumb{position:relative;aspect-ratio:16/10;overflow:hidden;cursor:pointer;background:#0d0d0a;border:1px solid var(--rule)}
+.screenshot-thumb img{width:100%;height:100%;object-fit:cover;transition:transform 0.3s}
+.screenshot-thumb:hover img{transform:scale(1.04)}
+.screenshot-thumb::after{content:'';position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,0,0,0.22) 2px,rgba(0,0,0,0.22) 4px);pointer-events:none;z-index:2}
+.screenshot-thumb::before{content:'';position:absolute;top:-100%;left:0;right:0;height:40%;background:linear-gradient(180deg,transparent 0%,rgba(200,241,53,0.04) 40%,rgba(200,241,53,0.07) 50%,rgba(200,241,53,0.04) 60%,transparent 100%);z-index:3;pointer-events:none}
+.screenshot-thumb:hover::before{animation:scanline-sweep 1.2s ease-in-out infinite}
+@keyframes scanline-sweep{0%{top:-40%}100%{top:120%}}
+.screenshot-placeholder{width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0.5rem;background:repeating-linear-gradient(45deg,var(--black-warm),var(--black-warm) 4px,#0f0f0d 4px,#0f0f0d 8px)}
+.screenshot-placeholder .ph-label{font-family:var(--font-mono);font-size:0.55rem;letter-spacing:0.14em;text-transform:uppercase;color:rgba(200,241,53,0.3);text-align:center;line-height:1.6}
+.screenshot-placeholder .ph-icon{font-size:1.5rem;opacity:0.2;color:var(--acid)}
+.screenshot-click-overlay{position:absolute;inset:0;z-index:5;display:flex;align-items:center;justify-content:center;background:rgba(9,9,9,0.6);opacity:0;transition:opacity 0.2s}
+.screenshot-thumb:hover .screenshot-click-overlay{opacity:1}
+.screenshot-click-icon{font-family:var(--font-mono);font-size:0.6rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--acid);border:1px solid var(--acid-border);padding:5px 10px;background:rgba(200,241,53,0.08)}
+
+/* EXP MODAL */
+.exp-modal-overlay{position:fixed;inset:0;z-index:1000;display:flex;align-items:center;justify-content:center;padding:1rem;opacity:0;pointer-events:none;transition:opacity 0.25s}
+.exp-modal-overlay.open{opacity:1;pointer-events:all}
+.exp-modal-backdrop{position:absolute;inset:0;background:rgba(5,5,5,0.92);backdrop-filter:blur(6px)}
+.exp-modal{position:relative;z-index:1;background:var(--panel);width:100%;max-width:760px;max-height:90vh;overflow-y:auto;border:1px solid var(--acid-border);transform:translateY(20px) scale(0.98);transition:transform 0.3s cubic-bezier(0.16,1,0.3,1);scrollbar-width:thin;scrollbar-color:var(--rule) transparent;clip-path:polygon(0 0,calc(100% - 20px) 0,100% 20px,100% 100%,20px 100%,0 calc(100% - 20px))}
+.exp-modal-overlay.open .exp-modal{transform:translateY(0) scale(1)}
+.exp-modal::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 3px,rgba(0,0,0,0.04) 3px,rgba(0,0,0,0.04) 6px);pointer-events:none;z-index:100}
+.exp-modal-accent{height:4px;background:linear-gradient(90deg,var(--acid),var(--acid-dim),transparent)}
+.exp-modal-header{padding:1.5rem 1.75rem 1.25rem;border-bottom:1px solid var(--rule);display:flex;align-items:flex-start;justify-content:space-between;gap:1rem}
+.exp-modal-eyebrow{font-family:var(--font-mono);font-size:0.58rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--acid);margin-bottom:0.3rem;display:flex;align-items:center;gap:0.5rem}
+.exp-modal-eyebrow::before{content:'';display:inline-block;width:1.5rem;height:1px;background:var(--acid)}
+.exp-modal-title{font-family:var(--font-display);font-weight:900;font-size:clamp(1.4rem,4vw,2.5rem);text-transform:uppercase;letter-spacing:-0.01em;line-height:0.9;color:var(--white)}
+.exp-modal-meta{font-family:var(--font-mono);font-size:0.6rem;letter-spacing:0.1em;color:var(--white-dim);text-transform:uppercase;margin-top:0.4rem}
+.exp-modal-close{width:32px;height:32px;border:1px solid var(--rule);background:transparent;color:var(--white-dim);font-family:var(--font-mono);font-size:0.75rem;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all 0.15s;clip-path:polygon(0 0,calc(100% - 6px) 0,100% 6px,100% 100%,6px 100%,0 calc(100% - 6px))}
+.exp-modal-close:hover{border-color:var(--danger);color:var(--danger);background:var(--danger-dim)}
+.exp-modal-body{padding:1.75rem}
+.exp-modal-section{margin-bottom:1.75rem}
+.exp-modal-section:last-child{margin-bottom:0}
+.exp-modal-section-label{font-family:var(--font-mono);font-size:0.58rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--acid);margin-bottom:0.85rem;display:flex;align-items:center;gap:0.5rem}
+.exp-modal-section-label::before{content:'//';opacity:0.7}
+.exp-modal-divider{height:1px;background:var(--rule);margin:1.5rem 0}
+.exp-modal-bullets{list-style:none;padding:0;display:flex;flex-direction:column;gap:0.6rem}
+.exp-modal-bullets li{font-family:var(--font-body);font-size:0.85rem;line-height:1.65;color:var(--white-dim);padding-left:1.1rem;position:relative}
+.exp-modal-bullets li::before{content:'►';position:absolute;left:0;color:var(--acid);font-size:0.6rem;top:0.25rem}
+.exp-modal-tags{display:flex;flex-wrap:wrap;gap:0.4rem}
+.exp-modal-tag{font-family:var(--font-mono);font-size:0.58rem;letter-spacing:0.1em;text-transform:uppercase;padding:4px 8px;border:1px solid var(--rule);color:var(--white-dim);background:rgba(255,255,255,0.02)}
+
+/* LIGHTBOX */
+.lightbox{position:fixed;inset:0;z-index:2000;display:flex;align-items:center;justify-content:center;background:rgba(5,5,5,0.97);opacity:0;pointer-events:none;transition:opacity 0.2s}
+.lightbox.open{opacity:1;pointer-events:all}
+.lightbox-inner{position:relative;max-width:90vw;max-height:90vh;display:flex;align-items:center;gap:1rem}
+.lightbox-image-wrap{position:relative;overflow:hidden;border:1px solid var(--rule);max-width:80vw;max-height:80vh}
+.lightbox-image-wrap img{max-width:80vw;max-height:80vh;object-fit:contain;display:block;animation:chroma-idle 6s ease-in-out infinite}
+.lightbox-image-wrap::after{content:'';position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 3px,rgba(0,0,0,0.18) 3px,rgba(0,0,0,0.18) 6px);pointer-events:none;z-index:2}
+.lightbox-image-wrap::before{content:'';position:absolute;left:0;right:0;height:30%;top:-30%;background:linear-gradient(180deg,transparent 0%,rgba(200,241,53,0.03) 30%,rgba(200,241,53,0.06) 50%,rgba(200,241,53,0.03) 70%,transparent 100%);z-index:3;pointer-events:none;animation:lightbox-scan 3s linear infinite}
+@keyframes lightbox-scan{0%{top:-30%}100%{top:110%}}
+.lightbox-image-wrap .vignette{position:absolute;inset:0;background:radial-gradient(ellipse at center,transparent 60%,rgba(9,9,9,0.6) 100%);pointer-events:none;z-index:4}
+@keyframes chroma-idle{0%,85%,100%{filter:none}86%{filter:drop-shadow(1px 0 0 rgba(255,76,43,0.5)) drop-shadow(-1px 0 0 rgba(43,255,240,0.5))}87%{filter:none}90%{filter:drop-shadow(2px 0 0 rgba(255,76,43,0.4)) drop-shadow(-2px 0 0 rgba(43,255,240,0.4))}91%{filter:none}}
+.lightbox-nav{position:absolute;top:50%;transform:translateY(-50%);background:rgba(9,9,9,0.8);border:1px solid var(--rule);color:var(--white-dim);width:40px;height:40px;display:flex;align-items:center;justify-content:center;font-size:1rem;z-index:10;transition:all 0.15s;font-family:var(--font-mono)}
+.lightbox-nav:hover{border-color:var(--acid);color:var(--acid)}
+.lightbox-nav.prev{left:-52px}
+.lightbox-nav.next{right:-52px}
+.lightbox-close{position:fixed;top:1.5rem;right:1.5rem;background:rgba(9,9,9,0.8);border:1px solid var(--rule);color:var(--white-dim);width:40px;height:40px;display:flex;align-items:center;justify-content:center;font-family:var(--font-mono);font-size:0.7rem;z-index:2010;transition:all 0.15s}
+.lightbox-close:hover{border-color:var(--danger);color:var(--danger)}
+.lightbox-counter{position:fixed;bottom:1.5rem;left:50%;transform:translateX(-50%);font-family:var(--font-mono);font-size:0.6rem;letter-spacing:0.15em;color:var(--white-dim);text-transform:uppercase;background:rgba(9,9,9,0.8);border:1px solid var(--rule);padding:5px 12px;z-index:2010}
+.lightbox-caption{position:fixed;bottom:3.5rem;left:50%;transform:translateX(-50%);font-family:var(--font-mono);font-size:0.6rem;letter-spacing:0.1em;color:var(--acid);text-transform:uppercase;z-index:2010;white-space:nowrap}
+
+/* FOOTER */
+.footer{border-top:1px solid var(--rule);padding:1.5rem 2.5rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem}
+.footer-left{font-family:var(--font-mono);font-size:0.6rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--white-dim);display:flex;align-items:center;gap:0.75rem;flex-wrap:wrap}
+.footer-left .acid{font-weight:700}
+.footer-left a{color:var(--white-dim);transition:color 0.15s}
+.footer-left a:hover{color:var(--acid)}
+.footer-right{font-family:var(--font-mono);font-size:0.6rem;letter-spacing:0.1em;color:rgba(200,241,53,0.3);text-transform:uppercase}
+::-webkit-scrollbar{width:4px}::-webkit-scrollbar-track{background:var(--black)}::-webkit-scrollbar-thumb{background:var(--rule)}::-webkit-scrollbar-thumb:hover{background:var(--acid-dim)}
+
+/* RESPONSIVE */
+@media (max-width:768px){
+  .topbar{padding:0 1rem}
+  .topbar-right .topbar-link:not(:last-child){display:none}
+  .hero{padding:0 1.25rem 2.5rem;clip-path:none}
+  .ai-ops-section{padding:3rem 1.25rem}
+  .ai-stats-strip{grid-template-columns:1fr 1fr}
+  .ai-cards-grid{grid-template-columns:1fr}
+  .experience-section{padding:3rem 1.25rem}
+  .exp-summary-panel{grid-template-columns:1fr 1fr}
+  .projects-section{padding:3rem 1px 4rem}
+  .projects-grid{grid-template-columns:1fr;gap:1px}
+  .modal-body{grid-template-columns:1fr}
+  .modal-col-left{border-right:none;border-bottom:1px solid var(--rule)}
+  .exp-modal-body{padding:1.25rem}
+  .footer{padding:1.25rem;flex-direction:column;align-items:flex-start}
+  .lightbox-nav.prev{left:4px}
+  .lightbox-nav.next{right:4px}
+}
+@media (max-width:600px){
+  .screenshots-grid{grid-template-columns:1fr}
+  .modal-meta-grid{grid-template-columns:1fr}
+  .hero-meta{gap:0.5rem}
+  .ai-stats-strip{grid-template-columns:1fr 1fr}
+  .exp-summary-panel{grid-template-columns:1fr}
+  .exp-entry-card{flex-direction:column;align-items:flex-start}
 }
 
-/* ============================================================
-   RESET & BASE
-   ============================================================ */
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
-body {
-  background: var(--black);
-  color: var(--white);
-  font-family: var(--font-body);
-  font-size: 16px;
-  line-height: 1.5;
-  min-height: 100vh;
-  overflow-x: hidden;
-  cursor: crosshair;
-}
-body::before {
-  content: '';
-  position: fixed;
-  inset: 0;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.035'/%3E%3C/svg%3E");
-  pointer-events: none;
-  z-index: 9999;
-  mix-blend-mode: overlay;
-  opacity: 0.4;
-}
-a { color: inherit; text-decoration: none; }
-button { cursor: pointer; font-family: inherit; }
-img { display: block; max-width: 100%; }
-
-/* ============================================================
-   TYPOGRAPHY UTILITIES
-   ============================================================ */
-.display { font-family: var(--font-display); font-weight: 900; line-height: 0.9; text-transform: uppercase; letter-spacing: -0.01em; }
-.mono { font-family: var(--font-mono); font-size: 0.75rem; letter-spacing: 0.05em; }
-.label { font-family: var(--font-mono); font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--white-dim); }
-.acid { color: var(--acid); }
-.danger { color: var(--danger); }
-.cyan { color: var(--cyan); }
-.dim { color: var(--white-dim); }
-.rule { width: 100%; height: 1px; background: var(--rule); margin: 0; }
-
-/* ============================================================
-   NAV / TOPBAR
-   ============================================================ */
-.topbar {
-  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-  background: rgba(9,9,9,0.92); backdrop-filter: blur(8px);
-  border-bottom: 1px solid var(--rule);
-  display: flex; align-items: center; justify-content: space-between;
-  padding: 0 2rem; height: 48px;
-}
-.topbar-left { display: flex; align-items: center; gap: 1.5rem; }
-.topbar-logo { font-family: var(--font-display); font-weight: 900; font-size: 1.25rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--acid); }
-.topbar-logo span { color: var(--white-dim); font-weight: 400; }
-.topbar-divider { width: 1px; height: 20px; background: var(--rule); }
-.topbar-status { display: flex; align-items: center; gap: 0.4rem; font-family: var(--font-mono); font-size: 0.6rem; letter-spacing: 0.12em; color: var(--white-dim); text-transform: uppercase; }
-.status-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--acid); animation: pulse 2.5s ease-in-out infinite; }
-@keyframes pulse { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.4; transform: scale(0.7); } }
-.topbar-right { display: flex; align-items: center; gap: 1.5rem; }
-.topbar-link { font-family: var(--font-mono); font-size: 0.65rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--white-dim); transition: color 0.2s; padding: 4px 0; border-bottom: 1px solid transparent; }
-.topbar-link:hover { color: var(--acid); border-bottom-color: var(--acid-border); }
-
-/* ============================================================
-   HERO
-   ============================================================ */
-.hero {
-  position: relative; min-height: 100vh;
-  display: flex; flex-direction: column; justify-content: flex-end;
-  padding: 0 2.5rem 3.5rem; overflow: hidden;
-  clip-path: polygon(0 0, 100% 0, 100% 88%, 94% 100%, 0 100%);
-}
-.hero-grid {
-  position: absolute; inset: 0;
-  background-image: linear-gradient(rgba(200,241,53,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(200,241,53,0.04) 1px, transparent 1px);
-  background-size: 60px 60px; animation: grid-drift 40s linear infinite;
-}
-@keyframes grid-drift { 0% { transform: translateY(0); } 100% { transform: translateY(60px); } }
-.hero::after { content: ''; position: absolute; top: 0; right: 0; width: 35%; height: 100%; background: linear-gradient(135deg, transparent 30%, rgba(200,241,53,0.03) 100%); pointer-events: none; }
-.hero-corner { position: absolute; top: 48px; right: 0; width: 180px; height: 180px; border-left: 1px solid var(--acid-border); border-bottom: 1px solid var(--acid-border); pointer-events: none; }
-.hero-corner::after { content: ''; position: absolute; bottom: -1px; left: -1px; width: 8px; height: 8px; background: var(--acid); }
-.hero-content { position: relative; z-index: 2; max-width: 1200px; }
-.hero-eyebrow { font-family: var(--font-mono); font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--acid); margin-bottom: 1rem; display: flex; align-items: center; gap: 0.75rem; }
-.hero-eyebrow::before { content: ''; display: block; width: 2rem; height: 1px; background: var(--acid); }
-.hero-name { font-family: var(--font-display); font-weight: 900; font-size: clamp(5rem, 14vw, 12rem); line-height: 0.85; text-transform: uppercase; letter-spacing: -0.02em; color: var(--white); position: relative; display: inline-block; }
-.hero-name::before, .hero-name::after { content: attr(data-text); position: absolute; top: 0; left: 0; width: 100%; background: var(--black); overflow: hidden; clip-path: inset(0); }
-.hero-name::before { left: 3px; text-shadow: -2px 0 var(--danger); animation: glitch-1 8s infinite; color: var(--white); }
-.hero-name::after  { left: -3px; text-shadow: 2px 0 var(--cyan); animation: glitch-2 8s infinite; color: var(--white); }
-@keyframes glitch-1 { 0%, 92%, 100% { clip-path: inset(100% 0 0 0); transform: none; } 93% { clip-path: inset(10% 0 85% 0); transform: translateX(-4px); } 94% { clip-path: inset(50% 0 30% 0); transform: translateX(4px); } 95% { clip-path: inset(80% 0 5% 0); transform: translateX(-2px); } 96%, 99% { clip-path: inset(100% 0 0 0); transform: none; } 97% { clip-path: inset(30% 0 60% 0); transform: translateX(3px); } }
-@keyframes glitch-2 { 0%, 88%, 100% { clip-path: inset(100% 0 0 0); transform: none; } 89% { clip-path: inset(60% 0 25% 0); transform: translateX(3px); } 90% { clip-path: inset(20% 0 70% 0); transform: translateX(-3px); } 91%, 92% { clip-path: inset(100% 0 0 0); transform: none; } }
-.hero-role { margin-top: 1.25rem; font-family: var(--font-display); font-weight: 600; font-size: clamp(1rem, 2.5vw, 1.6rem); text-transform: uppercase; letter-spacing: 0.12em; color: var(--white-dim); display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; }
-.hero-role .acid { color: var(--acid); font-weight: 800; }
-.hero-role-sep { color: var(--rule); font-weight: 300; }
-.hero-meta { margin-top: 2rem; display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap; }
-.hero-stat { display: flex; align-items: center; gap: 0.5rem; padding: 0.4rem 0.75rem; border: 1px solid var(--rule); background: rgba(200,241,53,0.04); }
-.hero-stat .number { font-family: var(--font-display); font-weight: 900; font-size: 1.4rem; color: var(--acid); line-height: 1; }
-.hero-stat .text { font-family: var(--font-mono); font-size: 0.58rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--white-dim); line-height: 1.3; }
-.hero-github-btn { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.4rem 0.9rem; background: var(--acid); color: var(--black); font-family: var(--font-mono); font-size: 0.65rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; border: none; transition: background 0.15s, transform 0.1s; clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 8px 100%, 0 calc(100% - 8px)); }
-.hero-github-btn:hover { background: #d9ff40; transform: translateY(-1px); }
-
-/* ============================================================
-   SECTION HEADER (shared)
-   ============================================================ */
-.section-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 2.5rem; }
-.section-header::before { content: '//'; font-family: var(--font-mono); font-size: 0.75rem; color: var(--acid); font-weight: 700; }
-.section-title { font-family: var(--font-display); font-weight: 900; font-size: clamp(1.6rem, 3vw, 2.2rem); text-transform: uppercase; letter-spacing: 0.04em; color: var(--white); }
-.section-count { margin-left: auto; font-family: var(--font-mono); font-size: 0.6rem; letter-spacing: 0.15em; color: var(--white-dim); text-transform: uppercase; }
-
-/* ============================================================
-   EXPERIENCE SECTION
-   ============================================================ */
-.experience-section {
-  padding: 5rem 2.5rem;
-  background: var(--black-warm);
-  border-top: 1px solid var(--rule);
-  border-bottom: 1px solid var(--rule);
-  position: relative;
-  overflow: hidden;
-}
-/* Subtle background accent */
-.experience-section::before {
-  content: '';
-  position: absolute;
-  top: 0; right: 0;
-  width: 40%;
-  height: 100%;
-  background: linear-gradient(135deg, transparent 50%, rgba(200,241,53,0.015) 100%);
-  pointer-events: none;
-}
-.experience-inner {
-  max-width: 1200px;
-  margin: 0 auto;
-  position: relative;
-}
-
-/* AI DISCLOSURE BANNER */
-.ai-disclosure {
-  display: flex;
-  align-items: flex-start;
-  gap: 1rem;
-  padding: 0.9rem 1.25rem;
-  border: 1px solid var(--acid-border);
-  background: var(--acid-glow);
-  margin-bottom: 3rem;
-  clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 12px 100%, 0 calc(100% - 12px));
-}
-.ai-disclosure-icon {
-  font-family: var(--font-mono);
-  font-size: 0.65rem;
-  font-weight: 700;
-  color: var(--acid);
-  letter-spacing: 0.1em;
-  white-space: nowrap;
-  padding-top: 1px;
-}
-.ai-disclosure-text {
-  font-family: var(--font-mono);
-  font-size: 0.65rem;
-  letter-spacing: 0.06em;
-  line-height: 1.7;
-  color: var(--white-dim);
-}
-.ai-disclosure-text strong {
-  color: var(--white);
-  font-weight: 500;
-}
-
-/* SUMMARY PANEL */
-.exp-summary-panel {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1.5px;
-  background: var(--rule);
-  margin-bottom: 3rem;
-}
-.exp-summary-cell {
-  background: var(--panel);
-  padding: 1.25rem 1.5rem;
-}
-.exp-summary-label {
-  font-family: var(--font-mono);
-  font-size: 0.55rem;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--white-dim);
-  margin-bottom: 0.4rem;
-}
-.exp-summary-value {
-  font-family: var(--font-display);
-  font-weight: 900;
-  font-size: 1.5rem;
-  color: var(--acid);
-  line-height: 1;
-  margin-bottom: 0.3rem;
-}
-.exp-summary-sub {
-  font-family: var(--font-mono);
-  font-size: 0.6rem;
-  letter-spacing: 0.08em;
-  color: var(--white-dim);
-}
-
-/* TIMELINE */
-.exp-timeline {
-  position: relative;
-  padding-left: 2rem;
-}
-.exp-timeline::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 6px;
-  bottom: 0;
-  width: 1px;
-  background: linear-gradient(180deg, var(--acid) 0%, rgba(200,241,53,0.1) 100%);
-}
-.exp-entry {
-  position: relative;
-  margin-bottom: 2.5rem;
-}
-.exp-entry:last-child { margin-bottom: 0; }
-/* Timeline dot */
-.exp-entry::before {
-  content: '';
-  position: absolute;
-  left: -2.35rem;
-  top: 6px;
-  width: 8px;
-  height: 8px;
-  background: var(--acid);
-  clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
-}
-.exp-entry-header {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 1rem;
-  margin-bottom: 0.5rem;
-  flex-wrap: wrap;
-}
-.exp-role {
-  font-family: var(--font-display);
-  font-weight: 900;
-  font-size: clamp(1.1rem, 2.5vw, 1.5rem);
-  text-transform: uppercase;
-  letter-spacing: 0.02em;
-  color: var(--white);
-  line-height: 1;
-}
-.exp-tenure {
-  font-family: var(--font-mono);
-  font-size: 0.6rem;
-  letter-spacing: 0.14em;
-  color: var(--acid);
-  border: 1px solid var(--acid-border);
-  padding: 3px 8px;
-  white-space: nowrap;
-  background: var(--acid-glow);
-  flex-shrink: 0;
-}
-.exp-company {
-  font-family: var(--font-mono);
-  font-size: 0.65rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--white-dim);
-  margin-bottom: 0.85rem;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-.exp-company::before {
-  content: '//';
-  color: var(--acid);
-  opacity: 0.7;
-  font-size: 0.6rem;
-}
-.exp-bullets {
-  list-style: none;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 0.45rem;
-}
-.exp-bullets li {
-  font-family: var(--font-body);
-  font-size: 0.85rem;
-  line-height: 1.65;
-  color: var(--white-dim);
-  padding-left: 1.1rem;
-  position: relative;
-}
-.exp-bullets li::before {
-  content: '▸';
-  position: absolute;
-  left: 0;
-  color: var(--acid);
-  font-size: 0.6rem;
-  top: 0.25rem;
-}
-
-/* SKILLS STRIP */
-.exp-skills-strip {
-  margin-top: 3rem;
-  padding-top: 2rem;
-  border-top: 1px solid var(--rule);
-}
-.exp-skills-label {
-  font-family: var(--font-mono);
-  font-size: 0.58rem;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--acid);
-  margin-bottom: 1rem;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-.exp-skills-label::before { content: '//'; opacity: 0.7; }
-.exp-skills-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.4rem;
-}
-.exp-skill-tag {
-  font-family: var(--font-mono);
-  font-size: 0.58rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  padding: 4px 8px;
-  border: 1px solid var(--rule);
-  color: var(--white-dim);
-  background: rgba(255,255,255,0.02);
-  transition: border-color 0.15s, color 0.15s;
-}
-.exp-skill-tag:hover {
-  border-color: var(--acid-border);
-  color: var(--acid);
-}
-
-/* ============================================================
-   PROJECTS SECTION
-   ============================================================ */
-.projects-section { padding: 4rem 2.5rem 5rem; max-width: 1400px; margin: 0 auto; }
-.projects-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(360px, 1fr)); gap: 1.5px; background: var(--rule); }
-
-/* ============================================================
-   PROJECT CARD
-   ============================================================ */
-.card { position: relative; background: var(--panel); padding: 0; cursor: pointer; overflow: hidden; transition: background 0.2s; }
-.card:hover { background: var(--panel-light); }
-.card-accent { height: 3px; background: var(--acid); position: relative; transition: height 0.2s; }
-.card:hover .card-accent { height: 4px; }
-.card-accent::after { content: ''; position: absolute; right: 0; top: 0; height: 100%; width: 30%; background: linear-gradient(90deg, transparent, rgba(200,241,53,0.5)); }
-.card::after { content: ''; position: absolute; inset: 0; background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.12) 2px, rgba(0,0,0,0.12) 4px); pointer-events: none; opacity: 0; transition: opacity 0.3s; }
-.card:hover::after { opacity: 1; }
-.card-inner { padding: 1.5rem 1.5rem 1.75rem; position: relative; }
-.card-inner::before { content: ''; position: absolute; top: 0; right: 0; width: 20px; height: 20px; background: linear-gradient(225deg, var(--black) 50%, transparent 50%); pointer-events: none; }
-.card-header { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 0.75rem; }
-.card-codename { font-family: var(--font-mono); font-size: 0.6rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--acid); margin-bottom: 0.3rem; }
-.card-title { font-family: var(--font-display); font-weight: 900; font-size: 1.9rem; text-transform: uppercase; letter-spacing: -0.01em; line-height: 0.9; color: var(--white); }
-.status-badge { font-family: var(--font-mono); font-size: 0.55rem; letter-spacing: 0.14em; text-transform: uppercase; padding: 3px 6px; flex-shrink: 0; margin-left: 0.5rem; }
-.status-badge.deployed { background: rgba(200,241,53,0.12); color: var(--acid); border: 1px solid var(--acid-border); }
-.status-badge.active { background: rgba(43,255,240,0.1); color: var(--cyan); border: 1px solid rgba(43,255,240,0.3); }
-.status-badge.dev { background: var(--danger-dim); color: var(--danger); border: 1px solid rgba(255,76,43,0.3); }
-.card-subtitle { font-family: var(--font-mono); font-size: 0.65rem; letter-spacing: 0.08em; color: var(--white-dim); margin-bottom: 1rem; text-transform: uppercase; }
-.card-rule { height: 1px; background: var(--rule); margin-bottom: 1rem; }
-.card-desc { font-family: var(--font-body); font-size: 0.82rem; line-height: 1.65; color: var(--white-dim); margin-bottom: 1.25rem; }
-.card-tags { display: flex; flex-wrap: wrap; gap: 0.35rem; margin-bottom: 1.25rem; }
-.tag { font-family: var(--font-mono); font-size: 0.55rem; letter-spacing: 0.1em; text-transform: uppercase; padding: 2px 6px; border: 1px solid var(--rule); color: var(--white-dim); background: rgba(255,255,255,0.02); }
-.card-footer { display: flex; align-items: center; justify-content: space-between; }
-.card-cta { font-family: var(--font-mono); font-size: 0.6rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--acid); display: flex; align-items: center; gap: 0.4rem; transition: gap 0.2s; }
-.card:hover .card-cta { gap: 0.7rem; }
-.card-cta-arrow { font-size: 0.9rem; }
-.card-index { font-family: var(--font-display); font-weight: 900; font-size: 3.5rem; line-height: 1; color: rgba(200,241,53,0.06); position: absolute; bottom: 1rem; right: 1.25rem; pointer-events: none; transition: color 0.3s; }
-.card:hover .card-index { color: rgba(200,241,53,0.1); }
-
-/* ============================================================
-   MODAL
-   ============================================================ */
-.modal-overlay { position: fixed; inset: 0; z-index: 1000; display: flex; align-items: center; justify-content: center; padding: 1rem; opacity: 0; pointer-events: none; transition: opacity 0.25s; }
-.modal-overlay.open { opacity: 1; pointer-events: all; }
-.modal-backdrop { position: absolute; inset: 0; background: rgba(5,5,5,0.92); backdrop-filter: blur(6px); }
-.modal { position: relative; z-index: 1; background: var(--panel); width: 100%; max-width: 860px; max-height: 90vh; overflow-y: auto; border: 1px solid var(--rule); transform: translateY(20px) scale(0.98); transition: transform 0.3s cubic-bezier(0.16,1,0.3,1); scrollbar-width: thin; scrollbar-color: var(--rule) transparent; clip-path: polygon(0 0, calc(100% - 20px) 0, 100% 20px, 100% 100%, 20px 100%, 0 calc(100% - 20px)); }
-.modal-overlay.open .modal { transform: translateY(0) scale(1); }
-.modal::before { content: ''; position: absolute; inset: 0; background: repeating-linear-gradient(0deg, transparent, transparent 3px, rgba(0,0,0,0.05) 3px, rgba(0,0,0,0.05) 6px); pointer-events: none; z-index: 100; }
-.modal-accent { height: 4px; background: linear-gradient(90deg, var(--acid), var(--acid-dim), transparent); }
-.modal-header { padding: 1.5rem 1.75rem 1.25rem; border-bottom: 1px solid var(--rule); display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem; }
-.modal-codename { font-family: var(--font-mono); font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--acid); margin-bottom: 0.3rem; display: flex; align-items: center; gap: 0.5rem; }
-.modal-codename::before { content: ''; display: inline-block; width: 1.5rem; height: 1px; background: var(--acid); }
-.modal-title { font-family: var(--font-display); font-weight: 900; font-size: clamp(2rem, 5vw, 3.5rem); text-transform: uppercase; letter-spacing: -0.01em; line-height: 0.88; color: var(--white); }
-.modal-subtitle { font-family: var(--font-mono); font-size: 0.65rem; letter-spacing: 0.1em; color: var(--white-dim); text-transform: uppercase; margin-top: 0.5rem; }
-.modal-header-right { display: flex; flex-direction: column; align-items: flex-end; gap: 0.5rem; flex-shrink: 0; }
-.modal-close { width: 32px; height: 32px; border: 1px solid var(--rule); background: transparent; color: var(--white-dim); font-family: var(--font-mono); font-size: 0.75rem; display: flex; align-items: center; justify-content: center; transition: all 0.15s; clip-path: polygon(0 0, calc(100% - 6px) 0, 100% 6px, 100% 100%, 6px 100%, 0 calc(100% - 6px)); }
-.modal-close:hover { border-color: var(--danger); color: var(--danger); background: var(--danger-dim); }
-.access-stamp { font-family: var(--font-mono); font-size: 0.55rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--acid); border: 1px solid var(--acid-border); padding: 3px 7px; background: var(--acid-glow); }
-.modal-body { display: grid; grid-template-columns: 1fr 1.1fr; gap: 0; }
-.modal-col-left { padding: 1.5rem 1.75rem; border-right: 1px solid var(--rule); }
-.modal-col-right { padding: 1.5rem 1.75rem; }
-.modal-section-label { font-family: var(--font-mono); font-size: 0.58rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--acid); margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.5rem; }
-.modal-section-label::before { content: '//'; opacity: 0.7; }
-.modal-desc { font-family: var(--font-body); font-size: 0.85rem; line-height: 1.7; color: var(--white-dim); margin-bottom: 1.5rem; }
-.modal-meta-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; margin-bottom: 1.5rem; }
-.modal-meta-item { padding: 0.6rem 0.75rem; background: rgba(200,241,53,0.03); border: 1px solid var(--rule); }
-.modal-meta-label { font-family: var(--font-mono); font-size: 0.52rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--white-dim); margin-bottom: 0.2rem; }
-.modal-meta-value { font-family: var(--font-mono); font-size: 0.72rem; color: var(--white); font-weight: 500; }
-.modal-tags-section { margin-bottom: 1.5rem; }
-.modal-tags { display: flex; flex-wrap: wrap; gap: 0.35rem; }
-.modal-tag { font-family: var(--font-mono); font-size: 0.55rem; letter-spacing: 0.1em; text-transform: uppercase; padding: 3px 7px; border: 1px solid var(--rule); color: var(--white-dim); }
-.modal-launch-btn { display: flex; align-items: center; justify-content: center; gap: 0.6rem; width: 100%; padding: 0.85rem 1.5rem; background: var(--acid); color: var(--black); font-family: var(--font-mono); font-size: 0.7rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; border: none; transition: all 0.15s; clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px)); }
-.modal-launch-btn:hover { background: #d9ff40; transform: translateY(-1px); }
-
-/* Screenshots */
-.screenshots-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; margin-bottom: 1rem; }
-.screenshot-thumb { position: relative; aspect-ratio: 16/10; overflow: hidden; cursor: pointer; background: #0d0d0a; border: 1px solid var(--rule); }
-.screenshot-thumb img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s; }
-.screenshot-thumb:hover img { transform: scale(1.04); }
-.screenshot-thumb::after { content: ''; position: absolute; inset: 0; background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.22) 2px, rgba(0,0,0,0.22) 4px); pointer-events: none; z-index: 2; }
-.screenshot-thumb::before { content: ''; position: absolute; top: -100%; left: 0; right: 0; height: 40%; background: linear-gradient(180deg, transparent 0%, rgba(200,241,53,0.04) 40%, rgba(200,241,53,0.07) 50%, rgba(200,241,53,0.04) 60%, transparent 100%); z-index: 3; pointer-events: none; }
-.screenshot-thumb:hover::before { animation: scanline-sweep 1.2s ease-in-out infinite; }
-@keyframes scanline-sweep { 0% { top: -40%; } 100% { top: 120%; } }
-.screenshot-placeholder { width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.5rem; background: repeating-linear-gradient(45deg, var(--black-warm), var(--black-warm) 4px, #0f0f0d 4px, #0f0f0d 8px); }
-.screenshot-placeholder .ph-label { font-family: var(--font-mono); font-size: 0.55rem; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(200,241,53,0.3); text-align: center; line-height: 1.6; }
-.screenshot-placeholder .ph-icon { font-size: 1.5rem; opacity: 0.2; color: var(--acid); }
-.screenshot-click-overlay { position: absolute; inset: 0; z-index: 5; display: flex; align-items: center; justify-content: center; background: rgba(9,9,9,0.6); opacity: 0; transition: opacity 0.2s; }
-.screenshot-thumb:hover .screenshot-click-overlay { opacity: 1; }
-.screenshot-click-icon { font-family: var(--font-mono); font-size: 0.6rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--acid); border: 1px solid var(--acid-border); padding: 5px 10px; background: rgba(200,241,53,0.08); }
-
-/* ============================================================
-   LIGHTBOX
-   ============================================================ */
-.lightbox { position: fixed; inset: 0; z-index: 2000; display: flex; align-items: center; justify-content: center; background: rgba(5,5,5,0.97); opacity: 0; pointer-events: none; transition: opacity 0.2s; }
-.lightbox.open { opacity: 1; pointer-events: all; }
-.lightbox-inner { position: relative; max-width: 90vw; max-height: 90vh; display: flex; align-items: center; gap: 1rem; }
-.lightbox-image-wrap { position: relative; overflow: hidden; border: 1px solid var(--rule); max-width: 80vw; max-height: 80vh; }
-.lightbox-image-wrap img { max-width: 80vw; max-height: 80vh; object-fit: contain; display: block; animation: chroma-idle 6s ease-in-out infinite; }
-.lightbox-image-wrap::after { content: ''; position: absolute; inset: 0; background: repeating-linear-gradient(0deg, transparent, transparent 3px, rgba(0,0,0,0.18) 3px, rgba(0,0,0,0.18) 6px); pointer-events: none; z-index: 2; }
-.lightbox-image-wrap::before { content: ''; position: absolute; left: 0; right: 0; height: 30%; top: -30%; background: linear-gradient(180deg, transparent 0%, rgba(200,241,53,0.03) 30%, rgba(200,241,53,0.06) 50%, rgba(200,241,53,0.03) 70%, transparent 100%); z-index: 3; pointer-events: none; animation: lightbox-scan 3s linear infinite; }
-@keyframes lightbox-scan { 0% { top: -30%; } 100% { top: 110%; } }
-.lightbox-image-wrap .vignette { position: absolute; inset: 0; background: radial-gradient(ellipse at center, transparent 60%, rgba(9,9,9,0.6) 100%); pointer-events: none; z-index: 4; }
-@keyframes chroma-idle { 0%, 85%, 100% { filter: none; } 86% { filter: drop-shadow(1px 0 0 rgba(255,76,43,0.5)) drop-shadow(-1px 0 0 rgba(43,255,240,0.5)); } 87% { filter: none; } 90% { filter: drop-shadow(2px 0 0 rgba(255,76,43,0.4)) drop-shadow(-2px 0 0 rgba(43,255,240,0.4)); } 91% { filter: none; } }
-.lightbox-nav { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(9,9,9,0.8); border: 1px solid var(--rule); color: var(--white-dim); width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; font-size: 1rem; z-index: 10; transition: all 0.15s; font-family: var(--font-mono); }
-.lightbox-nav:hover { border-color: var(--acid); color: var(--acid); }
-.lightbox-nav.prev { left: -52px; }
-.lightbox-nav.next { right: -52px; }
-.lightbox-close { position: fixed; top: 1.5rem; right: 1.5rem; background: rgba(9,9,9,0.8); border: 1px solid var(--rule); color: var(--white-dim); width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; font-family: var(--font-mono); font-size: 0.7rem; z-index: 2010; transition: all 0.15s; }
-.lightbox-close:hover { border-color: var(--danger); color: var(--danger); }
-.lightbox-counter { position: fixed; bottom: 1.5rem; left: 50%; transform: translateX(-50%); font-family: var(--font-mono); font-size: 0.6rem; letter-spacing: 0.15em; color: var(--white-dim); text-transform: uppercase; background: rgba(9,9,9,0.8); border: 1px solid var(--rule); padding: 5px 12px; z-index: 2010; }
-.lightbox-caption { position: fixed; bottom: 3.5rem; left: 50%; transform: translateX(-50%); font-family: var(--font-mono); font-size: 0.6rem; letter-spacing: 0.1em; color: var(--acid); text-transform: uppercase; z-index: 2010; white-space: nowrap; }
-
-/* ============================================================
-   FOOTER
-   ============================================================ */
-.footer { border-top: 1px solid var(--rule); padding: 1.5rem 2.5rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
-.footer-left { font-family: var(--font-mono); font-size: 0.6rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--white-dim); display: flex; align-items: center; gap: 0.75rem; }
-.footer-left .acid { font-weight: 700; }
-.footer-right { font-family: var(--font-mono); font-size: 0.6rem; letter-spacing: 0.1em; color: rgba(200,241,53,0.3); text-transform: uppercase; }
-
-/* ============================================================
-   SCROLLBAR
-   ============================================================ */
-::-webkit-scrollbar { width: 4px; }
-::-webkit-scrollbar-track { background: var(--black); }
-::-webkit-scrollbar-thumb { background: var(--rule); }
-::-webkit-scrollbar-thumb:hover { background: var(--acid-dim); }
-
-/* ============================================================
-   RESPONSIVE
-   ============================================================ */
-@media (max-width: 768px) {
-  .topbar { padding: 0 1rem; }
-  .topbar-right .topbar-link:not(:last-child) { display: none; }
-  .hero { padding: 0 1.25rem 2.5rem; clip-path: none; }
-  .experience-section { padding: 3rem 1.25rem; }
-  .exp-summary-panel { grid-template-columns: 1fr 1fr; }
-  .projects-section { padding: 3rem 1px 4rem; }
-  .projects-grid { grid-template-columns: 1fr; gap: 1px; }
-  .modal-body { grid-template-columns: 1fr; }
-  .modal-col-left { border-right: none; border-bottom: 1px solid var(--rule); }
-  .footer { padding: 1.25rem; flex-direction: column; align-items: flex-start; }
-  .lightbox-nav.prev { left: 4px; }
-  .lightbox-nav.next { right: 4px; }
-  .section-header { margin-bottom: 0; }
-  .projects-section .section-header { padding: 2.5rem 1.25rem 2rem; margin: 0; }
-}
-@media (max-width: 600px) {
-  .screenshots-grid { grid-template-columns: 1fr; }
-  .modal-meta-grid { grid-template-columns: 1fr; }
-  .hero-meta { gap: 0.5rem; }
-  .exp-summary-panel { grid-template-columns: 1fr; }
-}
-
-/* ============================================================
-   LOAD-IN ANIMATIONS
-   ============================================================ */
-.fade-up { opacity: 0; transform: translateY(24px); animation: fade-up 0.6s cubic-bezier(0.16,1,0.3,1) forwards; }
-@keyframes fade-up { to { opacity: 1; transform: translateY(0); } }
-.fade-up:nth-child(1) { animation-delay: 0.05s; }
-.fade-up:nth-child(2) { animation-delay: 0.12s; }
-.fade-up:nth-child(3) { animation-delay: 0.19s; }
-.fade-up:nth-child(4) { animation-delay: 0.26s; }
-.fade-up:nth-child(5) { animation-delay: 0.33s; }
-.fade-up:nth-child(6) { animation-delay: 0.40s; }
-.fade-up:nth-child(7) { animation-delay: 0.47s; }
-.typewriter { overflow: hidden; white-space: nowrap; border-right: 2px solid var(--acid); width: 0; animation: type-in 1.2s steps(30, end) 0.3s forwards, blink-caret 0.8s step-end 1.5s 4; }
-@keyframes type-in { to { width: 100%; } }
-@keyframes blink-caret { 0%, 100% { border-color: var(--acid); } 50% { border-color: transparent; } }
+/* ANIMATIONS */
+.fade-up{opacity:0;transform:translateY(24px);animation:fade-up 0.6s cubic-bezier(0.16,1,0.3,1) forwards}
+@keyframes fade-up{to{opacity:1;transform:translateY(0)}}
+.fade-up:nth-child(1){animation-delay:0.05s}.fade-up:nth-child(2){animation-delay:0.12s}.fade-up:nth-child(3){animation-delay:0.19s}.fade-up:nth-child(4){animation-delay:0.26s}.fade-up:nth-child(5){animation-delay:0.33s}.fade-up:nth-child(6){animation-delay:0.40s}.fade-up:nth-child(7){animation-delay:0.47s}
+.typewriter{overflow:hidden;white-space:nowrap;border-right:2px solid var(--acid);width:0;animation:type-in 1.2s steps(30,end) 0.3s forwards,blink-caret 0.8s step-end 1.5s 4}
+@keyframes type-in{to{width:100%}}
+@keyframes blink-caret{0%,100%{border-color:var(--acid)}50%{border-color:transparent}}
 </style>
 </head>
 <body>
 
-<!-- TOPBAR -->
 <nav class="topbar">
   <div class="topbar-left">
     <div class="topbar-logo">t1ckles<span>.github.io</span></div>
     <div class="topbar-divider"></div>
-    <div class="topbar-status">
-      <div class="status-dot"></div>
-      <span>All systems operational</span>
-    </div>
+    <div class="topbar-status"><div class="status-dot"></div><span>All systems operational</span></div>
   </div>
   <div class="topbar-right">
+    <a href="#ai-ops" class="topbar-link">AI Ops</a>
     <a href="#experience" class="topbar-link">Experience</a>
     <a href="#deployments" class="topbar-link">Deployments</a>
     <a href="https://github.com/t1ckles" target="_blank" rel="noopener" class="topbar-link">GitHub</a>
   </div>
 </nav>
 
-<!-- HERO -->
-<header class="hero" style="padding-top: 48px;">
+<header class="hero" style="padding-top:48px;">
   <div class="hero-grid"></div>
   <div class="hero-corner"></div>
   <div class="hero-content">
@@ -574,165 +334,133 @@ img { display: block; max-width: 100%; }
       <span>Knowledge Systems Lead</span>
     </div>
     <div class="hero-meta fade-up" style="animation-delay:0.7s">
-      <div class="hero-stat">
-        <div class="number">07</div>
-        <div class="text">Active<br>Deployments</div>
-      </div>
-      <div class="hero-stat">
-        <div class="number">15<span style="font-size:0.9rem">+</span></div>
-        <div class="text">Years<br>Industry</div>
-      </div>
-      <div class="hero-stat">
-        <div class="number" style="color:var(--cyan)">AI</div>
-        <div class="text">Assisted<br>Development</div>
-      </div>
-      <a href="https://github.com/t1ckles" target="_blank" rel="noopener" class="hero-github-btn">
-        &#10140; View on GitHub
-      </a>
+      <div class="hero-stat"><div class="number">07</div><div class="text">Personal<br>Deployments</div></div>
+      <div class="hero-stat"><div class="number">15<span style="font-size:0.9rem">+</span></div><div class="text">Years<br>Industry</div></div>
+      <div class="hero-stat"><div class="number" style="color:var(--cyan)">AI</div><div class="text">Production<br>Systems</div></div>
+      <a href="https://github.com/t1ckles" target="_blank" rel="noopener" class="hero-github-btn">&#10140; View on GitHub</a>
     </div>
   </div>
 </header>
 
-<!-- EXPERIENCE SECTION -->
+<section class="ai-ops-section" id="ai-ops">
+  <div class="ai-ops-inner">
+    <div class="section-header cyan-accent" style="margin-bottom:2rem;">
+      <h2 class="section-title">AI Operations</h2>
+      <div class="section-count" style="color:var(--cyan);">PRODUCTION // TECHSMITH CORP</div>
+    </div>
+    <div class="ai-disclosure">
+      <div class="ai-disclosure-icon">// AI COLLAB</div>
+      <div class="ai-disclosure-text">
+        <strong>All work on this portfolio &mdash; professional and personal &mdash; was built in active collaboration with AI.</strong>
+        The problems identified, systems designed, knowledge encoded, and tools shipped are mine.
+        AI is the accelerant. This is the work of someone who knows how to use the tools.
+      </div>
+    </div>
+    <div class="ai-stats-strip">
+      <div class="ai-stat-cell"><div class="ai-stat-number">10K<span style="font-size:1.2rem">+</span></div><div class="ai-stat-label">Monthly Automated<br>Conversations</div></div>
+      <div class="ai-stat-cell"><div class="ai-stat-number">2&times;</div><div class="ai-stat-label">Projected Annual Target<br>Exceeded YTD</div></div>
+      <div class="ai-stat-cell"><div class="ai-stat-number">~15</div><div class="ai-stat-label">Auto Assist<br>Procedures Shipped</div></div>
+      <div class="ai-stat-cell"><div class="ai-stat-number">15<span style="font-size:1.2rem">yr</span></div><div class="ai-stat-label">Institutional Knowledge<br>Encoded into AI Systems</div></div>
+    </div>
+    <div class="ai-cards-grid">
+      <div class="ai-card"><div class="ai-card-accent"></div><div class="ai-card-inner">
+        <div class="ai-card-tag">// INITIATIVE 01</div>
+        <div class="ai-card-title">Internal Agent Copilot</div>
+        <div class="ai-card-lead">AI guidance grounded exclusively in TechSmith documentation and a curated macro catalog.</div>
+        <div class="ai-card-desc">Provides structured troubleshooting steps, context-aware macro recommendations, and clear escalation signals &mdash; without inventing unsupported actions or bluffing past its knowledge boundary. Agents get faster, documentation-grounded guidance; variance between agents drops.</div>
+        <div class="ai-card-metrics"><span class="ai-metric">Guardrailed AI Behavior</span><span class="ai-metric">Macro Recommendation Logic</span><span class="ai-metric">Escalation-Aware</span><span class="ai-metric">Doc-Grounded Only</span></div>
+      </div></div>
+      <div class="ai-card"><div class="ai-card-accent"></div><div class="ai-card-inner">
+        <div class="ai-card-tag">// INITIATIVE 02</div>
+        <div class="ai-card-title">Customer-Facing Bots</div>
+        <div class="ai-card-lead">High-volume, high-friction workflows automated end-to-end &mdash; or handed off cleanly. No dead ends by design.</div>
+        <div class="ai-card-desc">Built from real Help Center search patterns and ticket data, targeting license activation and key recovery. Consistently outpacing initial volume projections, handling tens of thousands of conversations annually with measurable capacity freed for higher-value work.</div>
+        <div class="ai-card-metrics"><span class="ai-metric">Thousands of Conversations / Month</span><span class="ai-metric">2&times; Projected Target Exceeded</span><span class="ai-metric">Clean Human Handoff</span></div>
+      </div></div>
+      <div class="ai-card"><div class="ai-card-accent"></div><div class="ai-card-inner">
+        <div class="ai-card-tag">// INITIATIVE 03</div>
+        <div class="ai-card-title">Macro Catalog &amp; Knowledge Backbone</div>
+        <div class="ai-card-lead">15+ years of institutional &ldquo;ask Robert&rdquo; tribal knowledge encoded into a structured, AI-consumable asset.</div>
+        <div class="ai-card-desc">Full Zendesk macro library documented with consistent &ldquo;When to Use&rdquo; rules and supporting documentation links. Serves dual purpose: easier manual selection for agents, and structured input for the Copilot&rsquo;s recommendation logic.</div>
+        <div class="ai-card-metrics"><span class="ai-metric">15+ Yrs Knowledge Encoded</span><span class="ai-metric">When-to-Use Rules</span><span class="ai-metric">AI-Consumable Format</span></div>
+      </div></div>
+      <div class="ai-card"><div class="ai-card-accent"></div><div class="ai-card-inner">
+        <div class="ai-card-tag">// INITIATIVE 04</div>
+        <div class="ai-card-title">Auto Assist Procedures</div>
+        <div class="ai-card-lead">Agent-facing AI-backed flows that bring newer and BPO agents closer to expert performance.</div>
+        <div class="ai-card-desc">~15 procedures built inside Zendesk, walking agents step-by-step through complex multi-branch scenarios. Encodes best practices and policy so complex cases are handled consistently &mdash; reducing reliance on senior institutional memory.</div>
+        <div class="ai-card-metrics"><span class="ai-metric">~15 Procedures</span><span class="ai-metric">BPO + Stateside Coverage</span><span class="ai-metric">Policy-Encoded Flows</span></div>
+      </div></div>
+    </div>
+    <div class="ai-skills-strip">
+      <div class="ai-skills-label">Capabilities</div>
+      <div class="ai-skills-tags">
+        <span class="ai-skill-tag">AI Systems Design</span><span class="ai-skill-tag">Knowledge Engineering</span><span class="ai-skill-tag">Prompt Architecture</span><span class="ai-skill-tag">Guardrail Design</span><span class="ai-skill-tag">Bot Flow Design</span><span class="ai-skill-tag">Zendesk AI</span><span class="ai-skill-tag">Auto Assist</span><span class="ai-skill-tag">ROI Modeling</span><span class="ai-skill-tag">Data-Driven Ops</span><span class="ai-skill-tag">Escalation Architecture</span><span class="ai-skill-tag">Agent Enablement</span><span class="ai-skill-tag">Executive Communication</span><span class="ai-skill-tag">Help Center Governance</span><span class="ai-skill-tag">Support Operations</span>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="experience-section" id="experience">
   <div class="experience-inner">
-
     <div class="section-header" style="margin-bottom:2rem;">
       <h2 class="section-title">Operator Record</h2>
       <div class="section-count">15 YRS // TECHSMITH CORPORATION</div>
     </div>
-
-    <!-- AI Disclosure -->
-    <div class="ai-disclosure">
-      <div class="ai-disclosure-icon">// AI COLLAB</div>
-      <div class="ai-disclosure-text">
-        <strong>All projects on this portfolio were built in active collaboration with AI.</strong>
-        The problems identified, solutions designed, systems directed, and tools shipped are mine —
-        AI is the accelerant, not the author. This is the work of someone who knows how to use the tools.
-      </div>
-    </div>
-
-    <!-- Summary Stats -->
     <div class="exp-summary-panel">
-      <div class="exp-summary-cell">
-        <div class="exp-summary-label">Employer</div>
-        <div class="exp-summary-value" style="font-size:1.2rem; color: var(--white);">TechSmith Corporation</div>
-        <div class="exp-summary-sub">Okemos, MI // Screen Capture &amp; Video Software</div>
+      <div class="exp-summary-cell"><div class="exp-summary-label">Employer</div><div class="exp-summary-value" style="font-size:1.2rem;color:var(--white);">TechSmith Corporation</div><div class="exp-summary-sub">Okemos, MI // Screen Capture &amp; Video Software</div></div>
+      <div class="exp-summary-cell"><div class="exp-summary-label">Total Tenure</div><div class="exp-summary-value">15 YRS</div><div class="exp-summary-sub">2011 &ndash; Present</div></div>
+      <div class="exp-summary-cell"><div class="exp-summary-label">Current Role</div><div class="exp-summary-value" style="font-size:1rem;color:var(--acid);">Technical Trainer &amp; Project Coordinator</div><div class="exp-summary-sub">2023 &ndash; Present</div></div>
+      <div class="exp-summary-cell"><div class="exp-summary-label">Products Supported</div><div class="exp-summary-value" style="font-size:1rem;color:var(--white);">Camtasia &middot; Snagit &middot; Audiate</div><div class="exp-summary-sub">Screencast + additional TechSmith services</div></div>
+    </div>
+    <div class="exp-timeline">
+      <div class="exp-entry" onclick="openExpModal('trainer')">
+        <div class="exp-entry-card">
+          <div class="exp-entry-left"><div class="exp-role">Technical Trainer &amp; Project Coordinator</div><div class="exp-company-line">TechSmith Corporation</div></div>
+          <div class="exp-entry-right"><div class="exp-tenure">2023 &ndash; PRESENT</div><div class="exp-expand-hint">View details &#10140;</div></div>
+        </div>
       </div>
-      <div class="exp-summary-cell">
-        <div class="exp-summary-label">Total Tenure</div>
-        <div class="exp-summary-value">15 YRS</div>
-        <div class="exp-summary-sub">2011 – Present</div>
+      <div class="exp-entry" onclick="openExpModal('social')">
+        <div class="exp-entry-card">
+          <div class="exp-entry-left"><div class="exp-role">Social Media Support Specialist</div><div class="exp-company-line">TechSmith Corporation</div></div>
+          <div class="exp-entry-right"><div class="exp-tenure">2016 &ndash; 2023</div><div class="exp-expand-hint">View details &#10140;</div></div>
+        </div>
       </div>
-      <div class="exp-summary-cell">
-        <div class="exp-summary-label">Current Role</div>
-        <div class="exp-summary-value" style="font-size:1rem; color: var(--acid);">Technical Trainer &amp; Project Coordinator</div>
-        <div class="exp-summary-sub">2023 – Present</div>
-      </div>
-      <div class="exp-summary-cell">
-        <div class="exp-summary-label">Products Supported</div>
-        <div class="exp-summary-value" style="font-size:1rem; color: var(--white);">Camtasia · Snagit · Audiate</div>
-        <div class="exp-summary-sub">Screencast + additional TechSmith services</div>
+      <div class="exp-entry" onclick="openExpModal('support')">
+        <div class="exp-entry-card">
+          <div class="exp-entry-left"><div class="exp-role">Technical Support Specialist</div><div class="exp-company-line">TechSmith Corporation</div></div>
+          <div class="exp-entry-right"><div class="exp-tenure">2011 &ndash; 2016</div><div class="exp-expand-hint">View details &#10140;</div></div>
+        </div>
       </div>
     </div>
-
-    <!-- Timeline -->
-    <div class="exp-timeline">
-
-      <div class="exp-entry">
-        <div class="exp-entry-header">
-          <div class="exp-role">Technical Trainer &amp; Project Coordinator</div>
-          <div class="exp-tenure">2023 – PRESENT</div>
-        </div>
-        <div class="exp-company">TechSmith Corporation</div>
-        <ul class="exp-bullets">
-          <li>Established a formal senior escalation framework routing complex unresolved issues for senior-level technical guidance after initial review — a structured model that improved resolution consistency across both Stateside and Manila support centers.</li>
-          <li>Developed and implemented a peer coaching model using live screen sharing, narrated troubleshooting, and collaborative review to strengthen agent performance in real time.</li>
-          <li>Aligned ticket scoring standards between Stateside and Manila support teams through ongoing quality calibration work, improving cross-site consistency.</li>
-          <li>Supported weekly TechSmith training webinars as a live technical resource, answering attendee questions in Zoom Q&amp;A sessions during active sessions.</li>
-          <li>Provided internal coaching and communication guidance for agents navigating difficult or sensitive customer interactions.</li>
-        </ul>
-      </div>
-
-      <div class="exp-entry">
-        <div class="exp-entry-header">
-          <div class="exp-role">Social Media Support Specialist</div>
-          <div class="exp-tenure">2016 – 2023</div>
-        </div>
-        <div class="exp-company">TechSmith Corporation</div>
-        <ul class="exp-bullets">
-          <li>Owned Technical Support and Customer Care Help Center content end-to-end — approximately 4,400 translated articles and around 1,100 unique articles under active governance.</li>
-          <li>Created, edited, archived, and maintained help center documentation using Zendesk's editor, HTML, and CSS; improved content clarity, usability, and presentation quality at scale.</li>
-          <li>Served as the primary point of contact for Technical Support redirect management, coordinating updates through Smart Redirect Manager to keep users on accurate, current content.</li>
-          <li>Managed detractor follow-up by reviewing neutral and negative post-case survey responses and conducting direct outreach to recover customer trust and close feedback loops.</li>
-        </ul>
-      </div>
-
-      <div class="exp-entry">
-        <div class="exp-entry-header">
-          <div class="exp-role">Technical Support Specialist</div>
-          <div class="exp-tenure">2011 – 2016</div>
-        </div>
-        <div class="exp-company">TechSmith Corporation</div>
-        <ul class="exp-bullets">
-          <li>Served as a trusted escalation resource for complex technical support issues across Camtasia, Snagit, Audiate, Screencast, and other TechSmith products and services.</li>
-          <li>Delivered advanced technical support ranging from usability guidance to deep root-cause investigation, including review of crash dumps and Process Monitor logs.</li>
-          <li>Supported customers through technically complex or emotionally difficult situations with calm, clear communication and structured troubleshooting discipline.</li>
-        </ul>
-      </div>
-
-    </div><!-- /exp-timeline -->
-
-    <!-- Skills Strip -->
     <div class="exp-skills-strip">
       <div class="exp-skills-label">Core Competencies</div>
       <div class="exp-skills-tags">
-        <span class="exp-skill-tag">Technical Support Leadership</span>
-        <span class="exp-skill-tag">Escalation Management</span>
-        <span class="exp-skill-tag">Help Center Operations</span>
-        <span class="exp-skill-tag">Knowledge Base Governance</span>
-        <span class="exp-skill-tag">Zendesk Administration</span>
-        <span class="exp-skill-tag">Documentation Quality</span>
-        <span class="exp-skill-tag">QA Calibration</span>
-        <span class="exp-skill-tag">Customer Recovery</span>
-        <span class="exp-skill-tag">Peer Coaching</span>
-        <span class="exp-skill-tag">Webinar Support</span>
-        <span class="exp-skill-tag">HTML / CSS</span>
-        <span class="exp-skill-tag">De-escalation</span>
-        <span class="exp-skill-tag">Cross-functional Collaboration</span>
-        <span class="exp-skill-tag">Process Improvement</span>
-        <span class="exp-skill-tag">AI-Assisted Development</span>
-        <span class="exp-skill-tag">Systems Thinking</span>
+        <span class="exp-skill-tag">Technical Support Leadership</span><span class="exp-skill-tag">Escalation Management</span><span class="exp-skill-tag">Help Center Operations</span><span class="exp-skill-tag">Knowledge Base Governance</span><span class="exp-skill-tag">Zendesk Administration</span><span class="exp-skill-tag">Documentation Quality</span><span class="exp-skill-tag">QA Calibration</span><span class="exp-skill-tag">Customer Recovery</span><span class="exp-skill-tag">Peer Coaching</span><span class="exp-skill-tag">Webinar Support</span><span class="exp-skill-tag">HTML / CSS</span><span class="exp-skill-tag">De-escalation</span><span class="exp-skill-tag">Cross-functional Collaboration</span><span class="exp-skill-tag">Process Improvement</span><span class="exp-skill-tag">AI-Assisted Development</span><span class="exp-skill-tag">Systems Thinking</span>
       </div>
     </div>
-
   </div>
 </section>
 
-<!-- PROJECTS SECTION -->
 <main class="projects-section" id="deployments">
   <div class="section-header">
-    <h2 class="section-title">Active Deployments</h2>
+    <h2 class="section-title">Personal Deployments</h2>
     <div class="section-count">07 / 07 ONLINE</div>
   </div>
+  <p class="projects-intro">Built in active collaboration with AI &mdash; each tool below started as a real problem worth solving. Deployed on GitHub Pages, maintained independently, and actively used.</p>
   <div class="projects-grid" id="projects-grid"></div>
 </main>
 
-<!-- FOOTER -->
 <footer class="footer">
   <div class="footer-left">
-    <span class="acid">t1ckles</span>
-    <span>//</span>
-    <span>github.io/t1ckles</span>
-    <span>//</span>
-    <span>AI Support Operations &amp; Knowledge Systems</span>
+    <span class="acid">t1ckles</span><span>//</span><span>github.io/t1ckles</span><span>//</span><span>AI Support Operations &amp; Knowledge Systems</span><span>//</span>
+    <a href="https://github.com/t1ckles" target="_blank" rel="noopener">GitHub</a><span>//</span>
+    <a href="https://www.linkedin.com/in/robert-risdon/" target="_blank" rel="noopener">LinkedIn</a>
   </div>
-  <div class="footer-right">
-    Human-directed · AI-assisted // <span id="year"></span>
-  </div>
+  <div class="footer-right">Human-directed &middot; AI-assisted // <span id="year"></span></div>
 </footer>
 
-<!-- MODAL -->
+<!-- PROJECT MODAL -->
 <div class="modal-overlay" id="modal-overlay" role="dialog" aria-modal="true">
   <div class="modal-backdrop" id="modal-backdrop"></div>
   <div class="modal" id="modal">
@@ -744,7 +472,7 @@ img { display: block; max-width: 100%; }
         <div class="modal-subtitle" id="modal-subtitle"></div>
       </div>
       <div class="modal-header-right">
-        <button class="modal-close" id="modal-close" aria-label="Close">✕</button>
+        <button class="modal-close" id="modal-close" aria-label="Close">&#10005;</button>
         <div class="access-stamp">ACCESS GRANTED</div>
         <div id="modal-badge-container"></div>
       </div>
@@ -754,35 +482,41 @@ img { display: block; max-width: 100%; }
         <div class="modal-section-label">Mission Briefing</div>
         <p class="modal-desc" id="modal-desc"></p>
         <div class="modal-meta-grid" id="modal-meta-grid"></div>
-        <div class="modal-tags-section">
-          <div class="modal-section-label">Systems / Tags</div>
-          <div class="modal-tags" id="modal-tags"></div>
-        </div>
-        <a href="#" target="_blank" rel="noopener" id="modal-launch-btn" class="modal-launch-btn">
-          &#10140;&nbsp; Launch Deployment
-        </a>
+        <div class="modal-tags-section"><div class="modal-section-label">Systems / Tags</div><div class="modal-tags" id="modal-tags"></div></div>
+        <a href="#" target="_blank" rel="noopener" id="modal-launch-btn" class="modal-launch-btn">&#10140;&nbsp; Launch Deployment</a>
       </div>
       <div class="modal-col-right">
         <div class="modal-section-label">Visual Intelligence</div>
         <div class="screenshots-grid" id="modal-screenshots"></div>
-        <div class="label dim" id="modal-screenshot-hint" style="font-size:0.55rem;line-height:1.6;">
-          // Click any image to open full view<br>
-          // Keyboard: ESC to close · ← → to navigate
-        </div>
+        <div class="dim" style="font-family:var(--font-mono);font-size:0.55rem;line-height:1.6;">// Click any image to open full view<br>// Keyboard: ESC to close &middot; &larr; &rarr; to navigate</div>
       </div>
     </div>
   </div>
 </div>
 
+<!-- EXPERIENCE MODAL -->
+<div class="exp-modal-overlay" id="exp-modal-overlay" role="dialog" aria-modal="true">
+  <div class="exp-modal-backdrop" id="exp-modal-backdrop"></div>
+  <div class="exp-modal" id="exp-modal">
+    <div class="exp-modal-accent"></div>
+    <div class="exp-modal-header">
+      <div>
+        <div class="exp-modal-eyebrow" id="exp-modal-eyebrow"></div>
+        <div class="exp-modal-title" id="exp-modal-title"></div>
+        <div class="exp-modal-meta" id="exp-modal-meta"></div>
+      </div>
+      <button class="exp-modal-close" id="exp-modal-close" aria-label="Close">&#10005;</button>
+    </div>
+    <div class="exp-modal-body" id="exp-modal-body"></div>
+  </div>
+</div>
+
 <!-- LIGHTBOX -->
 <div class="lightbox" id="lightbox">
-  <button class="lightbox-close" id="lb-close">✕</button>
+  <button class="lightbox-close" id="lb-close">&#10005;</button>
   <div class="lightbox-inner">
     <button class="lightbox-nav prev" id="lb-prev">&#8592;</button>
-    <div class="lightbox-image-wrap" id="lb-image-wrap">
-      <div class="vignette"></div>
-      <img id="lb-img" src="" alt="">
-    </div>
+    <div class="lightbox-image-wrap" id="lb-image-wrap"><div class="vignette"></div><img id="lb-img" src="" alt=""></div>
     <button class="lightbox-nav next" id="lb-next">&#8594;</button>
   </div>
   <div class="lightbox-caption" id="lb-caption"></div>
@@ -790,174 +524,100 @@ img { display: block; max-width: 100%; }
 </div>
 
 <script>
-/* ============================================================
-   PROJECT DATA
-   Add new projects by appending objects to this array.
-   screenshots: [{ src: 'images/file.png', caption: 'Description' }]
-   Leave screenshots: [] for placeholder tiles.
-   ============================================================ */
+const EXP_ROLES = {
+  trainer: {
+    eyebrow: '// TECHSMITH CORPORATION \u00b7 CURRENT ROLE',
+    title: 'Technical Trainer & Project Coordinator',
+    meta: '2023 \u2013 Present \u00b7 Okemos, MI',
+    sections: [
+      { label: 'AI Systems & Projects', bullets: [
+        'Designed and shipped an internal Agent Copilot grounded exclusively in TechSmith documentation and a curated macro catalog \u2014 providing structured troubleshooting steps, context-aware macro recommendations, and clear escalation signals without inventing unsupported actions.',
+        'Built and launched multiple customer-facing bots for high-volume workflows including license activation and key recovery \u2014 each designed to resolve end-to-end or hand off cleanly to a human agent with collected context.',
+        'Constructed a comprehensive macro catalog covering the full Zendesk macro library with consistent \u201cWhen to Use\u201d rules and documentation links \u2014 encoding 15+ years of institutional knowledge into a durable, AI-consumable asset.',
+        'Built approximately 15 Auto Assist procedures inside Zendesk as agent-facing AI-backed flows, walking agents step-by-step through complex multi-branch scenarios.',
+      ]},
+      { label: 'Training & Quality', bullets: [
+        'Established a formal senior escalation framework routing complex unresolved issues for senior-level guidance after initial review \u2014 improving resolution consistency across both Stateside and Manila support centers.',
+        'Developed a peer coaching model using live screen sharing, narrated troubleshooting, and collaborative review to strengthen agent performance in real time.',
+        'Aligned ticket scoring standards between Stateside and Manila support teams through ongoing quality calibration work.',
+        'Supported weekly TechSmith training webinars as a live technical resource, answering attendee questions in Zoom Q&A during active sessions.',
+        'Provided internal coaching and communication guidance for agents navigating difficult or sensitive customer interactions.',
+      ]},
+    ],
+    tags: ['AI Systems Design','Zendesk AI','Auto Assist','Agent Copilot','QA Calibration','Peer Coaching','Escalation Management','Training','BPO Coordination']
+  },
+  social: {
+    eyebrow: '// TECHSMITH CORPORATION',
+    title: 'Social Media Support Specialist',
+    meta: '2016 \u2013 2023 \u00b7 Okemos, MI',
+    sections: [
+      { label: 'Help Center Ownership', bullets: [
+        'Owned Technical Support and Customer Care Help Center content end-to-end \u2014 approximately 4,400 translated articles and around 1,100 unique articles under active governance.',
+        'Created, edited, archived, and maintained help center documentation using Zendesk\'s editor, HTML, and CSS; improved content clarity, usability, and presentation quality at scale.',
+        'Served as the primary point of contact for Technical Support redirect management, coordinating updates through Smart Redirect Manager to keep users on accurate, current content.',
+      ]},
+      { label: 'Customer Recovery & Feedback', bullets: [
+        'Managed detractor follow-up by reviewing neutral and negative post-case survey responses and conducting direct outreach to recover customer trust and close feedback loops.',
+        'Maintained ongoing oversight of Help Center performance signals, identifying content gaps and prioritizing updates based on search data and ticket patterns.',
+      ]},
+    ],
+    tags: ['Help Center Governance','Zendesk Guide','HTML / CSS','Content Strategy','Customer Recovery','Redirect Management','Documentation Quality']
+  },
+  support: {
+    eyebrow: '// TECHSMITH CORPORATION',
+    title: 'Technical Support Specialist',
+    meta: '2011 \u2013 2016 \u00b7 Okemos, MI',
+    sections: [
+      { label: 'Technical Support', bullets: [
+        'Served as a trusted escalation resource for complex technical support issues across Camtasia, Snagit, Audiate, Screencast, and other TechSmith products and services.',
+        'Delivered advanced technical support ranging from usability guidance to deep root-cause investigation, including review of crash dumps and Process Monitor logs.',
+        'Supported customers through technically complex or emotionally difficult situations with calm, clear communication and structured troubleshooting discipline.',
+      ]},
+    ],
+    tags: ['Technical Support','Escalation','Crash Analysis','Process Monitor','Camtasia','Snagit','Audiate','De-escalation','Root Cause Analysis']
+  }
+};
+
+function openExpModal(roleKey) {
+  const role = EXP_ROLES[roleKey];
+  if (!role) return;
+  document.getElementById('exp-modal-eyebrow').textContent = role.eyebrow;
+  document.getElementById('exp-modal-title').textContent = role.title;
+  document.getElementById('exp-modal-meta').textContent = role.meta;
+  let html = '';
+  role.sections.forEach((sec, i) => {
+    if (i > 0) html += '<div class="exp-modal-divider"></div>';
+    html += '<div class="exp-modal-section"><div class="exp-modal-section-label">' + sec.label + '</div><ul class="exp-modal-bullets">';
+    sec.bullets.forEach(b => { html += '<li>' + b + '</li>'; });
+    html += '</ul></div>';
+  });
+  html += '<div class="exp-modal-divider"></div><div class="exp-modal-section"><div class="exp-modal-section-label">Skills &amp; Tools</div><div class="exp-modal-tags">';
+  role.tags.forEach(t => { html += '<span class="exp-modal-tag">' + t + '</span>'; });
+  html += '</div></div>';
+  document.getElementById('exp-modal-body').innerHTML = html;
+  document.getElementById('exp-modal-overlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+  setTimeout(() => document.getElementById('exp-modal-close').focus(), 50);
+}
+function closeExpModal() {
+  document.getElementById('exp-modal-overlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+document.getElementById('exp-modal-close').addEventListener('click', closeExpModal);
+document.getElementById('exp-modal-backdrop').addEventListener('click', closeExpModal);
+
 const PROJECTS = [
-  {
-    codename:  'BEACON',
-    title:     'UEE Ship Registry',
-    subtitle:  'Star Citizen // Naval Intelligence Division',
-    status:    'deployed',
-    version:   'v0.5.1',
-    url:       'https://t1ckles.github.io/beacon/',
-    desc:      'A living database of 245 vessels spanning 19 manufacturers across the United Earth Empire. Beacon delivers military-grade filtering by class, crew, cargo, and price — with hangar import via HangarXplore JSON, personal fleet valuation, and a full comparison engine. Built for pilots who demand precision over pagination.',
-    tags:      ['Star Citizen','Ship Database','Fleet Builder','JSON Import','Filtering','Comparison'],
-    meta: [
-      { label: 'Version',       value: 'v0.5.1 "BEACON"' },
-      { label: 'Vessels',       value: '245' },
-      { label: 'Manufacturers', value: '19' },
-      { label: 'Ship Classes',  value: '65' },
-    ],
-    screenshots: [
-      { src: 'screenshots/beacon-01.png', caption: 'Splash screen — UEE Naval Intelligence classified database entry with vessel and manufacturer counts.' },
-      { src: 'screenshots/beacon-02.png', caption: 'HangarXplore JSON sync modal for importing personal fleet data into the registry.' },
-      { src: 'screenshots/beacon-03.png', caption: 'Full ship database grid view with flight-ready filtering and multi-attribute sort.' },
-      { src: 'screenshots/beacon-04.png', caption: 'Drake Clipper detail panel showing class, stats, armament, and defenses.' },
-    ],
-  },
-  {
-    codename:  'MERIDIAN',
-    title:     'Command Compass',
-    subtitle:  'HCS VoicePack // Neural Command Interface',
-    status:    'deployed',
-    version:   'v0.3.0',
-    url:       'https://t1ckles.github.io/meridian/',
-    desc:      'Command intelligence for HCS VoicePack operators. Meridian indexes 745 commands across 2,580 mapped phrases and 18 categories, surfacing the exact syntax your crew needs — by character, by category, or by raw search. No more digging through documentation mid-flight.',
-    tags:      ['HCS VoicePack','Voice Commands','Search','Database','Star Citizen'],
-    meta: [
-      { label: 'Version',    value: 'v0.3.0 "MERIDIAN"' },
-      { label: 'Commands',   value: '745' },
-      { label: 'Phrases',    value: '2,580' },
-      { label: 'Categories', value: '18' },
-    ],
-    screenshots: [
-      { src: 'screenshots/meridian-01.png', caption: 'All Commands view — full 745-command grid sorted by name across all characters.' },
-      { src: 'screenshots/meridian-02.png', caption: 'Raw search for "take off" returning a single precise result with phrase matches.' },
-      { src: 'screenshots/meridian-03.png', caption: 'By Character view — commands grouped by crew member with category and phrase previews.' },
-      { src: 'screenshots/meridian-04.png', caption: 'Undocking command detail modal showing voice trigger phrases and command metadata.' },
-    ],
-  },
-  {
-    codename:  'AZIMUTH',
-    title:     'Void Command',
-    subtitle:  'Browser RPG // Deep Space Operations',
-    status:    'active',
-    version:   'v1.0.0',
-    url:       'https://t1ckles.github.io/azimuth/',
-    desc:      'A procedural space survival RPG running entirely in the browser — no install, no server. Players navigate a terminal interface through derelict stations, hostile contacts, and deep-space anomalies. An admin console lets operators inject custom lore, ships, enemies, and commands directly into the world fabric.',
-    tags:      ['Browser RPG','Procedural','Text Terminal','World Builder','Admin Console','Sci-Fi'],
-    meta: [
-      { label: 'Version', value: 'v1.0.0' },
-      { label: 'Engine',  value: 'Browser-Native' },
-      { label: 'Mode',    value: 'Single Player' },
-      { label: 'Storage', value: 'LocalStorage JSON' },
-    ],
-    screenshots: [
-      { src: 'screenshots/azimuth-01.png', caption: 'Fresh session start — Pressurisation Chamber entry point with command reference and right-panel scan data.' },
-      { src: 'screenshots/azimuth-02.png', caption: 'Early exploration — help reference expanded mid-session in the Pressurisation Chamber.' },
-      { src: 'screenshots/azimuth-03.png', caption: 'Deep run — multiple rooms explored, hazard encountered, log fragment and data fragment recovered.' },
-      { src: 'screenshots/azimuth-04.png', caption: 'Extended session — Stillborn Quarters reached, full status panel visible with rooms visited and cargo count.' },
-    ],
-  },
-  {
-    codename:  'PERIHELION',
-    title:     'Fleet Registry',
-    subtitle:  'UEE Naval Command // Classified Manifest',
-    status:    'deployed',
-    version:   'v0.1.4',
-    url:       'https://t1ckles.github.io/perihelion/',
-    desc:      'Personal fleet command infrastructure for Star Citizen pilots. Import your HangarXplore manifest, assign vessels to wings and squadrons, log acquisition notes, and track pledge value across your entire operation. Classified-document aesthetic, locally stored, always ready for inspection.',
-    tags:      ['Star Citizen','Fleet Management','Wings','Squadrons','Ship Log','JSON Import'],
-    meta: [
-      { label: 'Version', value: 'v0.1.4' },
-      { label: 'Import',  value: 'HangarXplore JSON' },
-      { label: 'Storage', value: 'Local Registry' },
-      { label: 'Org',     value: 'UEE Naval Command' },
-    ],
-    screenshots: [
-      { src: 'screenshots/perihelion-01.png', caption: 'Splash screen — UEE Naval Command classified manifest loading sequence.' },
-      { src: 'screenshots/perihelion-02.png', caption: 'Ship database grid view with flight-ready status filtering and manufacturer grouping.' },
-      { src: 'screenshots/perihelion-03.png', caption: 'Fleet import modal with HangarXplore JSON drop zone and overwrite warning.' },
-      { src: 'screenshots/perihelion-04.png', caption: 'Idris-M detail panel showing registry data, armament, and carrier capability.' },
-    ],
-  },
-  {
-    codename:  'ISOLANI',
-    title:     'Deep Survey Terminal',
-    subtitle:  'Veydrite Assayer\'s Guild // Mining RPG',
-    status:    'dev',
-    version:   'v0.2.0-dev',
-    url:       'https://t1ckles.github.io/isolani/',
-    desc:      'A browser-native mining and trading RPG set in the Veydrite Assayer\'s Guild Network. Players manage hull integrity, fuel, and cargo contracts across procedurally generated survey runs — with save slots, persistent guild standing, and a text-terminal interface that makes spreadsheet gaming feel like deep space.',
-    tags:      ['Browser RPG','Mining','Trading','Text Terminal','Guild Network','Procedural'],
-    meta: [
-      { label: 'Version',    value: 'v0.2.0-dev' },
-      { label: 'Status',     value: 'In Development' },
-      { label: 'Save Slots', value: '3' },
-      { label: 'Genre',      value: 'Terminal RPG' },
-    ],
-    screenshots: [
-      { src: 'screenshots/isolani-01.png', caption: 'Title screen — Deep Survey Terminal boot sequence with save slot selection.' },
-      { src: 'screenshots/isolani-02.png', caption: 'Pilot record select — load screen showing active save with vessel and day counter.' },
-      { src: 'screenshots/isolani-03.png', caption: 'Active session — welcome back screen with vessel status and suggested actions.' },
-      { src: 'screenshots/isolani-04.png', caption: 'Full command reference — navigation, sensors, station, field, and ship command listing.' },
-    ],
-  },
-  {
-    codename:  'NADIR',
-    title:     'SGS Taipings Guide',
-    subtitle:  'Avalon Digital // Strategy Doctrine',
-    status:    'deployed',
-    version:   'v1.5 Engine',
-    url:       'https://t1ckles.github.io/nadir/',
-    desc:      'Eighteen sections of operational doctrine covering both sides of the Taiping Rebellion, 1851–1864. Nadir breaks down the SGS Engine v1.5 loyalty system, Imperial Concern mechanics, unit rosters, PBEM strategy, and historical leader deployments — the definitive community reference for Avalon Digital\'s most complex title.',
-    tags:      ['Strategy Guide','Wargame','SGS Engine','PBEM','Historical','Taiping Rebellion'],
-    meta: [
-      { label: 'Sections', value: '18' },
-      { label: 'Engine',   value: 'SGS v1.5' },
-      { label: 'Scope',    value: '1851–1864' },
-      { label: 'Sides',    value: 'Taiping & Qing' },
-    ],
-    screenshots: [
-      { src: 'screenshots/nadir-01.png', caption: 'Cover page — SGS Taipings comprehensive strategy guide title and section index.' },
-      { src: 'screenshots/nadir-02.png', caption: 'Section 03 — Turn Structure & Phase Guide with all ten phases enumerated.' },
-      { src: 'screenshots/nadir-03.png', caption: 'Section 09 — Economy & Income with faction-specific priority callout boxes.' },
-      { src: 'screenshots/nadir-04.png', caption: 'Section 18 — Glossary with full two-column term reference table.' },
-    ],
-  },
-  {
-    codename:  'ARNETH',
-    title:     'The Long March',
-    subtitle:  'Original Setting // Lore Compendium',
-    status:    'active',
-    version:   'Ongoing',
-    url:       'https://t1ckles.github.io/arneth/',
-    desc:      'A structured lore compendium for an original fantasy world in active development. Arneth documents history, regional geography, faiths, factions, darkness systems, and a growing cast of characters — serving as both a writer\'s reference and a reader\'s entry point into The Long March setting.',
-    tags:      ['Worldbuilding','Lore','Fantasy','Factions','Characters','Original IP'],
-    meta: [
-      { label: 'Version',  value: 'Ongoing' },
-      { label: 'Sections', value: 'History · World · Faiths' },
-      { label: 'Darkness', value: 'Documented' },
-      { label: 'Type',     value: 'Lore Primer' },
-    ],
-    screenshots: [
-      { src: 'screenshots/arneth-01.png', caption: 'Hero splash — The World of Arneth title screen with coin relief background.' },
-      { src: 'screenshots/arneth-02.png', caption: 'Geography section — The Known World map with six-continent overview.' },
-      { src: 'screenshots/arneth-03.png', caption: 'Saints of Arneth — character grid with authenticity ratings and faction tags.' },
-      { src: 'screenshots/arneth-04.png', caption: 'Starting Regions — illustrated region entries with tension hooks and faction tags.' },
-    ],
-  },
+  { codename:'BEACON', title:'UEE Ship Registry', subtitle:'Star Citizen // Naval Intelligence Division', status:'deployed', version:'v0.5.1', url:'https://t1ckles.github.io/beacon/', desc:'A living database of 245 vessels spanning 19 manufacturers across the United Earth Empire. Beacon delivers military-grade filtering by class, crew, cargo, and price \u2014 with hangar import via HangarXplore JSON, personal fleet valuation, and a full comparison engine. Built for pilots who demand precision over pagination.', tags:['Star Citizen','Ship Database','Fleet Builder','JSON Import','Filtering','Comparison'], meta:[{label:'Version',value:'v0.5.1 \u201cBEACON\u201d'},{label:'Vessels',value:'245'},{label:'Manufacturers',value:'19'},{label:'Ship Classes',value:'65'}], screenshots:[{src:'screenshots/beacon-01.png',caption:'Splash screen \u2014 UEE Naval Intelligence classified database entry with vessel and manufacturer counts.'},{src:'screenshots/beacon-02.png',caption:'HangarXplore JSON sync modal for importing personal fleet data into the registry.'},{src:'screenshots/beacon-03.png',caption:'Full ship database grid view with flight-ready filtering and multi-attribute sort.'},{src:'screenshots/beacon-04.png',caption:'Drake Clipper detail panel showing class, stats, armament, and defenses.'}] },
+  { codename:'MERIDIAN', title:'Command Compass', subtitle:'HCS VoicePack // Neural Command Interface', status:'deployed', version:'v0.3.0', url:'https://t1ckles.github.io/meridian/', desc:'Command intelligence for HCS VoicePack operators. Meridian indexes 745 commands across 2,580 mapped phrases and 18 categories, surfacing the exact syntax your crew needs \u2014 by character, by category, or by raw search. No more digging through documentation mid-flight.', tags:['HCS VoicePack','Voice Commands','Search','Database','Star Citizen'], meta:[{label:'Version',value:'v0.3.0 \u201cMERIDIAN\u201d'},{label:'Commands',value:'745'},{label:'Phrases',value:'2,580'},{label:'Categories',value:'18'}], screenshots:[{src:'screenshots/meridian-01.png',caption:'All Commands view \u2014 full 745-command grid sorted by name across all characters.'},{src:'screenshots/meridian-02.png',caption:'Raw search for \u201ctake off\u201d returning a single precise result with phrase matches.'},{src:'screenshots/meridian-03.png',caption:'By Character view \u2014 commands grouped by crew member with category and phrase previews.'},{src:'screenshots/meridian-04.png',caption:'Undocking command detail modal showing voice trigger phrases and command metadata.'}] },
+  { codename:'AZIMUTH', title:'Void Command', subtitle:'Browser RPG // Deep Space Operations', status:'active', version:'v1.0.0', url:'https://t1ckles.github.io/azimuth/', desc:'A procedural space survival RPG running entirely in the browser \u2014 no install, no server. Players navigate a terminal interface through derelict stations, hostile contacts, and deep-space anomalies. An admin console lets operators inject custom lore, ships, enemies, and commands directly into the world fabric.', tags:['Browser RPG','Procedural','Text Terminal','World Builder','Admin Console','Sci-Fi'], meta:[{label:'Version',value:'v1.0.0'},{label:'Engine',value:'Browser-Native'},{label:'Mode',value:'Single Player'},{label:'Storage',value:'LocalStorage JSON'}], screenshots:[{src:'screenshots/azimuth-01.png',caption:'Fresh session start \u2014 Pressurisation Chamber entry point with command reference and right-panel scan data.'},{src:'screenshots/azimuth-02.png',caption:'Early exploration \u2014 help reference expanded mid-session in the Pressurisation Chamber.'},{src:'screenshots/azimuth-03.png',caption:'Deep run \u2014 multiple rooms explored, hazard encountered, log fragment and data fragment recovered.'},{src:'screenshots/azimuth-04.png',caption:'Extended session \u2014 Stillborn Quarters reached, full status panel visible with rooms visited and cargo count.'}] },
+  { codename:'PERIHELION', title:'Fleet Registry', subtitle:'UEE Naval Command // Classified Manifest', status:'deployed', version:'v0.1.4', url:'https://t1ckles.github.io/perihelion/', desc:'Personal fleet command infrastructure for Star Citizen pilots. Import your HangarXplore manifest, assign vessels to wings and squadrons, log acquisition notes, and track pledge value across your entire operation. Classified-document aesthetic, locally stored, always ready for inspection.', tags:['Star Citizen','Fleet Management','Wings','Squadrons','Ship Log','JSON Import'], meta:[{label:'Version',value:'v0.1.4'},{label:'Import',value:'HangarXplore JSON'},{label:'Storage',value:'Local Registry'},{label:'Org',value:'UEE Naval Command'}], screenshots:[{src:'screenshots/perihelion-01.png',caption:'Splash screen \u2014 UEE Naval Command classified manifest loading sequence.'},{src:'screenshots/perihelion-02.png',caption:'Ship database grid view with flight-ready status filtering and manufacturer grouping.'},{src:'screenshots/perihelion-03.png',caption:'Fleet import modal with HangarXplore JSON drop zone and overwrite warning.'},{src:'screenshots/perihelion-04.png',caption:'Idris-M detail panel showing registry data, armament, and carrier capability.'}] },
+  { codename:'ISOLANI', title:'Deep Survey Terminal', subtitle:"Veydrite Assayer's Guild // Mining RPG", status:'dev', version:'v0.2.0-dev', url:'https://t1ckles.github.io/isolani/', desc:"A browser-native mining and trading RPG set in the Veydrite Assayer's Guild Network. Players manage hull integrity, fuel, and cargo contracts across procedurally generated survey runs \u2014 with save slots, persistent guild standing, and a text-terminal interface that makes spreadsheet gaming feel like deep space.", tags:['Browser RPG','Mining','Trading','Text Terminal','Guild Network','Procedural'], meta:[{label:'Version',value:'v0.2.0-dev'},{label:'Status',value:'In Development'},{label:'Save Slots',value:'3'},{label:'Genre',value:'Terminal RPG'}], screenshots:[{src:'screenshots/isolani-01.png',caption:'Title screen \u2014 Deep Survey Terminal boot sequence with save slot selection.'},{src:'screenshots/isolani-02.png',caption:'Pilot record select \u2014 load screen showing active save with vessel and day counter.'},{src:'screenshots/isolani-03.png',caption:'Active session \u2014 welcome back screen with vessel status and suggested actions.'},{src:'screenshots/isolani-04.png',caption:'Full command reference \u2014 navigation, sensors, station, field, and ship command listing.'}] },
+  { codename:'NADIR', title:'SGS Taipings Guide', subtitle:'Avalon Digital // Strategy Doctrine', status:'deployed', version:'v1.5 Engine', url:'https://t1ckles.github.io/nadir/', desc:"Eighteen sections of operational doctrine covering both sides of the Taiping Rebellion, 1851\u20131864. Nadir breaks down the SGS Engine v1.5 loyalty system, Imperial Concern mechanics, unit rosters, PBEM strategy, and historical leader deployments \u2014 the definitive community reference for Avalon Digital's most complex title.", tags:['Strategy Guide','Wargame','SGS Engine','PBEM','Historical','Taiping Rebellion'], meta:[{label:'Sections',value:'18'},{label:'Engine',value:'SGS v1.5'},{label:'Scope',value:'1851\u20131864'},{label:'Sides',value:'Taiping & Qing'}], screenshots:[{src:'screenshots/nadir-01.png',caption:'Cover page \u2014 SGS Taipings comprehensive strategy guide title and section index.'},{src:'screenshots/nadir-02.png',caption:'Section 03 \u2014 Turn Structure & Phase Guide with all ten phases enumerated.'},{src:'screenshots/nadir-03.png',caption:'Section 09 \u2014 Economy & Income with faction-specific priority callout boxes.'},{src:'screenshots/nadir-04.png',caption:'Section 18 \u2014 Glossary with full two-column term reference table.'}] },
+  { codename:'ARNETH', title:'The Long March', subtitle:'Original Setting // Lore Compendium', status:'active', version:'Ongoing', url:'https://t1ckles.github.io/arneth/', desc:'A structured lore compendium for an original fantasy world in active development. Arneth documents history, regional geography, faiths, factions, darkness systems, and a growing cast of characters \u2014 serving as both a writer\'s reference and a reader\'s entry point into The Long March setting.', tags:['Worldbuilding','Lore','Fantasy','Factions','Characters','Original IP'], meta:[{label:'Version',value:'Ongoing'},{label:'Sections',value:'History \u00b7 World \u00b7 Faiths'},{label:'Darkness',value:'Documented'},{label:'Type',value:'Lore Primer'}], screenshots:[{src:'screenshots/arneth-01.png',caption:'Hero splash \u2014 The World of Arneth title screen with coin relief background.'},{src:'screenshots/arneth-02.png',caption:'Geography section \u2014 The Known World map with six-continent overview.'},{src:'screenshots/arneth-03.png',caption:'Saints of Arneth \u2014 character grid with authenticity ratings and faction tags.'},{src:'screenshots/arneth-04.png',caption:'Starting Regions \u2014 illustrated region entries with tension hooks and faction tags.'}] },
 ];
 
-/* ============================================================
-   RENDER CARDS
-   ============================================================ */
-const statusLabel = { deployed: 'DEPLOYED', active: 'ACTIVE', dev: 'IN DEV' };
-const statusClass = { deployed: 'deployed', active: 'active', dev: 'dev' };
+const statusLabel = {deployed:'DEPLOYED',active:'ACTIVE',dev:'IN DEV'};
+const statusClass  = {deployed:'deployed',active:'active',dev:'dev'};
 
 function renderCards() {
   const grid = document.getElementById('projects-grid');
@@ -966,156 +626,97 @@ function renderCards() {
     const card = document.createElement('div');
     card.className = 'card fade-up';
     card.style.animationDelay = (0.05 + i * 0.07) + 's';
-    card.innerHTML = `
-      <div class="card-accent"></div>
-      <div class="card-inner">
-        <div class="card-header">
-          <div>
-            <div class="card-codename">// ${p.codename}</div>
-            <div class="card-title">${p.title}</div>
-          </div>
-          <div class="status-badge ${statusClass[p.status]}">${statusLabel[p.status]}</div>
-        </div>
-        <div class="card-subtitle">${p.subtitle}</div>
-        <div class="card-rule"></div>
-        <p class="card-desc">${p.desc.split('.')[0] + '.'}</p>
-        <div class="card-tags">
-          ${p.tags.slice(0,4).map(t => `<span class="tag">${t}</span>`).join('')}
-        </div>
-        <div class="card-footer">
-          <div class="card-cta">
-            <span>View Briefing</span>
-            <span class="card-cta-arrow">&#10140;</span>
-          </div>
-        </div>
-        <div class="card-index">${String(i+1).padStart(2,'0')}</div>
-      </div>
-    `;
+    card.innerHTML = '<div class="card-accent"></div><div class="card-inner"><div class="card-header"><div><div class="card-codename">// ' + p.codename + '</div><div class="card-title">' + p.title + '</div></div><div class="status-badge ' + statusClass[p.status] + '">' + statusLabel[p.status] + '</div></div><div class="card-subtitle">' + p.subtitle + '</div><div class="card-rule"></div><p class="card-desc">' + p.desc.split('.')[0] + '.</p><div class="card-tags">' + p.tags.slice(0,4).map(t=>'<span class="tag">'+t+'</span>').join('') + '</div><div class="card-footer"><div class="card-cta"><span>View Briefing</span><span class="card-cta-arrow">&#10140;</span></div></div><div class="card-index">' + String(i+1).padStart(2,'0') + '</div></div>';
     card.addEventListener('click', () => openModal(i));
     grid.appendChild(card);
   });
 }
 
-/* ============================================================
-   MODAL
-   ============================================================ */
-let currentProjectIndex = 0;
-
 function openModal(index) {
-  currentProjectIndex = index;
   const p = PROJECTS[index];
-  document.getElementById('modal-codename').textContent = '// ' + p.codename + ' · ' + p.version;
+  document.getElementById('modal-codename').textContent = '// ' + p.codename + ' \u00b7 ' + p.version;
   document.getElementById('modal-title').textContent = p.title;
   document.getElementById('modal-subtitle').textContent = p.subtitle;
   document.getElementById('modal-desc').textContent = p.desc;
-  document.getElementById('modal-badge-container').innerHTML = `<div class="status-badge ${statusClass[p.status]}">${statusLabel[p.status]}</div>`;
-  document.getElementById('modal-meta-grid').innerHTML = p.meta.map(m => `
-    <div class="modal-meta-item">
-      <div class="modal-meta-label">${m.label}</div>
-      <div class="modal-meta-value">${m.value}</div>
-    </div>`).join('');
-  document.getElementById('modal-tags').innerHTML = p.tags.map(t => `<span class="modal-tag">${t}</span>`).join('');
+  document.getElementById('modal-badge-container').innerHTML = '<div class="status-badge ' + statusClass[p.status] + '">' + statusLabel[p.status] + '</div>';
+  document.getElementById('modal-meta-grid').innerHTML = p.meta.map(m => '<div class="modal-meta-item"><div class="modal-meta-label">'+m.label+'</div><div class="modal-meta-value">'+m.value+'</div></div>').join('');
+  document.getElementById('modal-tags').innerHTML = p.tags.map(t => '<span class="modal-tag">'+t+'</span>').join('');
   document.getElementById('modal-launch-btn').href = p.url;
   renderModalScreenshots(p);
   document.getElementById('modal-overlay').classList.add('open');
   document.body.style.overflow = 'hidden';
   setTimeout(() => document.getElementById('modal-close').focus(), 50);
 }
-
 function closeModal() {
   document.getElementById('modal-overlay').classList.remove('open');
   document.body.style.overflow = '';
 }
-
 document.getElementById('modal-close').addEventListener('click', closeModal);
 document.getElementById('modal-backdrop').addEventListener('click', closeModal);
 
-/* ============================================================
-   SCREENSHOTS
-   ============================================================ */
 function renderModalScreenshots(p) {
   const container = document.getElementById('modal-screenshots');
   container.innerHTML = '';
-  const shots = p.screenshots && p.screenshots.length > 0 ? p.screenshots : [];
+  const shots = p.screenshots || [];
   const count = Math.max(shots.length, 4);
   for (let i = 0; i < count; i++) {
     const tile = document.createElement('div');
     tile.className = 'screenshot-thumb';
     if (shots[i]) {
-      tile.innerHTML = `
-        <img src="${shots[i].src}" alt="${shots[i].caption || p.title + ' screenshot'}" loading="lazy">
-        <div class="screenshot-click-overlay"><span class="screenshot-click-icon">&#9654; OPEN</span></div>`;
+      tile.innerHTML = '<img src="'+shots[i].src+'" alt="'+(shots[i].caption||p.title+' screenshot')+'" loading="lazy"><div class="screenshot-click-overlay"><span class="screenshot-click-icon">&#9654; OPEN</span></div>';
       const idx = i;
       tile.addEventListener('click', () => openLightbox(p, idx));
     } else {
-      tile.innerHTML = `
-        <div class="screenshot-placeholder">
-          <div class="ph-icon">&#9632;</div>
-          <div class="ph-label">VISUAL //<br>PENDING<br>// ${String(i+1).padStart(2,'0')}</div>
-        </div>`;
+      tile.innerHTML = '<div class="screenshot-placeholder"><div class="ph-icon">&#9632;</div><div class="ph-label">VISUAL //<br>PENDING<br>// '+String(i+1).padStart(2,'0')+'</div></div>';
     }
     container.appendChild(tile);
   }
 }
 
-/* ============================================================
-   LIGHTBOX
-   ============================================================ */
 let lbImages = [], lbCurrent = 0;
-
 function openLightbox(project, index) {
-  lbImages = project.screenshots;
-  lbCurrent = index;
+  lbImages = project.screenshots; lbCurrent = index;
   updateLightbox();
   document.getElementById('lightbox').classList.add('open');
   document.body.style.overflow = 'hidden';
 }
-
 function updateLightbox() {
   if (!lbImages[lbCurrent]) return;
   const wrap = document.getElementById('lb-image-wrap');
-  wrap.style.opacity = '0.4';
-  wrap.style.transform = 'translateX(4px)';
+  wrap.style.opacity = '0.4'; wrap.style.transform = 'translateX(4px)';
   setTimeout(() => {
     document.getElementById('lb-img').src = lbImages[lbCurrent].src;
     document.getElementById('lb-img').alt = lbImages[lbCurrent].caption || '';
-    wrap.style.opacity = '1';
-    wrap.style.transform = 'translateX(0)';
-    wrap.style.transition = 'opacity 0.15s, transform 0.15s';
+    wrap.style.opacity = '1'; wrap.style.transform = 'translateX(0)'; wrap.style.transition = 'opacity 0.15s,transform 0.15s';
   }, 80);
-  document.getElementById('lb-counter').textContent = `FRAME ${String(lbCurrent+1).padStart(2,'0')} / ${String(lbImages.length).padStart(2,'0')}`;
+  document.getElementById('lb-counter').textContent = 'FRAME ' + String(lbCurrent+1).padStart(2,'0') + ' / ' + String(lbImages.length).padStart(2,'0');
   document.getElementById('lb-caption').textContent = lbImages[lbCurrent].caption || '';
   document.getElementById('lb-prev').style.visibility = lbCurrent > 0 ? 'visible' : 'hidden';
-  document.getElementById('lb-next').style.visibility = lbCurrent < lbImages.length - 1 ? 'visible' : 'hidden';
+  document.getElementById('lb-next').style.visibility = lbCurrent < lbImages.length-1 ? 'visible' : 'hidden';
 }
-
 function closeLightbox() {
   document.getElementById('lightbox').classList.remove('open');
   document.body.style.overflow = 'hidden';
 }
-
 document.getElementById('lb-close').addEventListener('click', closeLightbox);
 document.getElementById('lb-prev').addEventListener('click', () => { if (lbCurrent > 0) { lbCurrent--; updateLightbox(); } });
-document.getElementById('lb-next').addEventListener('click', () => { if (lbCurrent < lbImages.length - 1) { lbCurrent++; updateLightbox(); } });
+document.getElementById('lb-next').addEventListener('click', () => { if (lbCurrent < lbImages.length-1) { lbCurrent++; updateLightbox(); } });
 
-/* ============================================================
-   KEYBOARD
-   ============================================================ */
 document.addEventListener('keydown', e => {
   const lb = document.getElementById('lightbox');
   const mo = document.getElementById('modal-overlay');
+  const em = document.getElementById('exp-modal-overlay');
   if (lb.classList.contains('open')) {
-    if (e.key === 'Escape') closeLightbox();
-    if (e.key === 'ArrowLeft'  && lbCurrent > 0) { lbCurrent--; updateLightbox(); }
-    if (e.key === 'ArrowRight' && lbCurrent < lbImages.length - 1) { lbCurrent++; updateLightbox(); }
+    if (e.key==='Escape') closeLightbox();
+    if (e.key==='ArrowLeft' && lbCurrent > 0) { lbCurrent--; updateLightbox(); }
+    if (e.key==='ArrowRight' && lbCurrent < lbImages.length-1) { lbCurrent++; updateLightbox(); }
   } else if (mo.classList.contains('open')) {
-    if (e.key === 'Escape') closeModal();
+    if (e.key==='Escape') closeModal();
+  } else if (em.classList.contains('open')) {
+    if (e.key==='Escape') closeExpModal();
   }
 });
 
-/* ============================================================
-   INIT
-   ============================================================ */
 document.getElementById('year').textContent = new Date().getFullYear();
 renderCards();
 </script>
