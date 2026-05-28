@@ -612,7 +612,53 @@ const PROJECTS = [
   { codename:'AZIMUTH', title:'Void Command', subtitle:'Browser RPG // Deep Space Operations', status:'active', version:'v1.0.0', url:'https://t1ckles.github.io/azimuth/', desc:'A procedural space survival RPG running entirely in the browser \u2014 no install, no server. Players navigate a terminal interface through derelict stations, hostile contacts, and deep-space anomalies. An admin console lets operators inject custom lore, ships, enemies, and commands directly into the world fabric.', tags:['Browser RPG','Procedural','Text Terminal','World Builder','Admin Console','Sci-Fi'], meta:[{label:'Version',value:'v1.0.0'},{label:'Engine',value:'Browser-Native'},{label:'Mode',value:'Single Player'},{label:'Storage',value:'LocalStorage JSON'}], screenshots:[{src:'screenshots/azimuth-01.png',caption:'Fresh session start \u2014 Pressurisation Chamber entry point with command reference and right-panel scan data.'},{src:'screenshots/azimuth-02.png',caption:'Early exploration \u2014 help reference expanded mid-session in the Pressurisation Chamber.'},{src:'screenshots/azimuth-03.png',caption:'Deep run \u2014 multiple rooms explored, hazard encountered, log fragment and data fragment recovered.'},{src:'screenshots/azimuth-04.png',caption:'Extended session \u2014 Stillborn Quarters reached, full status panel visible with rooms visited and cargo count.'}] },
   { codename:'PERIHELION', title:'Fleet Registry', subtitle:'UEE Naval Command // Classified Manifest', status:'deployed', version:'v0.1.4', url:'https://t1ckles.github.io/perihelion/', desc:'Personal fleet command infrastructure for Star Citizen pilots. Import your HangarXplore manifest, assign vessels to wings and squadrons, log acquisition notes, and track pledge value across your entire operation. Classified-document aesthetic, locally stored, always ready for inspection.', tags:['Star Citizen','Fleet Management','Wings','Squadrons','Ship Log','JSON Import'], meta:[{label:'Version',value:'v0.1.4'},{label:'Import',value:'HangarXplore JSON'},{label:'Storage',value:'Local Registry'},{label:'Org',value:'UEE Naval Command'}], screenshots:[{src:'screenshots/perihelion-01.png',caption:'Splash screen \u2014 UEE Naval Command classified manifest loading sequence.'},{src:'screenshots/perihelion-02.png',caption:'Ship database grid view with flight-ready status filtering and manufacturer grouping.'},{src:'screenshots/perihelion-03.png',caption:'Fleet import modal with HangarXplore JSON drop zone and overwrite warning.'},{src:'screenshots/perihelion-04.png',caption:'Idris-M detail panel showing registry data, armament, and carrier capability.'}] },
   { codename:'ISOLANI', title:'Deep Survey Terminal', subtitle:"Veydrite Assayer's Guild // Mining RPG", status:'dev', version:'v0.2.0-dev', url:'https://t1ckles.github.io/isolani/', desc:"A browser-native mining and trading RPG set in the Veydrite Assayer's Guild Network. Players manage hull integrity, fuel, and cargo contracts across procedurally generated survey runs \u2014 with save slots, persistent guild standing, and a text-terminal interface that makes spreadsheet gaming feel like deep space.", tags:['Browser RPG','Mining','Trading','Text Terminal','Guild Network','Procedural'], meta:[{label:'Version',value:'v0.2.0-dev'},{label:'Status',value:'In Development'},{label:'Save Slots',value:'3'},{label:'Genre',value:'Terminal RPG'}], screenshots:[{src:'screenshots/isolani-01.png',caption:'Title screen \u2014 Deep Survey Terminal boot sequence with save slot selection.'},{src:'screenshots/isolani-02.png',caption:'Pilot record select \u2014 load screen showing active save with vessel and day counter.'},{src:'screenshots/isolani-03.png',caption:'Active session \u2014 welcome back screen with vessel status and suggested actions.'},{src:'screenshots/isolani-04.png',caption:'Full command reference \u2014 navigation, sensors, station, field, and ship command listing.'}] },
-  { codename:'NADIR', title:'SGS Taipings Guide', subtitle:'Avalon Digital // Strategy Doctrine', status:'deployed', version:'v1.5 Engine', url:'https://t1ckles.github.io/nadir/', desc:"Eighteen sections of operational doctrine covering both sides of the Taiping Rebellion, 1851\u20131864. Nadir breaks down the SGS Engine v1.5 loyalty system, Imperial Concern mechanics, unit rosters, PBEM strategy, and historical leader deployments \u2014 the definitive community reference for Avalon Digital's most complex title.", tags:['Strategy Guide','Wargame','SGS Engine','PBEM','Historical','Taiping Rebellion'], meta:[{label:'Sections',value:'18'},{label:'Engine',value:'SGS v1.5'},{label:'Scope',value:'1851\u20131864'},{label:'Sides',value:'Taiping & Qing'}], screenshots:[{src:'screenshots/nadir-01.png',caption:'Cover page \u2014 SGS Taipings comprehensive strategy guide title and section index.'},{src:'screenshots/nadir-02.png',caption:'Section 03 \u2014 Turn Structure & Phase Guide with all ten phases enumerated.'},{src:'screenshots/nadir-03.png',caption:'Section 09 \u2014 Economy & Income with faction-specific priority callout boxes.'},{src:'screenshots/nadir-04.png',caption:'Section 18 \u2014 Glossary with full two-column term reference table.'}] },
+  {
+  codename: 'NADIR',
+  title: 'Strategy Guide Archive',
+  subtitle: 'Multi-Engine Strategy Doctrine',
+  status: 'deployed',
+  version: 'Collection v1.0',
+  url: 'https://t1ckles.github.io/nadir/',
+  desc: "A growing archive of long-form strategy doctrine for complex, systems-heavy games. Nadir currently fields full guides for SGS Taipings, SGS Overlord, and SGS Fall Weiss, with future deployments planned for titles like Distant Worlds: Universe and other strategy sandboxes.",
+  tags: [
+    'Strategy Guide',
+    'Wargame',
+    'Grand Strategy',
+    'Systems Analysis',
+    'PBEM',
+    'Campaign Planning',
+    'Rules Clarity',
+    'Player Onboarding'
+  ],
+  meta: [
+    { label: 'Scope',   value: 'Multi-title Strategy Guides Portfolio' },
+    { label: 'Titles',  value: '3 live · more in pipeline' },
+    { label: 'Engines', value: 'SGS Series · additional engines planned' },
+    { label: 'Format',  value: 'Sectioned, system-first doctrine' }
+  ],
+  screenshots: [
+    {
+      src: 'screenshots/nadir-01.png',
+      caption: 'Nadir index — portfolio entry for all deployed strategy guides.'
+    },
+    {
+      src: 'screenshots/nadir-02.png',
+      caption: 'Project detail — SGS Taipings strategy doctrine overview.'
+    },
+    {
+      src: 'screenshots/nadir-03.png',
+      caption: 'Project detail — SGS Overlord and SGS Fall Weiss campaign coverage.'
+    },
+    {
+      src: 'screenshots/nadir-04.png',
+      caption: 'Roadmap — planned coverage for Distant Worlds: Universe and additional titles.'
+    }
+  ]
+}
+Before you paste: do you want the version field to read more like “Collection v1.0” (portfolio framing) or name-check SGS explicitly (for example “SGS Wave One”)?
+
+
+{ codename:'NADIR', title:'Strategy Guide Library', subtitle:'Avalon Digital // Strategy Doctrine', status:'deployed', version:'v1.5 Engine', url:'https://t1ckles.github.io/nadir/', desc:"Eighteen sections of operational doctrine covering both sides of the Taiping Rebellion, 1851\u20131864. Nadir breaks down the SGS Engine v1.5 loyalty system, Imperial Concern mechanics, unit rosters, PBEM strategy, and historical leader deployments \u2014 the definitive community reference for Avalon Digital's most complex title.", tags:['Strategy Guide','Wargame','SGS Engine','PBEM','Historical','Taiping Rebellion'], meta:[{label:'Sections',value:'18'},{label:'Engine',value:'SGS v1.5'},{label:'Scope',value:'1851\u20131864'},{label:'Sides',value:'Taiping & Qing'}], screenshots:[{src:'screenshots/nadir-01.png',caption:'Cover page \u2014 SGS Taipings comprehensive strategy guide title and section index.'},{src:'screenshots/nadir-02.png',caption:'Section 03 \u2014 Turn Structure & Phase Guide with all ten phases enumerated.'},{src:'screenshots/nadir-03.png',caption:'Section 09 \u2014 Economy & Income with faction-specific priority callout boxes.'},{src:'screenshots/nadir-04.png',caption:'Section 18 \u2014 Glossary with full two-column term reference table.'}] },
   { codename:'ARNETH', title:'The Long March', subtitle:'Original Setting // Lore Compendium', status:'active', version:'Ongoing', url:'https://t1ckles.github.io/arneth/', desc:'A structured lore compendium for an original fantasy world in active development. Arneth documents history, regional geography, faiths, factions, darkness systems, and a growing cast of characters \u2014 serving as both a writer\'s reference and a reader\'s entry point into The Long March setting.', tags:['Worldbuilding','Lore','Fantasy','Factions','Characters','Original IP'], meta:[{label:'Version',value:'Ongoing'},{label:'Sections',value:'History \u00b7 World \u00b7 Faiths'},{label:'Darkness',value:'Documented'},{label:'Type',value:'Lore Primer'}], screenshots:[{src:'screenshots/arneth-01.png',caption:'Hero splash \u2014 The World of Arneth title screen with coin relief background.'},{src:'screenshots/arneth-02.png',caption:'Geography section \u2014 The Known World map with six-continent overview.'},{src:'screenshots/arneth-03.png',caption:'Saints of Arneth \u2014 character grid with authenticity ratings and faction tags.'},{src:'screenshots/arneth-04.png',caption:'Starting Regions \u2014 illustrated region entries with tension hooks and faction tags.'}] },
 ];
 
