@@ -1,0 +1,1006 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Distant Worlds: Universe — Comprehensive Strategy Guide</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --ink:#1a1410;--parchment:#f5efe4;--gold:#c9943a;--gold-dark:#8b6420;--gold-pale:#f0d9a8;
+  --mid:#4a3f32;--light:#f9f4ec;--border:rgba(201,148,58,0.3);--shadow:rgba(26,20,16,0.18);
+  --space:#0d1520;--space-mid:#1a2840;--nebula:#6b3a8a;--nebula-pale:#e8daf5;--nebula-border:rgba(107,58,138,0.35);
+  --teal:#1a5c6b;--teal-pale:#d5edf2;--teal-border:rgba(26,92,107,0.35);
+  --font-head:'Cinzel','Times New Roman',serif;--font-body:'Crimson Pro','Georgia',serif;
+  --sidebar-w:280px;
+}
+html{scroll-behavior:smooth;font-size:17px}
+body{background:var(--parchment);color:var(--ink);font-family:var(--font-body);line-height:1.75;display:flex;min-height:100vh}
+body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:999;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");opacity:0.5}
+a{color:inherit;text-decoration:none}button{cursor:pointer;font-family:inherit}
+#progress-bar{position:fixed;top:0;left:var(--sidebar-w);right:0;height:3px;background:var(--gold);transform-origin:left;transform:scaleX(0);z-index:500;transition:transform 0.1s linear}
+#sidebar{width:var(--sidebar-w);min-width:var(--sidebar-w);background:var(--space);position:fixed;top:0;left:0;bottom:0;overflow-y:auto;z-index:100;border-right:2px solid var(--gold-dark);display:flex;flex-direction:column;scrollbar-width:thin;scrollbar-color:var(--gold-dark) var(--space)}
+#sidebar-header{padding:28px 20px 20px;border-bottom:1px solid rgba(201,148,58,0.25);background:linear-gradient(180deg,#060d16 0%,var(--space) 100%)}
+#sidebar-title{font-family:var(--font-head);font-size:1rem;font-weight:900;color:var(--gold);letter-spacing:0.15em;text-transform:uppercase;line-height:1.3}
+#sidebar-sub{font-family:var(--font-body);font-size:0.72rem;color:rgba(255,255,255,0.45);margin-top:6px;letter-spacing:0.05em;font-style:italic}
+#sidebar-nav{padding:12px 0 40px;flex:1}
+.nav-section{padding:10px 20px 4px;font-family:var(--font-head);font-size:0.58rem;letter-spacing:0.2em;color:var(--gold-dark);text-transform:uppercase;margin-top:8px}
+.nav-item{display:block;padding:7px 20px 7px 28px;font-family:var(--font-body);font-size:0.82rem;color:rgba(245,239,228,0.72);text-decoration:none;border-left:2px solid transparent;transition:all 0.18s ease;line-height:1.35;position:relative}
+.nav-item::before{content:'›';position:absolute;left:14px;top:7px;color:var(--gold-dark);opacity:0;transition:opacity 0.15s}
+.nav-item:hover,.nav-item.active{color:var(--gold-pale);border-left-color:var(--gold);background:rgba(201,148,58,0.08);padding-left:30px}
+.nav-item:hover::before,.nav-item.active::before{opacity:1}
+#sidebar-toggle{display:none;position:fixed;top:12px;left:12px;z-index:200;background:var(--space);border:1px solid var(--gold-dark);color:var(--gold);font-size:1.2rem;padding:6px 10px;cursor:pointer;border-radius:3px}
+#main{margin-left:var(--sidebar-w);flex:1;min-width:0}
+#hero{background:linear-gradient(160deg,#060d16 0%,#0d1a30 35%,#1a0d30 70%,#0d2010 100%);min-height:440px;display:flex;flex-direction:column;justify-content:center;padding:80px 64px 64px;position:relative;overflow:hidden;border-bottom:3px solid var(--gold-dark)}
+#hero::before{content:'';position:absolute;inset:0;background-image:radial-gradient(ellipse at 20% 50%, rgba(107,58,138,0.08) 0%, transparent 60%),radial-gradient(ellipse at 80% 30%, rgba(26,92,107,0.06) 0%, transparent 50%),repeating-linear-gradient(-55deg,transparent,transparent 40px,rgba(201,148,58,0.03) 40px,rgba(201,148,58,0.03) 41px)}
+#hero::after{content:'';position:absolute;bottom:0;left:64px;right:64px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+.hero-eyebrow{font-family:var(--font-head);font-size:0.72rem;letter-spacing:0.28em;color:var(--gold-dark);text-transform:uppercase;margin-bottom:16px;position:relative}
+.hero-title{font-family:var(--font-head);font-size:clamp(2.2rem,5vw,3.4rem);font-weight:900;color:var(--parchment);letter-spacing:0.04em;text-transform:uppercase;line-height:1.05;margin-bottom:8px;position:relative}
+.hero-subtitle{font-family:var(--font-body);font-size:1.1rem;font-style:italic;color:rgba(240,217,168,0.75);font-weight:300;margin-bottom:28px;position:relative}
+.hero-tags{display:flex;flex-wrap:wrap;gap:8px;position:relative}
+.hero-tag{font-family:var(--font-head);font-size:0.65rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold-pale);border:1px solid rgba(201,148,58,0.4);padding:4px 10px;background:rgba(201,148,58,0.08)}
+#content{padding:0 64px 80px;max-width:960px}
+.section{padding:56px 0 8px;animation:fadeInUp 0.5s ease both}
+@keyframes fadeInUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+.sec-num{display:inline-block;font-family:var(--font-head);font-size:0.82rem;font-weight:400;letter-spacing:0.1em;color:var(--gold-dark);margin-right:0.5em;vertical-align:middle}
+.section-title{font-family:var(--font-head);font-size:clamp(1.35rem,2.4vw,1.75rem);font-weight:700;text-transform:uppercase;letter-spacing:0.06em;color:var(--ink);padding-bottom:14px;margin-bottom:22px;border-bottom:2px solid var(--border);position:relative}
+.section-title::after{content:'';position:absolute;bottom:-2px;left:0;width:60px;height:2px;background:var(--gold)}
+.sub-title{font-family:var(--font-head);font-size:1.05rem;font-weight:600;letter-spacing:0.05em;color:var(--mid);margin:28px 0 10px;text-transform:uppercase}
+p{margin-bottom:1rem;font-size:1rem}
+.guide-list{margin:0.5rem 0 1rem 1.2rem}
+.guide-list li{margin-bottom:0.45rem;font-size:1rem}
+.guide-list li::marker{color:var(--gold-dark)}
+.callout{padding:16px 20px;margin:20px 0;border-left:4px solid var(--gold);background:var(--light);border-radius:0 3px 3px 0}
+.callout.nebula{border-left-color:var(--nebula);background:var(--nebula-pale)}
+.callout.teal{border-left-color:var(--teal);background:var(--teal-pale)}
+.callout.warning{border-left-color:#7a3c1a;background:#f5edda}
+.callout.tip{border-left-color:#3a5c1a;background:#edf5e4}
+.callout.space{border-left-color:var(--space-mid);background:#e4eaf5}
+.callout-title{font-family:var(--font-head);font-size:0.72rem;letter-spacing:0.18em;text-transform:uppercase;font-weight:700;margin-bottom:6px}
+.callout .callout-title{color:var(--gold-dark)}
+.callout.nebula .callout-title{color:var(--nebula)}
+.callout.teal .callout-title{color:var(--teal)}
+.callout.warning .callout-title{color:#7a3c1a}
+.callout.tip .callout-title{color:#3a5c1a}
+.callout.space .callout-title{color:var(--space-mid)}
+.race-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:18px;margin:24px 0}
+.race-card{border:1px solid var(--border);background:var(--light);padding:18px 20px;position:relative;border-top:3px solid var(--gold)}
+.race-card.insectoid{border-top-color:#8b4020}
+.race-card.ursidian{border-top-color:#4a6b1a}
+.race-card.rodent{border-top-color:#6b5a1a}
+.race-card.reptilian{border-top-color:#1a6b4a}
+.race-card.amphibian{border-top-color:#1a4a6b}
+.race-card.machine{border-top-color:#4a4a6b}
+.race-card.humanoid{border-top-color:#c9943a}
+.race-name{font-family:var(--font-head);font-size:1rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:var(--ink);margin-bottom:2px}
+.race-family{font-family:var(--font-head);font-size:0.6rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--mid);margin-bottom:6px}
+.race-card.insectoid .race-family{color:#8b4020}
+.race-card.ursidian .race-family{color:#4a6b1a}
+.race-card.rodent .race-family{color:#6b5a1a}
+.race-card.reptilian .race-family{color:#1a6b4a}
+.race-card.amphibian .race-family{color:#1a4a6b}
+.race-card.machine .race-family{color:#4a4a6b}
+.race-card.humanoid .race-family{color:var(--gold-dark)}
+.race-home{font-size:0.82rem;font-style:italic;color:var(--mid);margin-bottom:8px}
+.race-body{font-size:0.9rem;line-height:1.65;color:var(--ink);margin-bottom:10px}
+.race-traits{display:flex;flex-wrap:wrap;gap:5px;margin-top:8px}
+.race-trait{font-family:var(--font-head);font-size:0.56rem;letter-spacing:0.1em;text-transform:uppercase;padding:2px 7px;border:1px solid var(--border);color:var(--mid);background:var(--parchment)}
+.race-trait.strength{border-color:rgba(58,92,26,0.5);color:#3a5c1a;background:#edf5e4}
+.race-trait.weakness{border-color:rgba(122,60,26,0.5);color:#7a3c1a;background:#f5edda}
+.race-trait.special{border-color:rgba(107,58,138,0.4);color:var(--nebula);background:var(--nebula-pale)}
+.strat-phase{padding:18px 22px;margin:18px 0;border:1px solid var(--border);background:var(--light)}
+.strat-phase.early{border-color:rgba(26,92,107,0.35);background:var(--teal-pale);border-left:4px solid var(--teal)}
+.strat-phase.mid{border-color:rgba(107,58,138,0.35);background:var(--nebula-pale);border-left:4px solid var(--nebula)}
+.strat-phase.late{border-color:rgba(139,100,32,0.4);background:#f5edda;border-left:4px solid var(--gold-dark)}
+.strat-phase-title{font-family:var(--font-head);font-size:0.9rem;font-weight:700;letter-spacing:0.05em;color:var(--mid);margin-bottom:8px;text-transform:uppercase}
+.strat-phase.early .strat-phase-title{color:var(--teal)}
+.strat-phase.mid .strat-phase-title{color:var(--nebula)}
+.strat-phase.late .strat-phase-title{color:var(--gold-dark)}
+.strat-phase p{margin-bottom:0.6rem}
+.strat-phase p:last-child{margin-bottom:0}
+.data-table{width:100%;border-collapse:collapse;margin:16px 0;font-size:0.9rem}
+.data-table th{background:var(--space);color:var(--gold-pale);font-family:var(--font-head);font-size:0.68rem;letter-spacing:0.12em;text-transform:uppercase;padding:9px 12px;text-align:left;border:1px solid rgba(201,148,58,0.2)}
+.data-table td{padding:8px 12px;border:1px solid var(--border);vertical-align:top;line-height:1.5}
+.data-table tr:nth-child(even) td{background:var(--light)}
+.data-table tr:nth-child(odd) td{background:var(--parchment)}
+.turn-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px;margin:16px 0}
+.turn-box{border:1px solid var(--border);background:var(--light);padding:12px 14px}
+.turn-num{font-family:var(--font-head);font-size:1.5rem;font-weight:900;color:var(--gold);line-height:1;margin-bottom:4px}
+.turn-label{font-family:var(--font-head);font-size:0.7rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--mid);margin-bottom:6px}
+.turn-desc{font-size:0.85rem;line-height:1.55;color:var(--ink)}
+.glossary-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1px;background:var(--border);margin-top:16px;border:1px solid var(--border)}
+.gloss-item{background:var(--light);padding:10px 14px;display:flex;gap:10px;align-items:baseline}
+.gloss-item:nth-child(even){background:var(--parchment)}
+.gloss-term{font-family:var(--font-head);font-size:0.8rem;font-weight:700;color:var(--ink);white-space:nowrap;min-width:130px;letter-spacing:0.04em;text-transform:uppercase}
+.gloss-def{font-size:0.88rem;color:var(--mid);line-height:1.5}
+.ornamental-divider{text-align:center;color:var(--gold);font-size:0.85rem;letter-spacing:0.3em;padding:28px 0 8px;opacity:0.7}
+#back-top{position:fixed;bottom:28px;right:28px;width:42px;height:42px;background:var(--space);border:1px solid var(--gold-dark);color:var(--gold);font-size:1.1rem;display:flex;align-items:center;justify-content:center;text-decoration:none;opacity:0;transform:translateY(10px);transition:opacity 0.3s,transform 0.3s;z-index:90}
+#back-top.visible{opacity:1;transform:none}
+#back-top:hover{background:var(--gold-dark);color:var(--parchment)}
+#footer{margin-top:40px;border-top:1px solid var(--border);padding:20px 64px;font-family:var(--font-head);font-size:0.65rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--mid);text-align:center}
+@media(max-width:860px){
+  :root{--sidebar-w:0px}
+  #sidebar-toggle{display:flex;align-items:center;justify-content:center}
+  #sidebar{transform:translateX(-100%);transition:transform 0.28s ease;width:260px}
+  #sidebar.open{transform:translateX(0)}
+  #main{margin-left:0}
+  #hero,#content{padding-left:24px;padding-right:24px}
+  #progress-bar{left:0}
+  #footer{padding-left:24px;padding-right:24px}
+  .race-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+<div id="progress-bar"></div>
+<button id="sidebar-toggle" aria-label="Menu">&#9776;</button>
+<nav id="sidebar">
+  <div id="sidebar-header">
+    <div id="sidebar-title">Distant Worlds: Universe</div>
+    <div id="sidebar-sub">Strategy Guide &mdash; CodeForce / Matrix Games</div>
+  </div>
+  <div id="sidebar-nav">
+    <div class="nav-section">Background</div>
+    <a class="nav-item" href="#s01">1 &middot; The Galaxy &amp; Lore</a>
+    <a class="nav-item" href="#s02">2 &middot; Game Overview</a>
+    <div class="nav-section">Core Systems</div>
+    <a class="nav-item" href="#s03">3 &middot; The Dual Economy</a>
+    <a class="nav-item" href="#s04">4 &middot; Exploration &amp; Expansion</a>
+    <a class="nav-item" href="#s05">5 &middot; Research &amp; Technology</a>
+    <a class="nav-item" href="#s06">6 &middot; Ship Design</a>
+    <a class="nav-item" href="#s07">7 &middot; Military &amp; Combat</a>
+    <a class="nav-item" href="#s08">8 &middot; Diplomacy &amp; Espionage</a>
+    <a class="nav-item" href="#s09">9 &middot; Colony Management</a>
+    <a class="nav-item" href="#s10">10 &middot; Automation &amp; Policy</a>
+    <a class="nav-item" href="#s11">11 &middot; Pirates &amp; Threats</a>
+    <a class="nav-item" href="#s12">12 &middot; Governments</a>
+    <div class="nav-section">Races</div>
+    <a class="nav-item" href="#s13">13 &middot; Race Guide</a>
+    <div class="nav-section">Strategy</div>
+    <a class="nav-item" href="#s14">14 &middot; Early Game</a>
+    <a class="nav-item" href="#s15">15 &middot; Mid &amp; Late Game</a>
+    <a class="nav-item" href="#s16">16 &middot; Victory Conditions</a>
+    <div class="nav-section">Reference</div>
+    <a class="nav-item" href="#s17">17 &middot; Glossary</a>
+  </div>
+</nav>
+<div id="main">
+<div id="hero">
+  <div class="hero-eyebrow">CodeForce &nbsp;&middot;&nbsp; Matrix Games &nbsp;&middot;&nbsp; Slitherine</div>
+  <h1 class="hero-title">Distant Worlds: Universe</h1>
+  <p class="hero-subtitle">Comprehensive Analysis &amp; Strategy Guide &mdash; The Grand Strategy of a Living Galaxy</p>
+  <div class="hero-tags">
+    <span class="hero-tag">Real-Time Pausable 4X</span>
+    <span class="hero-tag">17 Sections</span>
+    <span class="hero-tag">All 22 Races Covered</span>
+    <span class="hero-tag">All Systems Analysed</span>
+    <span class="hero-tag">Full Glossary</span>
+  </div>
+</div>
+<div id="content">
+<section class="section" id="s01">
+<h1 class="section-title"><span class="sec-num">&sect; 01</span> The Galaxy &amp; Lore</h1>
+<p>Distant Worlds: Universe is set 500 years after a catastrophic galactic war that nearly extinguished all civilised life. The <strong>Shakturi Axis</strong> &mdash; a militaristic alliance dominated by the insectoid Shakturi and their Boskaran and Sluken subordinates &mdash; prosecuted a campaign of destruction across the galaxy, leaving ruins, anomalies, and shattered civilisations in its wake. The <strong>Freedom Alliance</strong>, led by the Humans and their allies, ultimately prevailed, but at enormous cost. The galaxy you inherit in the standard game is the aftermath: populated by the descendants of survivors, haunted by ancient ruins, and still menaced by Shakturi remnants.</p>
+
+<h2 class="sub-title">The Ancient Galaxy</h2>
+<p>The galaxies of Distant Worlds: Universe are procedurally generated, but always infused with archaeological depth. <strong>Ancient ruins</strong> dot explored systems and grant powerful one-time bonuses when investigated &mdash; research breakthroughs, resource caches, special technologies, or lore events. Some ruins hold the history of extinct civilisations predating even the Shakturi War. <strong>Space monsters</strong> &mdash; the Silver Mist, Ether Dragons, Crystal Entities, and others &mdash; occupy star systems and asteroid fields, guarding ancient sites or simply posing hazards to early explorers.</p>
+<p>The galaxy holds up to 2,000 star systems, 100,000+ celestial bodies, and dozens of unique resource types distributed across nebulae, gas giants, asteroid fields, and planetary surfaces. The distribution of resources &mdash; and your civilisation's proximity to them &mdash; shapes your entire strategic situation more than any other single factor.</p>
+
+<h2 class="sub-title">The Shakturi Threat</h2>
+<p>The <strong>Return of the Shakturi</strong> scenario (enabled at game setup) introduces a storyline arc where Shakturi remnants gradually reassemble their forces and mount a new offensive against the galaxy's civilisations. This event sequence is optional but adds enormous dramatic stakes to the mid-to-late game and is the game's closest equivalent to a scenario victory challenge. The Freedom Alliance &mdash; the historical coalition that defeated the Shakturi &mdash; can be reformed and joined, offering access to powerful combined-fleet operations but also drawing you into alliance wars you may not want.</p>
+
+<h2 class="sub-title">Resources That Matter</h2>
+<ul class="guide-list">
+  <li><strong>Caslon:</strong> The primary fuel source for military ships and most state-operated vessels. Control of Caslon gas clouds is frequently the most strategically critical resource decision in the game. Running dry means your fleets cannot move.</li>
+  <li><strong>Hydrogen:</strong> Alternative fuel used by civilian vessels. Less critical for military operations but important for your private economy's health.</li>
+  <li><strong>Luxury resources</strong> (Zentabia Fluid, Korrabian Spice, Loros Fruit, and others): Found at specific locations, these dramatically boost colony development and happiness. Early discovery and claiming of luxury resource sites is one of the highest-value exploration activities.</li>
+  <li><strong>Strategic resources:</strong> Metals, crystals, and exotic materials used in ship construction, facility building, and component manufacturing.</li>
+</ul>
+</section>
+<div class="ornamental-divider">&#10022; &nbsp; &#10022; &nbsp; &#10022;</div>
+
+<section class="section" id="s02">
+<h1 class="section-title"><span class="sec-num">&sect; 02</span> Game Overview</h1>
+<p>Distant Worlds: Universe is a vast, <strong>pausable real-time 4X grand strategy</strong> game covering exploration, expansion, exploitation, and extermination on a galactic scale. It is distinctive in the 4X genre for two reasons: its <strong>living private economy</strong> (where AI-driven civilian ships independently manage trade and resource extraction) and its <strong>comprehensive automation system</strong> (allowing players to delegate as much or as little of management as they choose). It is genuinely one of the deepest strategy games ever made, and one of the most misunderstood by newcomers who mistake automation for simplicity.</p>
+
+<h2 class="sub-title">Universe vs. Earlier Versions</h2>
+<p>Universe is the complete edition, incorporating the original Distant Worlds plus all three expansions: <em>Return of the Shakturi</em> (added the main storyline, the Mechanoids, Yor, pirates faction play, and extended diplomacy), <em>Legends</em> (added characters, unique leaders, government systems, wonders), and <em>Shadows</em> (added the pre-warp start option, extended espionage, and pirate playstyle). Playing anything less than Universe is not recommended &mdash; each expansion fundamentally transformed the game.</p>
+
+<div class="callout">
+  <div class="callout-title">What Makes This Game Unique</div>
+  Most 4X games ask you to personally manage everything. Distant Worlds asks you to <em>govern</em>. Your private economy operates independently; civilian ships mine resources, transport goods, and carry passengers without your direct instruction. Your job is to set policy, make strategic decisions, and intervene where the AI falls short &mdash; not to micro-manage every freighter. This distinction defines the entire experience.
+</div>
+
+<h2 class="sub-title">Starting Options</h2>
+<ul class="guide-list">
+  <li><strong>Pre-Warp Start:</strong> Begin with a single planet and sub-light ships. Must research warp travel before expanding beyond your home system. Excellent for learning the domestic economy before facing interstellar threats. Longer, more contemplative early game.</li>
+  <li><strong>Standard Start:</strong> Begin as an established space-faring civilisation with warp drives already researched and an initial fleet. Most players use this; it provides a faster ramp into the full game.</li>
+  <li><strong>Galaxy Size:</strong> Ranges from Small (600 systems) to Huge (1,600 systems). Larger galaxies mean more resources, more empires, and far longer campaigns. Start on Medium for your first games.</li>
+  <li><strong>Difficulty:</strong> Easy through Very Hard, with increasing AI bonuses at each tier. The game's AI is competent but not subtle; difficulty primarily affects the resource and income multipliers the AI receives.</li>
+</ul>
+
+<h2 class="sub-title">Victory Conditions</h2>
+<p>Victory conditions are highly customisable at game setup, but the standard options include: <strong>Military</strong> (control the most colonies and eliminate rivals), <strong>Economic</strong> (achieve the largest economy), <strong>Research</strong> (complete the most technology trees or achieve a specific research milestone), <strong>Diplomatic</strong> (form and maintain the largest alliance), and <strong>Exploration</strong> (discover the most star systems and ancient ruins). Multiple victory conditions can be active simultaneously; the first empire to achieve any active condition wins. Many experienced players disable victory conditions entirely for a pure sandbox experience.
+</p>
+</section>
+<div class="ornamental-divider">&#10022; &nbsp; &#10022; &nbsp; &#10022;</div>
+
+<section class="section" id="s03">
+<h1 class="section-title"><span class="sec-num">&sect; 03</span> The Dual Economy</h1>
+<p>Distant Worlds: Universe operates a <strong>two-tier economy</strong> that sets it apart from every other 4X game. Understanding the distinction between the State economy and the Private economy is the single most important conceptual leap a new player must make.</p>
+
+<h2 class="sub-title">The State Economy</h2>
+<p>The State economy covers everything you directly control and fund: military ships, research stations, exploration vessels, spaceports, construction ships, colony facilities, and planetary defences. Income comes primarily from <strong>colony taxes</strong>, <strong>fuel sales to private ships</strong>, <strong>trade tariffs</strong>, <strong>diplomatic agreements</strong>, and <strong>tourism</strong>. Expenses include ship maintenance costs (by far the largest drain), research funding, facility upkeep, and military operations.</p>
+
+<div class="callout warning">
+  <div class="callout-title">The Number One Beginner Mistake</div>
+  Building too many military ships too fast. Ship maintenance costs scale heavily and can bankrupt your state economy within a few game-years. Every military ship you build must be financially sustainable at the current income level. Add ships incrementally, verify your cash flow remains positive after each addition, and never add a second fleet while you cannot afford the first.
+</div>
+
+<h2 class="sub-title">The Private Economy</h2>
+<p>The Private economy operates entirely independently of your direct control. Private citizens own and operate freighters, mining ships, passenger transports, and fuel tankers. They make their own decisions about where to mine, what to trade, and where to transport people. You cannot command private ships directly, but you can influence them through:</p>
+<ul class="guide-list">
+  <li><strong>Resource licensing:</strong> Grant or revoke licenses for private mining of specific resources. Revoking a license makes private ships stop mining that resource immediately.</li>
+  <li><strong>Colony tax rates:</strong> Higher taxes increase state income but reduce private investment in colony development, slowing growth. Lower taxes do the reverse.</li>
+  <li><strong>Trade agreements:</strong> Diplomatic treaties that open your empire's trade routes to foreign private ships and vice versa, boosting overall private sector income and development.</li>
+  <li><strong>Spaceport size:</strong> Larger spaceports accommodate more private ships simultaneously, indirectly boosting private economy throughput.</li>
+</ul>
+
+<div class="callout teal">
+  <div class="callout-title">Key Principle &mdash; Private Economy Health</div>
+  A thriving private economy is the foundation of long-term success. Private ships generate the resource flows that develop your colonies; colony development drives population growth; population growth expands your tax base; a larger tax base funds a larger military. Everything downstream of the private economy. Never strangle it with excessive taxation in the early game.
+</div>
+
+<h2 class="sub-title">Caslon: The Strategic Chokepoint</h2>
+<p>Caslon is the lifeblood of your military. Your military ships run on Caslon; if your Caslon supply is disrupted &mdash; by pirate raids on gas mining stations, by enemy interdiction, or by simple failure to build enough extraction capacity &mdash; your fleets cannot operate. The first strategic priority of any empire is securing at least one, preferably two, reliable Caslon sources early in the game and defending them aggressively.</p>
+<p>A common advanced strategy: run civilian ships on Hydrogen fuel (which has different gas clouds) and reserve Caslon exclusively for military vessels. This separates your military fuel supply from civilian demand, preventing the situation where a fleet returns from an engagement to find all Caslon has been consumed by private freighters.</p>
+</section>
+<div class="ornamental-divider">&#10022; &nbsp; &#10022; &nbsp; &#10022;</div>
+<section class="section" id="s04">
+<h1 class="section-title"><span class="sec-num">&sect; 04</span> Exploration &amp; Expansion</h1>
+<p>Distant Worlds: Universe rewards aggressive exploration. The galaxy is full of one-time bonuses &mdash; ancient ruins yielding free technologies, unique resources that supercharge colony development, abandoned ships that can be claimed, and ancient wonders that provide permanent empire-wide effects. Every turn you spend not exploring is a turn your rivals are claiming these advantages.</p>
+
+<h2 class="sub-title">The Exploration Race</h2>
+<p>Early game exploration is genuinely competitive. Other AI empires are exploring simultaneously; the first empire to investigate a significant ruin, claim a luxury resource site, or discover a major strategic resource has a permanent advantage. Experienced players typically build 5&ndash;10 exploration ships in the early game and push them aggressively into unexplored space, accepting some losses to space monsters as the price of information.</p>
+
+<div class="callout tip">
+  <div class="callout-title">Exploration Ship Design</div>
+  Give exploration ships more fuel than the default AI design suggests. The AI is conservative with fuel tanks; a scout that runs out of fuel in deep space is useless until rescued. Additionally, give early explorers enough speed to outrun common space monsters rather than fighting them &mdash; they are not combat ships. Long-range sensors are invaluable for detecting interesting systems from a distance before committing approach time.
+</div>
+
+<h2 class="sub-title">What to Prioritise in Exploration</h2>
+<ol class="guide-list">
+  <li><strong>Caslon gas clouds</strong> &mdash; your military depends on them. Find them, claim them, build mining stations immediately.</li>
+  <li><strong>Luxury resources</strong> &mdash; Zentabia Fluid, Korrabian Spice, and similar resources dramatically accelerate colony development. Claim sites near your territory immediately.</li>
+  <li><strong>Ancient ruins</strong> &mdash; investigate every ruin you find. The free technology and resource bonuses compound throughout the game.</li>
+  <li><strong>Colonisable planets</strong> &mdash; identify your next 5&ndash;10 colony targets before your rivals claim them.</li>
+  <li><strong>Rival empire borders</strong> &mdash; knowing where your neighbours are lets you plan your expansion direction before they block you in.</li>
+</ol>
+
+<h2 class="sub-title">Colonisation Strategy</h2>
+<p>Not all colonies are created equal. Colony value is primarily determined by: native planet quality (suitability rating for your race's preferred environment), proximity to resources, strategic position, and potential for facility construction. Spreading too thin by colonising every available planet is a classic beginner mistake &mdash; each colony requires supply infrastructure, defensive installations, and ongoing resource investment. Prioritise quality over quantity in the early-mid game.</p>
+<p>Your race has a <strong>preferred planet type</strong> &mdash; Continental, Desert, Ocean, Volcanic, etc. Colonies on preferred types develop faster and achieve higher maximum population. Colonising non-preferred types is possible but slower; research can eventually expand your viable planet range.</p>
+
+<div class="callout teal">
+  <div class="callout-title">Colonisation Checklist</div>
+  Before founding a new colony: (1) verify Caslon supply reaches that system; (2) confirm a construction ship is available to build initial facilities; (3) ensure at least minimal defensive capability exists or can be built quickly; (4) check that the planet's resources or position justify the maintenance cost. A colony that costs more than it contributes is a liability.
+</div>
+</section>
+<div class="ornamental-divider">&#10022; &nbsp; &#10022; &nbsp; &#10022;</div>
+
+<section class="section" id="s05">
+<h1 class="section-title"><span class="sec-num">&sect; 05</span> Research &amp; Technology</h1>
+<p>Technology in Distant Worlds: Universe is divided into three branches &mdash; <strong>Military</strong>, <strong>Economic</strong>, and <strong>High Technology</strong> &mdash; each containing dozens of research trees. Technology directly upgrades ship components (requiring a retrofit to benefit existing vessels), unlocks new facilities, expands colonisation options, and in some cases triggers narrative events.</p>
+
+<h2 class="sub-title">The Research Interface</h2>
+<p>Research funding is allocated as a percentage of state income. You can fund each of the three branches independently and use <strong>Crash Research</strong> &mdash; a +200% funding boost that finishes a single technology faster at significant credit cost &mdash; for urgent breakthroughs. You cannot research technologies you cannot yet afford per turn; ensure your state economy is positive before increasing research funding significantly.</p>
+
+<h2 class="sub-title">Research Priorities by Phase</h2>
+<div class="strat-phase early">
+  <div class="strat-phase-title">Early Game Research Priorities</div>
+  <p><strong>Construction Size</strong> upgrades first &mdash; larger ship hulls accommodate more components, which means better weapons, more armour, stronger reactors, and larger fuel tanks on every ship class. This is the highest-leverage early research in the game, and is correct for virtually every race and playstyle.</p>
+  <p><strong>Hyperdrive technology</strong> (Warp Field Precursors, then first-tier drives) is critical for standard starts; for pre-warp starts it is the entire focus until achieved. Faster drives dramatically accelerate exploration and expansion.</p>
+  <p><strong>Energy collectors</strong> allow ships to remain stationary in star systems without draining fuel, enabling deep-space installations to be self-sustaining. Research early to reduce ongoing fuel costs.</p>
+</div>
+<div class="strat-phase mid">
+  <div class="strat-phase-title">Mid Game Research Priorities</div>
+  <p><strong>Advanced drives</strong> (Equinox, Gerax series) dramatically increase fleet speed. Faster fleets can reinforce threatened positions, project power further, and outmanoeuvre slower enemies. Speed is consistently underrated by new players.</p>
+  <p><strong>Advanced weapons</strong> in your preferred combat style (torpedo-focused, rail gun, phaser, or mixed). Research your primary weapon to high tier before diversifying.</p>
+  <p><strong>Colonisation technology</strong> to expand your viable planet types, particularly important if your home cluster is resource-poor in native planet types.</p>
+</div>
+<div class="strat-phase late">
+  <div class="strat-phase-title">Late Game Research Priorities</div>
+  <p><strong>Hyperspace Denial</strong> (Tractor Beams, Jump Interdictors) prevents enemy fleets from fleeing battle &mdash; critical for achieving decisive fleet engagements rather than endless cat-and-mouse pursuits.</p>
+  <p><strong>Area weapons</strong> (Ion Cannons, Disruptors) that damage multiple enemy ships simultaneously. These are disproportionately powerful in large fleet engagements.</p>
+  <p><strong>Advanced shields and armour</strong> to keep your existing ships viable against opponents who have upgraded their weapons.</p>
+</div>
+
+<h2 class="sub-title">Research Facilities</h2>
+<p>Research Stations built in space at high-quality locations (identified by a percentage bonus rating visible in the system survey) provide significant passive research bonuses. Each of the three research branches has its own station type; placing them at the best available sites &mdash; with a skilled scientist character assigned &mdash; can double or triple your effective research output compared to colony research alone. Finding and securing high-percentage research sites is a priority throughout the game.</p>
+
+<div class="callout tip">
+  <div class="callout-title">The Way of the Ancients</div>
+  Investigating certain ancient ruins can unlock <em>Way of the Ancients</em>, a unique government type that is one of the most powerful bonuses in the game, providing research and happiness bonuses unavailable through any other means. It is tied to specific ruin discoveries and is not available on every galaxy. Prioritising ruin exploration specifically for this event is a legitimate high-level strategy.
+</div>
+</section>
+<div class="ornamental-divider">&#10022; &nbsp; &#10022; &nbsp; &#10022;</div>
+
+<section class="section" id="s06">
+<h1 class="section-title"><span class="sec-num">&sect; 06</span> Ship Design</h1>
+<p>Ship design in Distant Worlds: Universe is a deep, component-based system where every hull has a set of component slots, and your job is to fill those slots wisely. The game allows manual design for every ship class or delegation of design to the AI &mdash; but the AI's designs are conservative and generic. Understanding ship design principles is one of the highest-leverage skills in the game for experienced players.</p>
+
+<h2 class="sub-title">Ship Classes</h2>
+<table class="data-table">
+  <tr><th>Class</th><th>Role</th><th>Key Design Notes</th></tr>
+  <tr><td><strong>Escort</strong></td><td>Fast screening; anti-pirate; escort duty</td><td>Maximise speed; minimal armour; cheap to maintain. Should outrun most threats.</td></tr>
+  <tr><td><strong>Frigate</strong></td><td>Light combat; picket duty</td><td>Balance speed and weaponry. First ship class capable of sustained combat.</td></tr>
+  <tr><td><strong>Destroyer</strong></td><td>Multi-role combat</td><td>Your workhorse fleet unit. Invest in quality weapons and adequate shields.</td></tr>
+  <tr><td><strong>Cruiser</strong></td><td>Line-of-battle combat</td><td>Larger hull allows more weapon systems. Should carry area weapons when available.</td></tr>
+  <tr><td><strong>Capital Ship / Battleship</strong></td><td>Fleet flagship; heavy firepower</td><td>Maximum weapon concentration; full shield and armour suite; command bonuses.</td></tr>
+  <tr><td><strong>Carrier</strong></td><td>Fighter-group deployment</td><td>Hangar bays for fighters; less direct firepower but multiplies effective fleet combat power through fighter squadrons.</td></tr>
+  <tr><td><strong>Colony Ship</strong></td><td>Founding new colonies</td><td>Needs adequate fuel for long range; otherwise utilitarian design.</td></tr>
+  <tr><td><strong>Constructor</strong></td><td>Building space stations</td><td>Prioritise speed for rapid deployment; construction modules are the core requirement.</td></tr>
+  <tr><td><strong>Resupply Ship</strong></td><td>Fleet logistics and fuel</td><td>Large fuel capacity; some experienced players equip as super-capitals with command arrays.</td></tr>
+  <tr><td><strong>Troop Transport</strong></td><td>Planetary invasion</td><td>Maximise troop capacity; add armour for survivability during assault operations.</td></tr>
+</table>
+
+<h2 class="sub-title">Core Design Principles</h2>
+<ul class="guide-list">
+  <li><strong>Energy balance:</strong> Every component consumes energy. Your reactor must produce enough to power all components simultaneously. Run out of energy in combat and your weapons go offline. Always verify energy balance before finalising a design.</li>
+  <li><strong>Fuel capacity:</strong> Give military ships more fuel than the default AI designs. A fleet that runs dry mid-campaign is useless. This is especially important for long-range offensive operations.</li>
+  <li><strong>Weapon specialisation:</strong> Pick a primary weapon type (torpedoes, rail guns, phasers, or tachyon lances) and focus on it. Mixed weapon designs dilute effectiveness and complicate ammunition logistics.</li>
+  <li><strong>Fuel type segregation:</strong> Consider running civilian ships on Hydrogen and military on Caslon. This prevents civilian demand from draining your military fuel reserves at critical moments.</li>
+  <li><strong>Repair Bots:</strong> Small components that automatically repair damage during and after combat. Underrated early, critical late game when your ships are spending extended periods in hostile space.</li>
+</ul>
+
+<div class="callout nebula">
+  <div class="callout-title">Retrofitting &mdash; Never Neglect It</div>
+  When you research a better reactor, shield, or weapon, existing ships do not automatically upgrade. You must either manually order retrofits or enable auto-retrofit in your policy settings. Ships fighting with outdated components are dramatically less effective than their nominal hull class suggests. Make retrofitting a regular habit every 2&ndash;3 major technology advances.
+</div>
+</section>
+<div class="ornamental-divider">&#10022; &nbsp; &#10022; &nbsp; &#10022;</div>
+<section class="section" id="s07">
+<h1 class="section-title"><span class="sec-num">&sect; 07</span> Military &amp; Combat</h1>
+<p>Combat in Distant Worlds: Universe is real-time and largely automatic &mdash; ships engage enemies autonomously once ordered to attack a system or target. Your strategic role is deciding <em>where</em> to commit fleets, <em>what</em> fleet compositions to use, and <em>when</em> to retreat. Tactical micromanagement is possible by pausing, but most experienced players let the combat resolve and focus on operational decisions.</p>
+
+<h2 class="sub-title">Fleet Organisation</h2>
+<p>Ships can be assigned to <strong>Fleets</strong> or left as independent units. Fleets provide coordination bonuses and allow single-order deployment; independent ships are more flexible but harder to manage in bulk. Experienced players typically maintain several specialised fleets: an offensive strike fleet, a defensive home fleet, an invasion fleet (troop transports plus escorts), and a rapid-response picket force.</p>
+
+<div class="callout teal">
+  <div class="callout-title">Fleet Size vs. Quality</div>
+  A common mistake is building large numbers of cheap, outdated ships. In DWU, quality dramatically outweighs quantity. A fleet of 10 well-designed, up-to-date Destroyers will defeat 30 old Escorts with obsolete weapons. Invest in fewer, better ships and keep them retrofitted; retire obsolete hulls when they cannot be economically upgraded.
+</div>
+
+<h2 class="sub-title">Invasion and Ground Combat</h2>
+<p>Conquering enemy colonies requires both orbital superiority and ground invasion. Bombarding a colony from orbit gradually reduces its defence buildings and population but does not capture it. You must land troops &mdash; transported by Troop Transports &mdash; to complete the capture. Ground combat is resolved automatically based on troop numbers, troop quality (which varies by race), planetary defences, and relevant racial bonuses.</p>
+<p>Troop quality varies significantly by race. Some races (notably Mortalen and Ikkuro) produce elite ground forces; others (Teekan, Ugnari) produce weak troops requiring 2&ndash;4&times; the numbers to achieve equivalent combat effectiveness. Factor this into your invasion planning: a Teekan-led empire requires far more troops per invasion than a Mortalen one.</p>
+
+<h2 class="sub-title">Space Combat Mechanics</h2>
+<ul class="guide-list">
+  <li><strong>Armour</strong> absorbs direct damage in sequence &mdash; outer layers are destroyed first, exposing inner hull. Early armour techs are destroyed very rapidly; investing in improved armour significantly extends ship survivability.</li>
+  <li><strong>Shields</strong> regenerate between engagements and provide a damage buffer before armour is hit. Shield strength is critical for ships expected to lead assaults.</li>
+  <li><strong>Weapon arcs:</strong> Different weapons have different firing arcs. Missiles and torpedoes have 360-degree arcs regardless of mounting; energy weapons typically have limited forward arcs. Ship position relative to enemy matters.</li>
+  <li><strong>Retreat:</strong> Ships that retreat from combat enter a short warp jump. Enemies with fast-charging hyperdrives can pursue; Hyperspace Denial tech (Tractor Beams, Interdictors) prevents escape and is critical for landing decisive kills.</li>
+  <li><strong>Fighters:</strong> Carrier-deployed fighters provide a significant combat multiplier. They are individually weak but attack from multiple angles simultaneously, overwhelming point-defence systems.</li>
+</ul>
+</section>
+<div class="ornamental-divider">&#10022; &nbsp; &#10022; &nbsp; &#10022;</div>
+
+<section class="section" id="s08">
+<h1 class="section-title"><span class="sec-num">&sect; 08</span> Diplomacy &amp; Espionage</h1>
+<p>Diplomacy in Distant Worlds: Universe is functional but not particularly subtle. Relations are primarily driven by race personality traits, historical interactions (wars, treaties, aid), and proximity. Some races are naturally aggressive; others are isolationist or diplomatic. Understanding which empires are compatible allies and which are inevitable adversaries guides your expansion direction and alliance-building priority.</p>
+
+<h2 class="sub-title">Treaty Types</h2>
+<ul class="guide-list">
+  <li><strong>Non-Aggression Pact:</strong> Basic peace agreement. A starting point for stable relations.</li>
+  <li><strong>Free Trade Agreement:</strong> Opens economic exchange, significantly boosting both empires' private sector income through expanded trade routes. One of the most valuable diplomatic tools for economically-focused empires.</li>
+  <li><strong>Research Agreement:</strong> Shares periodic technology discoveries. Excellent if your partner has a different research focus than you.</li>
+  <li><strong>Alliance:</strong> Full military cooperation; you fight each other's wars. Carries the risk of being dragged into conflicts you don't want. Evaluate carefully before committing.</li>
+  <li><strong>Protection Treaty:</strong> You protect a weaker empire; they pay tribute. Useful early income source, but creates military obligations and can antagonise the protected empire's enemies.</li>
+</ul>
+
+<h2 class="sub-title">Espionage</h2>
+<p>The espionage system (expanded significantly in the <em>Shadows</em> expansion) allows you to recruit agents, embed them in rival empires, and conduct operations ranging from technology theft to assassination of enemy leaders to sabotage of critical facilities. Dhayut and Haakonish are particularly effective espionage races. Key operations:</p>
+<ul class="guide-list">
+  <li><strong>Technology theft:</strong> One of the highest-value espionage actions. Stealing a key technology from a rival saves years of research investment.</li>
+  <li><strong>Leader assassination:</strong> Removing an effective rival leader can create a power vacuum, trigger succession crises, or simply eliminate their bonuses from your enemy's operations.</li>
+  <li><strong>Facility sabotage:</strong> Disabling a key spaceport, research station, or mining facility temporarily but significantly degrades a rival's capacity.</li>
+  <li><strong>Counter-espionage:</strong> Assigning agents defensively to detect and eliminate enemy spies. Always maintain some counter-espionage capacity.</li>
+</ul>
+</section>
+<div class="ornamental-divider">&#10022; &nbsp; &#10022; &nbsp; &#10022;</div>
+
+<section class="section" id="s09">
+<h1 class="section-title"><span class="sec-num">&sect; 09</span> Colony Management</h1>
+<p>Colonies are the population and production base of your empire. Each colony has a <strong>Development Level</strong> (reflecting the quality of its infrastructure) and a <strong>Population</strong> that grows over time. Development level is primarily driven by private sector investment &mdash; which is in turn driven by available luxury resources, facility construction, and low tax rates.</p>
+
+<h2 class="sub-title">Key Colonial Facilities</h2>
+<table class="data-table">
+  <tr><th>Facility</th><th>Effect</th><th>Priority</th></tr>
+  <tr><td>Spaceport</td><td>Enables ship construction and private economy hub; size determines capacity</td><td>Critical — build immediately on every colony</td></tr>
+  <tr><td>Research Lab (×3 types)</td><td>Boosts Military, Economic, or High Tech research output</td><td>High — one of each type on primary colonies</td></tr>
+  <tr><td>Medical Centre</td><td>Boosts population growth rate</td><td>High on high-potential colonies</td></tr>
+  <tr><td>Recreation Centre</td><td>Increases colony happiness; reduces unrest</td><td>Medium — prioritise for restive colonies</td></tr>
+  <tr><td>Military Academy</td><td>Trains better quality ground troops; spawns characters</td><td>Medium-high on military bases</td></tr>
+  <tr><td>Ground Troop Garrison</td><td>Defends against invasion</td><td>Build on all colonies within enemy reach</td></tr>
+  <tr><td>Space Mirror</td><td>Terraforms planet toward preferred climate over time</td><td>Long-term investment for high-value colonies</td></tr>
+</table>
+
+<h2 class="sub-title">Happiness and Unrest</h2>
+<p>Colony happiness is driven by race personality (Securans and Shandar are natural optimists; Boskara are aggressive and difficult to keep content), luxury resource availability, government type, tax rate, and the presence of recreational facilities. Unhappy colonies produce less income, grow more slowly, and at extreme unhappiness may rebel &mdash; potentially becoming independent empires or joining a rival. Monitor happiness consistently and invest in recreational facilities before unrest reaches critical levels.</p>
+</section>
+<div class="ornamental-divider">&#10022; &nbsp; &#10022; &nbsp; &#10022;</div>
+
+<section class="section" id="s10">
+<h1 class="section-title"><span class="sec-num">&sect; 10</span> Automation &amp; Policy</h1>
+<p>The automation system is Distant Worlds: Universe's most distinctive feature and the source of most player confusion. Automation does not simplify the game &mdash; it delegates specific tasks to the AI so you can focus elsewhere. The question is not whether to automate but what to automate and when to override.</p>
+
+<h2 class="sub-title">What to Automate (Generally)</h2>
+<ul class="guide-list">
+  <li><strong>Private economy:</strong> Leave fully automated. The AI manages private ships competently; interfering creates more problems than it solves.</li>
+  <li><strong>Freighters and mining:</strong> Automate unless you have specific reasons to override (e.g. directing resources to a particular colony).</li>
+  <li><strong>Exploration:</strong> Automate early game when managing many scouts manually is tedious. Disable later when you want to direct exploration toward specific targets.</li>
+  <li><strong>Research:</strong> This one is contested. Many experienced players prefer manual control to ensure the right technologies are prioritised; the AI research priorities are often suboptimal.</li>
+</ul>
+
+<h2 class="sub-title">What NOT to Automate</h2>
+<ul class="guide-list">
+  <li><strong>Military ship construction:</strong> The AI builds too many ships too fast, bankrupting your state economy. Always manage this manually.</li>
+  <li><strong>Troops:</strong> The AI fills every colony with troops, which is prohibitively expensive. Manually maintain minimal garrisons except on frontline colonies.</li>
+  <li><strong>Diplomacy:</strong> The AI makes poor diplomatic decisions, agreeing to unfavourable treaties and picking unnecessary wars. Always handle diplomacy manually.</li>
+  <li><strong>Colony founding:</strong> The AI colonises poor-value planets and spreads your empire unsustainably thin. Direct colonisation manually using your own priority list.</li>
+</ul>
+
+<div class="callout warning">
+  <div class="callout-title">The Troops Trap</div>
+  If you enable troop automation, the AI will station large numbers of expensive troops on every colony as soon as it can afford them. This alone can cause severe economic crisis in the mid game. Always manage troops manually and maintain only what you need: minimal garrisons on safe interior colonies, stronger forces on frontier colonies within range of enemy fleets.
+</div>
+</section>
+<div class="ornamental-divider">&#10022; &nbsp; &#10022; &nbsp; &#10022;</div>
+<section class="section" id="s11">
+<h1 class="section-title"><span class="sec-num">&sect; 11</span> Pirates &amp; Galactic Threats</h1>
+<p>Pirates are a constant presence throughout the game and serve multiple functions: they are a genuine economic threat to your mining operations and trade routes, a source of early military experience, potential allies or rivals (if you enable Pirate playstyle), and eventually a manageable nuisance rather than a serious threat as your military develops.</p>
+
+<h2 class="sub-title">Managing the Pirate Threat</h2>
+<p>In the early game, before you have a meaningful military, pirates are best managed through a combination of:</p>
+<ul class="guide-list">
+  <li><strong>Paying protection money</strong> to pirate factions with whom you have poor relations &mdash; a direct diplomatic bribe that buys temporary peace. Expensive long-term but buys critical early development time.</li>
+  <li><strong>Defensive weapons on mining stations</strong> &mdash; fitting 4&ndash;5 long-range missiles on your critical Caslon and luxury resource mining stations makes them expensive targets that most early pirates will avoid.</li>
+  <li><strong>Boarding defence</strong> &mdash; adding habitation modules to stations (minimum 12, ideally 18+) raises the boarding defence value enough to prevent pirate boarding and capture. A captured mining station becomes a pirate base targeting your entire region.</li>
+  <li><strong>Don't panic</strong> &mdash; early pirate raids on colonial outskirts are survivable. They cannot eliminate you. Focus on building economic capacity first; once you have 3&ndash;4 destroyers, pirate threats in your immediate region can be dealt with directly.</li>
+</ul>
+
+<h2 class="sub-title">Space Monsters</h2>
+<p>Space monsters inhabit certain star systems and protect ancient ruins, gas clouds, and other resources. Major monster types include:</p>
+<ul class="guide-list">
+  <li><strong>Silver Mist:</strong> The first monster most players encounter. Appears in clusters, relatively weak. A few armed escorts can clear a Silver Mist infestation once Ion weapons are researched (they are particularly effective against Mist entities).</li>
+  <li><strong>Ether Dragons:</strong> Powerful mid-game monsters. Require a real fleet commitment to eliminate. Their systems often contain valuable ruins worth the fight.</li>
+  <li><strong>Crystal Entities:</strong> Large, heavily armoured. Treat their systems as hazardous until late game.</li>
+  <li><strong>Space Amoeba / Sand Slug:</strong> Various other creature types inhabiting specific environment types. Generally manageable once you have upgraded weapons.</li>
+</ul>
+
+<h2 class="sub-title">The Shakturi</h2>
+<p>If the Shakturi Return scenario is enabled, the mid-to-late game introduces the reformed Shakturi Axis as an existential threat. The Shakturi build <strong>World Destroyers</strong> &mdash; dreadnought-class superweapons capable of eliminating entire colonies. When the Shakturi reactivation sequence begins, the correct response is: join or form the Freedom Alliance, accelerate military ship production, and prioritise Hyperspace Denial research to prevent World Destroyer escape from your fleets.</p>
+</section>
+<div class="ornamental-divider">&#10022; &nbsp; &#10022; &nbsp; &#10022;</div>
+
+<section class="section" id="s12">
+<h1 class="section-title"><span class="sec-num">&sect; 12</span> Governments</h1>
+<p>Your empire's government type significantly affects happiness, research speed, growth, economic efficiency, and military effectiveness. Government type can change through in-game events or intentional transitions triggered by meeting specific conditions. Different races have natural government affinities; some races can only access certain government types.</p>
+
+<table class="data-table">
+  <tr><th>Government</th><th>Key Bonuses</th><th>Drawbacks</th><th>Best For</th></tr>
+  <tr><td><strong>Democracy</strong></td><td>+25% research, high happiness, strong economy</td><td>Slower military response; popular approval needed for wars</td><td>Science-focused empires; Quameno, Human</td></tr>
+  <tr><td><strong>Republic</strong></td><td>Balanced bonuses; +10–15% research; good economic growth</td><td>Moderate military; moderate happiness</td><td>General-purpose; many races</td></tr>
+  <tr><td><strong>Technocracy</strong></td><td>+20% research; efficient management</td><td>Lower happiness ceiling</td><td>Research-focused; Quameno, Zenox</td></tr>
+  <tr><td><strong>Monarchy</strong></td><td>Leader quality bonus; strong military loyalty</td><td>Succession crises on leader death</td><td>Leader-centric strategies; Haakonish, Wekkarus</td></tr>
+  <tr><td><strong>Military Dictatorship</strong></td><td>+20% military, faster mobilisation, lower ship costs</td><td>Reduced happiness; research penalty</td><td>Aggressive expansion; Mortalen, Boskara</td></tr>
+  <tr><td><strong>Mercantile Guild</strong></td><td>+15–20% income; stronger private economy</td><td>Weaker military capacity</td><td>Economic victory; Haakonish, Teekan, Ugnari</td></tr>
+  <tr><td><strong>Hive Mind</strong></td><td>Very high troop quality; immunity to rebellion; +happiness</td><td>Cannot form alliances; restricted diplomacy</td><td>Aggressive insects; Boskara, Sluken, Gizurean</td></tr>
+  <tr><td><strong>Feudalism</strong></td><td>Faster colonisation; character bonuses</td><td>Less efficient central management</td><td>Fast-expanding strategies; Naxxilian</td></tr>
+  <tr><td><strong>Despotism</strong></td><td>Fast early growth; authoritarian efficiency</td><td>High unrest risk if unhappy</td><td>Aggressive early game; Mortalen</td></tr>
+  <tr><td><strong>Utopian Paradise</strong></td><td>Maximum happiness; very high growth; great economy</td><td>Weak military; slow political change</td><td>Population/growth victory; Securan, Shandar only</td></tr>
+  <tr><td><strong>Way of the Ancients</strong></td><td>Exceptional research and happiness; unique bonuses</td><td>Only available via specific ruin discovery</td><td>Any race that can unlock it &mdash; always worth pursuing</td></tr>
+</table>
+</section>
+<div class="ornamental-divider">&#10022; &nbsp; &#10022; &nbsp; &#10022;</div>
+<section class="section" id="s13">
+<h1 class="section-title"><span class="sec-num">&sect; 13</span> Race Guide</h1>
+<p>Distant Worlds: Universe features 22 playable races grouped into biological families, each with distinct traits, preferred government types, native planet preferences, unique technologies, and playstyle implications. This section analyses each race, its mechanical strengths and weaknesses, and strategic recommendations.</p>
+
+<div class="callout">
+  <div class="callout-title">How Race Traits Work</div>
+  Each race has numerical ratings for Intelligence, Aggression, Caution, Friendliness, and Dependability, plus specific named bonuses (e.g. Gifted Scientists, Natural Merchants, Cunning Schemers). These ratings determine AI personality in non-player empires and directly affect player-controlled empire bonuses, scientist spawn rates, happiness baselines, and diplomatic reception from other races.
+</div>
+
+<h2 class="sub-title">Humanoid Races</h2>
+<div class="race-grid">
+  <div class="race-card humanoid">
+    <div class="race-name">Humans</div>
+    <div class="race-family">Humanoid &mdash; Continental Worlds</div>
+    <div class="race-home">Homeworld: Earth (Sol System)</div>
+    <div class="race-body">The benchmark race. Humans are well-rounded generalists with above-average intelligence, moderate aggression, and natural diplomatic inclinations. They lack spectacular bonuses in any single area but have no crippling weaknesses. Their starting position typically includes an established research foundation and a history of alliance-building.</div>
+    <div class="race-body">Recommended government: Republic or Democracy. Humans respond well to representative governments and receive research bonuses that compound well with Democracy's +25% research multiplier. They are the easiest race for new players due to their balanced stats and the diplomatic favour they receive from most humanoid and amphibian races.</div>
+    <div class="race-traits">
+      <span class="race-trait strength">Balanced Stats</span>
+      <span class="race-trait strength">+6% Research (unique bonus)</span>
+      <span class="race-trait strength">Diplomatic Affinity</span>
+      <span class="race-trait">Continental Habitat</span>
+    </div>
+  </div>
+  <div class="race-card humanoid">
+    <div class="race-name">Kiadian</div>
+    <div class="race-family">Humanoid &mdash; Continental Worlds</div>
+    <div class="race-home">Homeworld: Kiadia</div>
+    <div class="race-body">Kiadian are a scientifically advanced humanoid race with above-average intelligence and strong research bonuses. They are slightly below Quameno in raw research output but compensate with better diplomatic and economic balance. Their natural inclination toward exploration makes them excellent early-game explorers who leverage ruin discoveries for additional research boosts.</div>
+    <div class="race-body">Competitive with Quameno for science-focused playstyles and easier to manage diplomatically due to their more sociable nature. Republic or Democracy governments maximise their research output. Solid mid-tier race for players who want research focus with fewer of Quameno's isolation penalties.</div>
+    <div class="race-traits">
+      <span class="race-trait strength">High Intelligence</span>
+      <span class="race-trait strength">Research Focus</span>
+      <span class="race-trait strength">Exploration Aptitude</span>
+      <span class="race-trait">Continental Habitat</span>
+    </div>
+  </div>
+  <div class="race-card humanoid">
+    <div class="race-name">Securan</div>
+    <div class="race-family">Humanoid &mdash; Desert Worlds</div>
+    <div class="race-home">Homeworld: Secura</div>
+    <div class="race-body">Securans are the premier growth and happiness race in the game. Their +50% happiness baseline means they are almost never unhappy, their population growth rate of 26% is among the highest available, and their population growth cycle of once every 3 years is the best in the game. Large populations mean large tax bases, which fund Crash Research programs that outpace even Quameno's innate bonuses in the long run.</div>
+    <div class="race-body">Uniquely able to access the Utopian Paradise government, which further amplifies their happiness and growth advantages. Their native desert habitat and slight intelligence boost give them access to both continental and desert planet types cheaply. Many experienced players rate Securan as the strongest overall race precisely because their growth snowball eventually outproduces every specialist race's initial advantages. However, they start slowly and require patience.</div>
+    <div class="race-traits">
+      <span class="race-trait strength">+50% Happiness</span>
+      <span class="race-trait strength">Highest Growth Rate</span>
+      <span class="race-trait strength">Utopian Paradise Access</span>
+      <span class="race-trait">Slight Intelligence Bonus</span>
+      <span class="race-trait weakness">Slow Early Game</span>
+    </div>
+  </div>
+</div>
+
+<h2 class="sub-title">Insectoid Races</h2>
+<div class="race-grid">
+  <div class="race-card insectoid">
+    <div class="race-name">Boskara</div>
+    <div class="race-family">Insectoid &mdash; Volcanic Worlds</div>
+    <div class="race-home">Homeworld: Boskar</div>
+    <div class="race-body">The galaxy's most aggressive expansionist race. Boskara are the canonical villains of the Shakturi War lore, and their mechanics reflect their character. They possess the unique <strong>Shaktur FireStorm</strong> torpedo &mdash; an extraordinarily powerful weapon with planetary bombardment capability allowing them to eliminate entire enemy colony populations. Their instinctive drive for conquest translates into strong combat bonuses and rapid early expansion.</div>
+    <div class="race-body">Boskara excel at aggressive blitzkrieg play: build quickly, attack early, use the FireStorm to neutralise enemy spaceports before they can organise defences. Their natural ally the Sluken provides a reliable early game partner. Best played with Military Dictatorship or Hive Mind government. The weakness is economic: their volcanic habitat is relatively rare and they can struggle to maintain a large enough economic base to support sustained warfare.</div>
+    <div class="race-traits">
+      <span class="race-trait special">Shaktur FireStorm (Unique Weapon)</span>
+      <span class="race-trait strength">+10% Ground Attack</span>
+      <span class="race-trait strength">Strong Early Military</span>
+      <span class="race-trait">Volcanic Habitat</span>
+      <span class="race-trait weakness">Diplomatic Pariah</span>
+      <span class="race-trait weakness">Economic Vulnerability</span>
+    </div>
+  </div>
+  <div class="race-card insectoid">
+    <div class="race-name">Dhayut</div>
+    <div class="race-family">Insectoid &mdash; Swamp / Carbonaceous Worlds</div>
+    <div class="race-home">Homeworld: Dhayuta</div>
+    <div class="race-body">The galaxy's premier espionage race. Dhayut are cunning, treacherous spider-like beings with exceptional spy capabilities and a natural aptitude for deception and exploitation. Their intelligence network can penetrate rival empires to steal technology, assassinate leaders, and sabotage critical infrastructure with far greater success rates than most races. Their diplomatic personality is notably untrustworthy but strategically pragmatic.</div>
+    <div class="race-body">Play Dhayut for a shadow-war experience: maintain a modest military while your agents do the real strategic work. Steal technologies from your more research-focused neighbours, keep rivals off-balance through sabotage, and use your income advantage from exploitative diplomacy to build selectively when you do need military force. Military Dictatorship or Despotism governments complement their aggressive tendencies.</div>
+    <div class="race-traits">
+      <span class="race-trait special">Elite Espionage</span>
+      <span class="race-trait strength">Spy Effectiveness Bonus</span>
+      <span class="race-trait strength">Technology Theft</span>
+      <span class="race-trait weakness">Diplomatic Pariah</span>
+    </div>
+  </div>
+  <div class="race-card insectoid">
+    <div class="race-name">Gizurean</div>
+    <div class="race-family">Insectoid &mdash; Arid Worlds</div>
+    <div class="race-home">Homeworld: Gizure</div>
+    <div class="race-body">The quintessential Zerg-rush race. Gizurean are described as &ldquo;quite stupid&rdquo; in game terms and receive significant intelligence penalties, making them poor researchers. They compensate with extremely high reproduction rates and Hive Mind government affinity, spawning vast populations and enormous fleets of individually mediocre but collectively overwhelming warships. Their military victory comes at heavy casualty cost, which their population growth absorbs.</div>
+    <div class="race-body">A challenging race to play well because their research deficit compounds over time. The strategy is to win early, before more technologically advanced races develop weapons that defeat quality-over-quantity advantages. Mid-to-late game Gizurean against a Quameno-led research empire is a losing proposition. They are best for players who enjoy overwhelming enemy borders with numbers rather than precision.</div>
+    <div class="race-traits">
+      <span class="race-trait strength">Exceptional Growth Rate</span>
+      <span class="race-trait strength">Hive Mind Compatible</span>
+      <span class="race-trait strength">Vast Fleet Numbers</span>
+      <span class="race-trait weakness">Very Low Intelligence</span>
+      <span class="race-trait weakness">Research Deficit</span>
+    </div>
+  </div>
+  <div class="race-card insectoid">
+    <div class="race-name">Sluken</div>
+    <div class="race-family">Insectoid &mdash; Volcanic / Arid Worlds</div>
+    <div class="race-home">Homeworld: Slukan</div>
+    <div class="race-body">The more reasonable cousins of the Boskara, Sluken are militarily capable insectoids with a natural alliance relationship with Boskaran empires. They lack the FireStorm but compensate with slightly better economic foundations and diplomatic flexibility. Still aggressively inclined by nature, they function well as an ally-empire in a Boskara-Sluken coalition or as an independent aggressive expansionist in their own right.</div>
+    <div class="race-traits">
+      <span class="race-trait strength">Military Capability</span>
+      <span class="race-trait strength">Natural Boskara Alliance</span>
+      <span class="race-trait">Volcanic/Arid Habitat</span>
+      <span class="race-trait weakness">Diplomatic Limitations</span>
+    </div>
+  </div>
+</div>
+
+<h2 class="sub-title">Ursidian Races</h2>
+<div class="race-grid">
+  <div class="race-card ursidian">
+    <div class="race-name">Ikkuro</div>
+    <div class="race-family">Ursidian &mdash; Ocean / Marsh Worlds</div>
+    <div class="race-home">Homeworld: Ikkura</div>
+    <div class="race-body">One of the best-rounded races in the game. Ikkuro are natural merchants (+10% income bonus), fast builders (faster construction speed), economical operators (cheaper ship maintenance), and produce elite, cost-effective ground troops (30% cheaper, twice as strong as average). This combination makes them exceptional at all three pillars of early game success: economic foundation, military projection, and colonial defence.</div>
+    <div class="race-body">The Ikkuro soldier cost-quality ratio is the best in the game: two Ikkuro troops outperform four Teekan troops at one-third the maintenance cost. This frees enormous resources for fleet and economic investment. Recommended government: Republic or Feudalism. Excellent choice for players who want a powerful, consistent mid-tier performer without significant weaknesses. Commonly rated top 3 among experienced players.</div>
+    <div class="race-traits">
+      <span class="race-trait strength">+10% Income</span>
+      <span class="race-trait strength">Faster Construction</span>
+      <span class="race-trait strength">Elite Cheap Troops</span>
+      <span class="race-trait strength">Cheaper Ship Maintenance</span>
+      <span class="race-trait">Ocean/Marsh Habitat</span>
+    </div>
+  </div>
+  <div class="race-card ursidian">
+    <div class="race-name">Ketarov</div>
+    <div class="race-family">Ursidian &mdash; Continental Worlds</div>
+    <div class="race-home">Homeworld: Ketara</div>
+    <div class="race-body">Solid mid-tier ursidian race. Ketarov are reliable and dependable by nature, making them effective long-term alliance partners and stable empire operators. They lack the economic edge of Ikkuro but are competent all-round performers. Continental habitat gives access to abundant colonisation targets. Best with Republic or Democracy government for their moderate intelligence and dependability.</div>
+    <div class="race-traits">
+      <span class="race-trait strength">High Dependability</span>
+      <span class="race-trait strength">Alliance Stability</span>
+      <span class="race-trait">Continental Habitat</span>
+    </div>
+  </div>
+</div>
+
+<h2 class="sub-title">Rodent Races</h2>
+<div class="race-grid">
+  <div class="race-card rodent">
+    <div class="race-name">Zenox</div>
+    <div class="race-family">Rodent &mdash; Marsh / Forest Worlds</div>
+    <div class="race-home">Homeworld: Zenox Prime</div>
+    <div class="race-body">The galaxy's archaeologists. Zenox are obsessed with galactic history and begin the game knowing the location of two major ancient sites, giving them an immediate head-start on the archaeological exploration race. Their victory conditions natively include controlling the most ancient ruins, exploring the entire galaxy, and constructing the Galactic Archives wonder. They also enjoy a +15% research bonus from their homeworld's Tyderios resource discovery.</div>
+    <div class="race-body">Zenox are a research-focused race that leverages ruin discoveries for bonus technologies. Their fleet carrier ship designs have more defensive slots than other races, making their carriers exceptionally durable. Recommended government: Technocracy or Republic. A strong pick for players who enjoy exploration-heavy, research-adjacent playstyles and want the early ruin-location advantage.</div>
+    <div class="race-traits">
+      <span class="race-trait special">Start with 2 Ancient Site Locations</span>
+      <span class="race-trait strength">+15% Research Potential</span>
+      <span class="race-trait strength">Carrier Defense Bonus</span>
+      <span class="race-trait">Marsh/Forest Habitat</span>
+    </div>
+  </div>
+  <div class="race-card rodent">
+    <div class="race-name">Teekan</div>
+    <div class="race-family">Rodent &mdash; Continental / Arid Worlds</div>
+    <div class="race-home">Homeworld: Teeka</div>
+    <div class="race-body">The Zerg to Gizurean's Zerg. Teekan are fast-breeding, moderately intelligent rodents who produce vast quantities of mediocre warships. Their Trapper Group forces are the weakest ground troops in the game &mdash; requiring twice the normal number to match average races &mdash; making invasions very expensive. Their military victory comes through overwhelming numbers rather than quality.</div>
+    <div class="race-body">Teekan are competitive but require careful management of their troop cost problem. Mercantile Guild government is a natural fit, leveraging their commercial tendencies to build economic capacity that funds massive fleet construction. A high-ceiling race for experienced players willing to manage their weaknesses but frustrating for newcomers who will find invasion costs crippling.</div>
+    <div class="race-traits">
+      <span class="race-trait strength">High Growth Rate</span>
+      <span class="race-trait strength">Mercantile Tendencies</span>
+      <span class="race-trait weakness">Weakest Ground Troops</span>
+      <span class="race-trait weakness">Requires Troop Quantity Compensation</span>
+    </div>
+  </div>
+  <div class="race-card rodent">
+    <div class="race-name">Ugnari</div>
+    <div class="race-family">Rodent &mdash; Arid / Desert Worlds</div>
+    <div class="race-home">Homeworld: Ugnar</div>
+    <div class="race-body">A commercial-focused rodent race with strong mercantile tendencies and economic bonuses. Ugnari are natural traders whose private economy tends to be robust and whose Free Trade Agreements yield above-average income. Their ground troops are below average but better than Teekan. Recommended government: Mercantile Guild. Best suited for economic victory conditions or as an economic anchor race in alliance play.</div>
+    <div class="race-traits">
+      <span class="race-trait strength">Commercial Bonuses</span>
+      <span class="race-trait strength">Strong Private Economy</span>
+      <span class="race-trait">Arid/Desert Habitat</span>
+      <span class="race-trait weakness">Average Military</span>
+    </div>
+  </div>
+  <div class="race-card rodent">
+    <div class="race-name">Atuuk</div>
+    <div class="race-family">Rodent &mdash; Continental Worlds</div>
+    <div class="race-home">Homeworld: Atuuk Prime</div>
+    <div class="race-body">The most debated bottom-tier race. Atuuk have good population growth and happiness bonuses but possess essentially no other advantages. Their construction speed is penalised, their troops are among the worst in the game, their starting leader is weak, and they have a very poor chance to spawn scientists. High growth and happiness do not compensate for these accumulated deficits in competitive play. Best for players who want a handicapped challenge run.</div>
+    <div class="race-traits">
+      <span class="race-trait strength">Good Growth Rate</span>
+      <span class="race-trait strength">Happiness Bonus</span>
+      <span class="race-trait weakness">Slow Construction</span>
+      <span class="race-trait weakness">Weak Troops</span>
+      <span class="race-trait weakness">Very Low Scientist Spawn</span>
+    </div>
+  </div>
+</div>
+
+<h2 class="sub-title">Reptilian Races</h2>
+<div class="race-grid">
+  <div class="race-card reptilian">
+    <div class="race-name">Haakonish</div>
+    <div class="race-family">Reptilian &mdash; Marsh / Continental Worlds</div>
+    <div class="race-home">Homeworld: Haakonia</div>
+    <div class="race-body">A top-tier generalist with strong economic and intelligence capabilities. Haakonish receive a maintenance cost reduction (keeping their fleet costs manageable), bonuses to spy operations, larger ship hulls than standard (allowing more components), and a powerful starting governor that accelerates early colony growth. Their above-average intelligence ensures a steady supply of scientist characters for research station staffing.</div>
+    <div class="race-body">The Haakonish are excellent for players who want a strong mid-game military-economic balance. Their larger hull sizes mean their ships punch above their class weight; a Haakonish Destroyer carries more weapons than a Human Destroyer of the same technology level. Recommended government: Mercantile Guild (for income focus) or Monarchy (for leader synergy). Consistently rated top 3 by experienced players.</div>
+    <div class="race-traits">
+      <span class="race-trait strength">Larger Ship Hulls</span>
+      <span class="race-trait strength">Maintenance Cost Reduction</span>
+      <span class="race-trait strength">Spy Bonus</span>
+      <span class="race-trait strength">Strong Starting Governor</span>
+      <span class="race-trait">Marsh/Continental Habitat</span>
+    </div>
+  </div>
+  <div class="race-card reptilian">
+    <div class="race-name">Mortalen</div>
+    <div class="race-family">Reptilian &mdash; Arid / Desert Worlds</div>
+    <div class="race-home">Homeworld: Mortalis</div>
+    <div class="race-body">The premier military race. Mortalen are highly aggressive reptilians whose Conqueror ground force is the strongest base ground unit in the game &mdash; 140 attack and defence before bonuses &mdash; and whose cultural aggression translates into meaningful combat effectiveness. Their fleet carrier designs have more weapon slots than other races, making their carriers particularly lethal offensive platforms.</div>
+    <div class="race-body">Mortalen excel at direct military conquest. Their troop quality means invasions cost far fewer resources than other races; combined with aggressive diplomatic tendencies, they naturally pursue military victory conditions. The weakness is diplomatic: nearly everyone dislikes them, alliances are hard to form, and their research is below average. Play Mortalen for a pure military conquest experience. Military Dictatorship or Despotism are the natural government choices.</div>
+    <div class="race-traits">
+      <span class="race-trait special">Strongest Base Ground Troops</span>
+      <span class="race-trait strength">Carrier Weapon Slots Bonus</span>
+      <span class="race-trait strength">Military Aggression</span>
+      <span class="race-trait weakness">Diplomatic Pariah</span>
+      <span class="race-trait weakness">Below-Average Research</span>
+    </div>
+  </div>
+  <div class="race-card reptilian">
+    <div class="race-name">Naxxilian</div>
+    <div class="race-family">Reptilian &mdash; Volcanic / Arid Worlds</div>
+    <div class="race-home">Homeworld: Naxxila</div>
+    <div class="race-body">Cunning, slightly less aggressive reptilians compared to Mortalen. Naxxilian possess espionage tendencies and moderate military capability, placing them in a hybrid spy-military niche. Their Feudalism government affinity makes them fast early colonisers. They are competitive but less specialised than Mortalen for military play or Dhayut for espionage. A solid mid-tier choice for players who enjoy mixed military-intelligence strategies.</div>
+    <div class="race-traits">
+      <span class="race-trait strength">Espionage Tendencies</span>
+      <span class="race-trait strength">Feudalism Bonus (Fast Expansion)</span>
+      <span class="race-trait">Volcanic/Arid Habitat</span>
+      <span class="race-trait weakness">Jack of All Trades</span>
+    </div>
+  </div>
+  <div class="race-card reptilian">
+    <div class="race-name">Shandar</div>
+    <div class="race-family">Reptilian &mdash; Volcanic / Carbonaceous Worlds</div>
+    <div class="race-home">Homeworld: Shandar</div>
+    <div class="race-body">The only non-humanoid race with access to the Utopian Paradise government alongside Securan. Shandar have +20% spaceport armour (a bonus that would be powerful if consistently functional &mdash; a persistent community-noted bug has often made it unreliable), volcanic habitat (limiting colonisation options), and reasonable happiness. They occupy a weak tier, similar to Atuuk, and are primarily of interest for Utopian Paradise play on non-desert planets.</div>
+    <div class="race-traits">
+      <span class="race-trait strength">Utopian Paradise Access</span>
+      <span class="race-trait">+20% Spaceport Armour (inconsistent)</span>
+      <span class="race-trait weakness">Limited Habitat</span>
+      <span class="race-trait weakness">Overall Weak Bonuses</span>
+    </div>
+  </div>
+</div>
+
+<h2 class="sub-title">Amphibian Races</h2>
+<div class="race-grid">
+  <div class="race-card amphibian">
+    <div class="race-name">Ackdarian</div>
+    <div class="race-family">Amphibian &mdash; Ocean / Marsh Worlds</div>
+    <div class="race-home">Homeworld: Ackdar</div>
+    <div class="race-body">Highly industrious semi-aquatic mammals known for their Nepthys wine trade. Ackdarians are natural merchants with solid economic bonuses, a unique starting advantage (a free spaceport claimable by moving the initial explorer to its location), and random abundance of Polymer and Kaasian Crystal resources that accelerate early construction. Their industrious nature translates into faster facility construction and competitive economic output.</div>
+    <div class="race-body">Ackdarians are an excellent commercial race that can pursue economic victory conditions while maintaining a viable military through their construction efficiency. The free starting spaceport is a significant early advantage that compounds throughout the game. Recommended government: Republic or Mercantile Guild. Solid upper-mid-tier race, underrated by many tier lists.</div>
+    <div class="race-traits">
+      <span class="race-trait special">Free Spaceport Near Homeworld</span>
+      <span class="race-trait strength">Industrial Efficiency</span>
+      <span class="race-trait strength">Natural Merchant Bonus</span>
+      <span class="race-trait strength">Resource Abundance</span>
+      <span class="race-trait">Ocean/Marsh Habitat</span>
+    </div>
+  </div>
+  <div class="race-card amphibian">
+    <div class="race-name">Quameno</div>
+    <div class="race-family">Amphibian &mdash; Ocean / Marsh Worlds</div>
+    <div class="race-home">Homeworld: Quamena</div>
+    <div class="race-body">The canonical &ldquo;best research race&rdquo; and frequently rated the strongest overall race in the game by the community. Quameno are described as frog-like beings of abnormally high intelligence who treat difficult mental challenges as recreation. Their +40% research bonus and 60% higher scientist spawn rate compound aggressively over a full campaign, creating a technology lead that becomes effectively unassailable by the late game.</div>
+    <div class="race-body">The caveat: Quameno are <em>isolationist</em>. Their native victory conditions include starting the fewest wars and participating in the fewest diplomatic treaties. Playing against their natural personality is possible but counterproductive. The Quameno ideal is a defended, self-sufficient research empire that out-technologies everyone else and wins through research victory conditions. Their weakness is cash flow &mdash; maintaining research-intensive operations requires a healthy private economy, and Quameno can struggle economically if expansion is too cautious. Recommended government: Technocracy or Democracy.</div>
+    <div class="race-traits">
+      <span class="race-trait special">+40% Research Bonus</span>
+      <span class="race-trait special">+60% Scientist Spawn Rate</span>
+      <span class="race-trait strength">Technology Lead Potential</span>
+      <span class="race-trait weakness">Isolationist Nature</span>
+      <span class="race-trait weakness">Cash Flow Vulnerability</span>
+    </div>
+  </div>
+  <div class="race-card amphibian">
+    <div class="race-name">Wekkarus</div>
+    <div class="race-family">Amphibian &mdash; Ocean / Marsh Worlds</div>
+    <div class="race-home">Homeworld: Wekkara</div>
+    <div class="race-body">The amphibian military option. Wekkarus are loyal and militaristic amphibians whose fleet designs favour rear-arc firepower, enabling a distinct kiting playstyle where they fire while retreating. This rear-arc advantage combined with their generally reliable nature makes them a disciplined military race. Their loyalty bonus makes them effective alliance partners who maintain treaties faithfully &mdash; useful for diplomatic-military hybrid strategies.</div>
+    <div class="race-traits">
+      <span class="race-trait special">Rear-Arc Fire Advantage</span>
+      <span class="race-trait strength">High Dependability</span>
+      <span class="race-trait strength">Alliance Loyalty</span>
+      <span class="race-trait">Ocean Habitat</span>
+    </div>
+  </div>
+</div>
+
+<h2 class="sub-title">Machine Races</h2>
+<div class="race-grid">
+  <div class="race-card machine">
+    <div class="race-name">Mechanoid</div>
+    <div class="race-family">Machine &mdash; Any Planet Type</div>
+    <div class="race-home">Homeworld: Variable</div>
+    <div class="race-body">The Mechanoids are the &ldquo;Big Good&rdquo; of the Distant Worlds lore, the ancient machine civilisation that opposed the Shakturi in the galactic war. As a playable race, Mechanoids have unique advantages: they can colonise any planet type (no habitat preference penalty), they are immune to biological plagues, and their mechanical nature means happiness works differently &mdash; they do not experience emotional discontent in the conventional sense. Their ship designs are distinctively mechanical and function differently from organic race vessels.</div>
+    <div class="race-body">Mechanoids are a high-skill-ceiling race. Their ability to colonise everywhere is the most flexible colonisation advantage in the game, allowing them to claim high-value planets that other races cannot efficiently use. However, their population growth mechanics are different from biological races and require understanding. Not recommended for first-time players, but exceptional in experienced hands.</div>
+    <div class="race-traits">
+      <span class="race-trait special">Colonise Any Planet Type</span>
+      <span class="race-trait special">Plague Immunity</span>
+      <span class="race-trait strength">Unique Ship Designs</span>
+      <span class="race-trait strength">No Happiness Degradation</span>
+      <span class="race-trait weakness">Different Growth Mechanics</span>
+      <span class="race-trait weakness">High Learning Curve</span>
+    </div>
+  </div>
+  <div class="race-card machine">
+    <div class="race-name">Yor</div>
+    <div class="race-family">Machine &mdash; Barren / Rocky Worlds</div>
+    <div class="race-home">Homeworld: Yor Prime</div>
+    <div class="race-body">The Yor are a malevolent machine race &mdash; the antagonist machines of the setting, as opposed to the benevolent Mechanoids. Added in the Return of the Shakturi expansion, they play as an aggressive, expansionist machine empire. Like Mechanoids they bypass biological limitations, but their design leans toward military aggression. The Yor are essentially the machine equivalent of Mortalen: strong military, limited diplomacy, and a worldview that regards organic life as inferior.</div>
+    <div class="race-traits">
+      <span class="race-trait special">Machine Biology (Plague Immune)</span>
+      <span class="race-trait strength">Aggressive Expansion</span>
+      <span class="race-trait strength">Military Orientation</span>
+      <span class="race-trait weakness">Diplomatic Pariah</span>
+    </div>
+  </div>
+</div>
+
+<h2 class="sub-title">Race Tier Summary</h2>
+<table class="data-table">
+  <tr><th>Tier</th><th>Races</th><th>Notes</th></tr>
+  <tr><td><strong>S-Tier</strong></td><td>Quameno, Securan</td><td>Dominant specialists in research and growth respectively. Both require patient play to reach their ceilings.</td></tr>
+  <tr><td><strong>A-Tier</strong></td><td>Ikkuro, Haakonish, Ackdarian</td><td>Strong across-the-board performers with no major weaknesses. Recommended for newer players seeking a strong but flexible start.</td></tr>
+  <tr><td><strong>B-Tier</strong></td><td>Zenox, Kiadian, Mortalen, Wekkarus, Mechanoid</td><td>Strong specialists or solid generalists. Mortalen/Mechanoid require experience to use well.</td></tr>
+  <tr><td><strong>C-Tier</strong></td><td>Human, Ketarov, Naxxilian, Ugnari, Teekan</td><td>Functional but outclassed by higher-tier alternatives in their preferred niches.</td></tr>
+  <tr><td><strong>D-Tier</strong></td><td>Boskara, Dhayut, Gizurean, Sluken, Yor</td><td>Aggressive races viable for specific playstyles; genuinely challenging economically or diplomatically.</td></tr>
+  <tr><td><strong>E-Tier</strong></td><td>Shandar, Atuuk</td><td>Weak bonus sets. Shandar somewhat mitigated by Utopian Paradise access; Atuuk are effectively handicap runs.</td></tr>
+</table>
+</section>
+<div class="ornamental-divider">&#10022; &nbsp; &#10022; &nbsp; &#10022;</div>
+<section class="section" id="s14">
+<h1 class="section-title"><span class="sec-num">&sect; 14</span> Early Game Strategy</h1>
+<p>The first 15&ndash;20 game-years of a Distant Worlds: Universe campaign establish the foundation that determines everything that follows. The actions you take in this window &mdash; research path, colonisation direction, economic structure &mdash; compound throughout the rest of the game. Mistakes here are recoverable but expensive in time and opportunity.</p>
+
+<div class="strat-phase early">
+  <div class="strat-phase-title">Phase 1: First Days &mdash; Secure the Foundation (Years 1&ndash;5)</div>
+  <p><strong>Immediate priority: Caslon.</strong> Before anything else, verify your Caslon supply and, if you do not have a mining station on a Caslon gas cloud within your home system, build one immediately. This is non-negotiable. Every strategic plan collapses without fuel.</p>
+  <p>Order your first constructor to build a <strong>Research Station</strong> at the best available site within your home system. Begin researching <strong>Construction Size I</strong> as the first technology &mdash; this is correct in virtually every situation regardless of race or playstyle.</p>
+  <p>Send 3&ndash;5 exploration ships aggressively outward, prioritising gas cloud identification (Caslon first, then luxury resources), ruin locations, and candidate colony planets. Give them more fuel than the AI default design and enough speed to evade common space monsters.</p>
+</div>
+
+<div class="strat-phase early">
+  <div class="strat-phase-title">Phase 2: Establishing the Economy (Years 5&ndash;15)</div>
+  <p><strong>Build your first colonies strategically.</strong> Your first 2&ndash;3 colonies should be on high-quality planets near established resource flows. Each colony needs: a spaceport (build immediately), then research labs, then medical facilities as the economy grows. Do not over-extend by colonising beyond your logistical support capacity.</p>
+  <p>Establish <strong>Free Trade Agreements</strong> with peaceful neighbours as soon as diplomatic contact permits. The income boost from multiple FTAs compounds significantly over time and costs you nothing except the diplomatic effort.</p>
+  <p>Avoid major wars in this phase unless forced. Your military exists to deter pirate raids and defend against single-empire aggression; it is not yet large enough for offensive conquest. If an aggressive neighbour threatens, pay protection money temporarily and use the time to build up.</p>
+  <p>Monitor cash flow constantly. Your state economy should remain positive at all times. If it goes negative, immediately pause and identify what changed: ship maintenance is almost always the culprit. Retire or mothball vessels you cannot afford.</p>
+</div>
+
+<h2 class="sub-title">Pre-Warp Start Specific Guidance</h2>
+<p>If you chose the pre-warp start, your first priority is the domestic economy. Research Warp Field Precursors as your first technology, but do not neglect building out your home system's economic base while you wait. The pre-warp phase typically lasts 10&ndash;15 game-years; use this time to build research infrastructure, mine all available in-system resources, and develop your homeworld as completely as possible before the vast galaxy opens up.</p>
+<div class="callout tip">
+  <div class="callout-title">Pre-Warp Economic Foundation</div>
+  A civilisation that emerges from pre-warp with a high-development homeworld, several functioning research stations, and a robust private sector has a significant long-term advantage over the AI empires that started at warp-capable level but never built the same quality of domestic foundation.
+</div>
+</section>
+<div class="ornamental-divider">&#10022; &nbsp; &#10022; &nbsp; &#10022;</div>
+
+<section class="section" id="s15">
+<h1 class="section-title"><span class="sec-num">&sect; 15</span> Mid &amp; Late Game Strategy</h1>
+<p>By the mid game (years 20&ndash;50 depending on galaxy size and play style), you should have an established empire of 5&ndash;15 colonies, a functional fleet, and a research program producing regular technology advances. The mid game is when the strategic picture clarifies: you know who your rivals are, where the resource competition lies, and what victory condition you are pursuing.</p>
+
+<div class="strat-phase mid">
+  <div class="strat-phase-title">Mid Game: Consolidation and Projection (Years 20&ndash;50)</div>
+  <p><strong>Research tempo is the key mid-game metric.</strong> The empire whose technology outpaces rivals by 2&ndash;3 tiers in their primary combat weapon type has a decisive military advantage regardless of fleet size. Maintain research funding and staff all research stations with the best available scientist characters.</p>
+  <p>Begin <strong>military expansion</strong> if your economy supports it. Identify the weakest bordering empire as your first military target &mdash; the one with fewest colonies, worst diplomacy with their neighbours, and least developed military. Eliminate them before they can grow into a peer rival. Never fight two major wars simultaneously.</p>
+  <p>Establish <strong>deep-space monitoring stations</strong> in a ring around your territory's periphery. These provide early warning of approaching fleets and are particularly critical if the Shakturi are active. A surprise fleet arrival at an undefended colony is catastrophic.</p>
+</div>
+
+<div class="strat-phase late">
+  <div class="strat-phase-title">Late Game: Dominance and Victory (Years 50+)</div>
+  <p>The late game belongs to the empire with the largest economic base and the best military technology. If you have both, victory is merely a question of execution. If you are behind on one or both, you need a strategic shift.</p>
+  <p><strong>If behind economically:</strong> prioritise Crash Research in Economic technology to close the income gap. Build additional mining stations in unclaimed systems. Negotiate maximum Free Trade Agreements. Avoid wars while rebuilding.</p>
+  <p><strong>If behind militarily:</strong> avoid direct fleet engagements and use your espionage assets (Dhayut or Haakonish agents most effectively) to steal the specific weapon technology that is beating you. One stolen advance can close a generation-long technology gap instantly.</p>
+  <p><strong>If the Shakturi are active:</strong> form the Freedom Alliance immediately. Coordinate with allied empires to pool fleets against the World Destroyer. The Shakturi cannot be defeated piecemeal; they require a concentrated coalition response. Hyperspace Denial technology is essential &mdash; World Destroyers that escape combat will return at full strength.</p>
+</div>
+
+<h2 class="sub-title">Victory Condition-Specific Strategy</h2>
+<ul class="guide-list">
+  <li><strong>Military Victory:</strong> Eliminate rivals methodically; always fight one at a time; use invasion fleets to capture rather than bombard (captured colonies preserve their infrastructure). Mortalen or Boskara are ideal race choices.</li>
+  <li><strong>Research Victory:</strong> Quameno in Technocracy or Democracy with maximum research investment. Use espionage to steal missing technologies rather than researching them organically. Build research stations at every viable site.</li>
+  <li><strong>Economic Victory:</strong> Securan or Ikkuro in Mercantile Guild or Utopian Paradise. Maximum Free Trade Agreements; low taxes; maximum private sector development. Use Crash Research to accelerate economic technology.</li>
+  <li><strong>Exploration Victory:</strong> Zenox are ideal. Build 20+ exploration ships and push them to every system in the galaxy simultaneously. Investigate every ruin. Construct the Galactic Archives wonder as soon as the technology allows.</li>
+  <li><strong>Diplomatic Victory:</strong> Human or Ikkuro in Democracy. Establish alliances with as many empires as possible. Resolve border disputes diplomatically rather than militarily. Maintain large enough military to deter aggression but never be the aggressor.</li>
+</ul>
+</section>
+<div class="ornamental-divider">&#10022; &nbsp; &#10022; &nbsp; &#10022;</div>
+
+<section class="section" id="s16">
+<h1 class="section-title"><span class="sec-num">&sect; 16</span> Victory Conditions &amp; Endgame Analysis</h1>
+<p>Victory conditions in Distant Worlds: Universe can be customised at game setup, mixed, or disabled entirely. Understanding the mechanics behind each and the meta-strategies for achieving them separates experienced players from those who simply reach the time limit without closure.</p>
+
+<h2 class="sub-title">Victory Condition Details</h2>
+<table class="data-table">
+  <tr><th>Condition</th><th>Trigger</th><th>Ideal Races</th><th>Key Requirements</th></tr>
+  <tr><td><strong>Military Dominance</strong></td><td>Control majority of galaxy's colonies; eliminate primary rivals</td><td>Mortalen, Boskara, Ikkuro</td><td>Sustained military production; invasion capacity; Hyperspace Denial</td></tr>
+  <tr><td><strong>Economic Supremacy</strong></td><td>Achieve the largest economy for sustained period</td><td>Securan, Ikkuro, Ugnari, Ackdarian</td><td>Maximum colonies; trade networks; private sector health; low taxes</td></tr>
+  <tr><td><strong>Research Leadership</strong></td><td>Complete most research trees or specific milestones</td><td>Quameno, Kiadian, Zenox</td><td>Research stations at all viable sites; scientist characters; Crash Research</td></tr>
+  <tr><td><strong>Diplomatic Alliance</strong></td><td>Maintain the largest functioning alliance for a sustained period</td><td>Human, Ikkuro, Ketarov</td><td>High dependability; Free Trade Agreements; avoidance of wars with potential allies</td></tr>
+  <tr><td><strong>Archaeological</strong></td><td>Control most ancient ruins; build Galactic Archives</td><td>Zenox (native condition), any</td><td>Large exploration fleet; military capacity to clear monster-guarded ruins; Galactic Archives wonder</td></tr>
+  <tr><td><strong>Galactic Wonder</strong></td><td>Construct specific wonders (Galactic Archives, Ancient Guardians' Beacon, etc.)</td><td>Any with economic foundation</td><td>Significant construction resources; time; research of requisite technologies</td></tr>
+</table>
+
+<h2 class="sub-title">The Shakturi Victory Challenge</h2>
+<p>If the Shakturi Return scenario is enabled, surviving the Shakturi offensive is an implicit victory condition for every empire. The Shakturi build World Destroyers &mdash; planet-killing superweapons &mdash; that systematically eliminate colonies if not intercepted. The challenge is not just military but diplomatic: you must coordinate the Freedom Alliance's response while managing your own empire's needs and the internal politics of a coalition that includes natural rivals and potentially untrustworthy members.</p>
+<p>The correct response to the Shakturi emergence: immediately propose and join the Freedom Alliance, deploy monitoring stations to cover likely approach vectors, build Hyperspace Denial technology into your fleet flagship, and prioritise destroying World Destroyers over capturing territory. A galaxy that survives the Shakturi with you as the leading power is a galaxy you will win conventionally; one where the Shakturi destroy your colonies first is a different story.</p>
+</section>
+<div class="ornamental-divider">&#10022; &nbsp; &#10022; &nbsp; &#10022;</div>
+<section class="section" id="s17">
+<h1 class="section-title"><span class="sec-num">&sect; 17</span> Glossary</h1>
+<div class="glossary-grid">
+  <div class="gloss-item"><div class="gloss-term">Ancient Ruins</div><div class="gloss-def">Investigation sites scattered across the galaxy yielding one-time bonuses: free technologies, resource caches, lore events, or unique government options including Way of the Ancients.</div></div>
+  <div class="gloss-item"><div class="gloss-term">Automation</div><div class="gloss-def">System allowing the AI to manage specific empire functions (ship construction, research, colonisation, exploration) on your behalf. Granularly configurable; delegates tasks rather than simplifying the game.</div></div>
+  <div class="gloss-item"><div class="gloss-term">Caslon</div><div class="gloss-def">Primary fuel for military and most state vessels; extracted from gas clouds. The most strategically critical resource in the game. Fleet operations are impossible without it.</div></div>
+  <div class="gloss-item"><div class="gloss-term">Colony Development</div><div class="gloss-def">Rating reflecting a colony's infrastructure quality. Driven by private sector investment, luxury resource availability, facility construction, and low tax rates. Determines income potential and population growth ceiling.</div></div>
+  <div class="gloss-item"><div class="gloss-term">Constructor</div><div class="gloss-def">State-operated ship that builds space stations (mining, research, monitoring, military). The backbone of empire infrastructure expansion. Speed is the key design attribute.</div></div>
+  <div class="gloss-item"><div class="gloss-term">Crash Research</div><div class="gloss-def">+200% research funding boost for a single technology. Extremely expensive per turn but dramatically accelerates urgent breakthroughs. Requires positive cashflow before activation.</div></div>
+  <div class="gloss-item"><div class="gloss-term">Development Level</div><div class="gloss-def">Composite rating of a colony's private economy health. Higher development = higher income, faster growth. Increased by luxury resources, facilities, and low taxes; decreased by high taxes and resource shortages.</div></div>
+  <div class="gloss-item"><div class="gloss-term">Dual Economy</div><div class="gloss-def">DWU's distinctive two-tier system: the State Economy (player-controlled, covering military/research/facilities) and the Private Economy (AI-operated, covering civilian shipping, mining, and trade).</div></div>
+  <div class="gloss-item"><div class="gloss-term">Equinox Drive</div><div class="gloss-def">Mid-to-high tier hyperdrive emphasising speed over efficiency. The preferred choice for most experienced players who value fleet manoeuvre speed over fuel economy.</div></div>
+  <div class="gloss-item"><div class="gloss-term">Freedom Alliance</div><div class="gloss-def">Historical coalition that defeated the Shakturi Axis; can be reformed in-game when the Shakturi Return scenario activates. Provides access to combined fleet operations against the Shakturi threat.</div></div>
+  <div class="gloss-item"><div class="gloss-term">Galactic Archives</div><div class="gloss-def">Unique wonder structure contributing to Archaeological and Research victory conditions. Requires significant resource investment and prerequisite research to construct.</div></div>
+  <div class="gloss-item"><div class="gloss-term">Gerax Drive</div><div class="gloss-def">Mid-tier hyperdrive; a common early warp technology upgrade. Enables faster inter-system movement and more efficient exploration at moderate fuel cost.</div></div>
+  <div class="gloss-item"><div class="gloss-term">Hive Mind</div><div class="gloss-def">Government type available to insectoid races. Provides rebellion immunity, high troop quality, and happiness bonuses at the cost of diplomatic flexibility &mdash; Hive Minds cannot form alliances.</div></div>
+  <div class="gloss-item"><div class="gloss-term">Hyperspace Denial</div><div class="gloss-def">Tech category (Tractor Beams, Interdictors) that prevents enemy ships from entering emergency retreat warp. Critical for achieving decisive combat kills rather than allowing enemies to escape at low health.</div></div>
+  <div class="gloss-item"><div class="gloss-term">Hyperdrive / Warp Drive</div><div class="gloss-def">Technology enabling faster-than-light inter-system travel. The core prerequisite for galactic expansion. Multiple tiers with increasing speed and efficiency.</div></div>
+  <div class="gloss-item"><div class="gloss-term">Hydrogen</div><div class="gloss-def">Alternative fuel primarily used by civilian ships. Separating civilian (Hydrogen) and military (Caslon) fuel prevents private demand from draining military reserves.</div></div>
+  <div class="gloss-item"><div class="gloss-term">Luxury Resources</div><div class="gloss-def">Rare resources (Zentabia Fluid, Korrabian Spice, Loros Fruit, Megallos Nuts) that dramatically boost colony development and happiness when present. Some are also unique buffs tied to specific locations.</div></div>
+  <div class="gloss-item"><div class="gloss-term">Mechanoid</div><div class="gloss-def">Ancient machine civilisation; the &ldquo;Big Good&rdquo; of DWU lore. As a playable race, they colonise any planet type and are immune to biological plagues.</div></div>
+  <div class="gloss-item"><div class="gloss-term">Monitoring Station</div><div class="gloss-def">Small state-built space installation providing sensor coverage of a star system. Used to create a perimeter early-warning network around your territory.</div></div>
+  <div class="gloss-item"><div class="gloss-term">Pirate Faction</div><div class="gloss-def">Independent criminal organisations raiding civilian shipping and mining stations. Can be paid off diplomatically, fought, or (with the Shadows expansion) played directly as a faction type.</div></div>
+  <div class="gloss-item"><div class="gloss-term">Pre-Warp Start</div><div class="gloss-def">Game option beginning with only sub-light ships and a single colony, requiring research of warp technology before interstellar expansion. Longer but more organic early game.</div></div>
+  <div class="gloss-item"><div class="gloss-term">Private Economy</div><div class="gloss-def">AI-operated tier of the dual economy: civilian freighters, mining ships, passenger transports. Operates independently; player influences through tax rates, licenses, and diplomatic trade agreements rather than direct commands.</div></div>
+  <div class="gloss-item"><div class="gloss-term">Repair Bots</div><div class="gloss-def">Small ship component providing automatic hull and component repair during and after combat. Low cost, high value; should be included on all combat vessels once available.</div></div>
+  <div class="gloss-item"><div class="gloss-term">Research License</div><div class="gloss-def">Permission granted to private sector ships to mine a specific resource. Revoking a license immediately stops private mining of that resource.</div></div>
+  <div class="gloss-item"><div class="gloss-term">Research Station</div><div class="gloss-def">Space installation (three types: Military, Economic, High Tech) providing passive research bonuses. Must be built at high-quality sites and staffed with scientist characters for maximum effect.</div></div>
+  <div class="gloss-item"><div class="gloss-term">Retrofit</div><div class="gloss-def">Updating an existing ship with newly researched components. Does not happen automatically; must be ordered manually or via auto-retrofit policy. Critical maintenance habit for keeping fleet effectiveness current.</div></div>
+  <div class="gloss-item"><div class="gloss-term">Shakturi</div><div class="gloss-def">Ancient insectoid conquerors who prosecuted the galactic war 500 years before the game's present. Their potential return via the Shakturi Return scenario represents the game's primary existential threat. Their World Destroyers can eliminate entire colonies.</div></div>
+  <div class="gloss-item"><div class="gloss-term">Shaktur FireStorm</div><div class="gloss-def">Unique Boskaran torpedo weapon with extraordinary planetary assault and bombardment capability; can eliminate colony populations. The most powerful single specialised weapon in the game.</div></div>
+  <div class="gloss-item"><div class="gloss-term">Silver Mist</div><div class="gloss-def">The most common space monster; appears in clusters; relatively weak. Ion weapons are particularly effective. Usually the first monster threat new players encounter.</div></div>
+  <div class="gloss-item"><div class="gloss-term">Space Monster</div><div class="gloss-def">Hostile non-empire entities inhabiting certain star systems. Types include Silver Mist, Ether Dragons, Crystal Entities, Space Slugs, and others. Guard ruins and resources; must be cleared for full system exploitation.</div></div>
+  <div class="gloss-item"><div class="gloss-term">Spaceport</div><div class="gloss-def">Core colonial facility enabling ship construction and serving as the hub of private economy activity. Must be built on every colony immediately after founding. Size determines construction capacity and private ship handling.</div></div>
+  <div class="gloss-item"><div class="gloss-term">State Economy</div><div class="gloss-def">Player-controlled tier of the dual economy: military ships, research, facilities, exploration. Funded by colony taxes, fuel sales, trade tariffs, and diplomacy. Expenses dominated by ship maintenance.</div></div>
+  <div class="gloss-item"><div class="gloss-term">Tech Tree</div><div class="gloss-def">Research progression structure; three branches (Military, Economic, High Technology) each containing dozens of technologies organised in prerequisite chains.</div></div>
+  <div class="gloss-item"><div class="gloss-term">Troop Transport</div><div class="gloss-def">Military ship class carrying ground troops for planetary invasion. Requires orbital superiority before deploying troops; escorts should be assigned to protect transports during approach.</div></div>
+  <div class="gloss-item"><div class="gloss-term">Utopian Paradise</div><div class="gloss-def">Unique government type available only to Securan and Shandar. Provides maximum happiness, high growth, and excellent economy at the cost of weak military capacity.</div></div>
+  <div class="gloss-item"><div class="gloss-term">Way of the Ancients</div><div class="gloss-def">Unique government type unlocked by discovering specific ancient ruins. Provides exceptional research and happiness bonuses unavailable through any other means. Always worth pursuing when available.</div></div>
+  <div class="gloss-item"><div class="gloss-term">World Destroyer</div><div class="gloss-def">Shakturi superweapon capable of eliminating entire colonies. The primary threat during the Shakturi Return scenario. Must be destroyed before it reaches inhabited systems; Hyperspace Denial technology prevents retreat.</div></div>
+  <div class="gloss-item"><div class="gloss-term">Zentabia Fluid</div><div class="gloss-def">One of the most valuable luxury resources; dramatically boosts colony development when present. A common target for early exploration and claiming.</div></div>
+</div>
+</section>
+</div><!-- /content -->
+<footer id="footer">
+  Distant Worlds: Universe Strategy Guide &nbsp;&middot;&nbsp; CodeForce / Matrix Games / Slitherine &nbsp;&middot;&nbsp; Community Resource
+</footer>
+</div><!-- /main -->
+<a id="back-top" href="#hero" title="Back to top">&#8593;</a>
+<script>
+const bar=document.getElementById('progress-bar');
+const backTop=document.getElementById('back-top');
+const toggle=document.getElementById('sidebar-toggle');
+const sidebar=document.getElementById('sidebar');
+window.addEventListener('scroll',()=>{
+  const scrolled=window.scrollY;
+  const total=document.documentElement.scrollHeight-window.innerHeight;
+  bar.style.transform=`scaleX(${scrolled/total})`;
+  backTop.classList.toggle('visible',scrolled>400);
+},{passive:true});
+const sections=document.querySelectorAll('.section[id]');
+const navItems=document.querySelectorAll('.nav-item');
+const observer=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      navItems.forEach(n=>n.classList.remove('active'));
+      const a=document.querySelector(`.nav-item[href="#${e.target.id}"]`);
+      if(a){a.classList.add('active');a.scrollIntoView({block:'nearest'});}
+    }
+  });
+},{rootMargin:'-20% 0px -70% 0px'});
+sections.forEach(s=>observer.observe(s));
+toggle.addEventListener('click',()=>sidebar.classList.toggle('open'));
+document.querySelectorAll('.nav-item').forEach(item=>{
+  item.addEventListener('click',()=>sidebar.classList.remove('open'));
+});
+document.querySelectorAll('.section').forEach((s,i)=>{
+  s.style.animationDelay=`${i*0.04}s`;
+});
+</script>
+</body>
+</html>
